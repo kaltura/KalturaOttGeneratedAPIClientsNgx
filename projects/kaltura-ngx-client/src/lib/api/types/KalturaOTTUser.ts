@@ -17,7 +17,6 @@ export interface KalturaOTTUserArgs  extends KalturaBaseOTTUserArgs {
 	externalId? : string;
 	userType? : KalturaOTTUserType;
 	dynamicData? : { [key : string] : KalturaStringValue};
-	roleIds? : string;
 }
 
 
@@ -37,9 +36,6 @@ export class KalturaOTTUser extends KalturaBaseOTTUser {
 	readonly isHouseholdMaster : boolean;
 	readonly suspensionState : KalturaHouseholdSuspensionState;
 	readonly userState : KalturaUserState;
-	roleIds : string;
-	readonly createDate : number;
-	readonly updateDate : number;
 
     constructor(data? : KalturaOTTUserArgs)
     {
@@ -66,10 +62,7 @@ export class KalturaOTTUser extends KalturaBaseOTTUser {
 				dynamicData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
 				isHouseholdMaster : { type : 'b', readOnly : true },
 				suspensionState : { type : 'es', readOnly : true, subTypeConstructor : KalturaHouseholdSuspensionState, subType : 'KalturaHouseholdSuspensionState' },
-				userState : { type : 'es', readOnly : true, subTypeConstructor : KalturaUserState, subType : 'KalturaUserState' },
-				roleIds : { type : 's' },
-				createDate : { type : 'n', readOnly : true },
-				updateDate : { type : 'n', readOnly : true }
+				userState : { type : 'es', readOnly : true, subTypeConstructor : KalturaUserState, subType : 'KalturaUserState' }
             }
         );
         return result;

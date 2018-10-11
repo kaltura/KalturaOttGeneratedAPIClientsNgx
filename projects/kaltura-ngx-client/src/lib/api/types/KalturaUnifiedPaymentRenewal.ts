@@ -9,7 +9,6 @@ export interface KalturaUnifiedPaymentRenewalArgs  extends KalturaObjectBaseArgs
 	date? : number;
 	unifiedPaymentId? : number;
 	entitlements? : KalturaEntitlementRenewalBase[];
-	userId? : number;
 }
 
 
@@ -19,7 +18,6 @@ export class KalturaUnifiedPaymentRenewal extends KalturaObjectBase {
 	date : number;
 	unifiedPaymentId : number;
 	entitlements : KalturaEntitlementRenewalBase[];
-	userId : number;
 
     constructor(data? : KalturaUnifiedPaymentRenewalArgs)
     {
@@ -37,8 +35,7 @@ export class KalturaUnifiedPaymentRenewal extends KalturaObjectBase {
 				price : { type : 'o', subTypeConstructor : KalturaPrice, subType : 'KalturaPrice' },
 				date : { type : 'n' },
 				unifiedPaymentId : { type : 'n' },
-				entitlements : { type : 'a', subTypeConstructor : KalturaEntitlementRenewalBase, subType : 'KalturaEntitlementRenewalBase' },
-				userId : { type : 'n' }
+				entitlements : { type : 'a', subTypeConstructor : KalturaEntitlementRenewalBase, subType : 'KalturaEntitlementRenewalBase' }
             }
         );
         return result;
