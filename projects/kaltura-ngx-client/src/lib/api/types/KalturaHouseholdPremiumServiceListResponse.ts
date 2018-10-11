@@ -1,0 +1,35 @@
+
+import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaHouseholdPremiumService } from './KalturaHouseholdPremiumService';
+import { KalturaListResponse, KalturaListResponseArgs } from './KalturaListResponse';
+
+export interface KalturaHouseholdPremiumServiceListResponseArgs  extends KalturaListResponseArgs {
+    objects? : KalturaHouseholdPremiumService[];
+}
+
+
+export class KalturaHouseholdPremiumServiceListResponse extends KalturaListResponse {
+
+    objects : KalturaHouseholdPremiumService[];
+
+    constructor(data? : KalturaHouseholdPremiumServiceListResponseArgs)
+    {
+        super(data);
+        if (typeof this.objects === 'undefined') this.objects = [];
+    }
+
+    protected _getMetadata() : KalturaObjectMetadata
+    {
+        const result = super._getMetadata();
+        Object.assign(
+            result.properties,
+            {
+                objectType : { type : 'c', default : 'KalturaHouseholdPremiumServiceListResponse' },
+				objects : { type : 'a', subTypeConstructor : KalturaHouseholdPremiumService, subType : 'KalturaHouseholdPremiumService' }
+            }
+        );
+        return result;
+    }
+}
+
+typesMappingStorage['KalturaHouseholdPremiumServiceListResponse'] = KalturaHouseholdPremiumServiceListResponse;

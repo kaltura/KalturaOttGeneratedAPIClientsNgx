@@ -1,0 +1,32 @@
+
+import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
+
+export interface KalturaSeriesRecordingFilterArgs  extends KalturaFilterArgs {
+    
+}
+
+
+export class KalturaSeriesRecordingFilter extends KalturaFilter {
+
+    
+
+    constructor(data? : KalturaSeriesRecordingFilterArgs)
+    {
+        super(data);
+    }
+
+    protected _getMetadata() : KalturaObjectMetadata
+    {
+        const result = super._getMetadata();
+        Object.assign(
+            result.properties,
+            {
+                objectType : { type : 'c', default : 'KalturaSeriesRecordingFilter' }
+            }
+        );
+        return result;
+    }
+}
+
+typesMappingStorage['KalturaSeriesRecordingFilter'] = KalturaSeriesRecordingFilter;
