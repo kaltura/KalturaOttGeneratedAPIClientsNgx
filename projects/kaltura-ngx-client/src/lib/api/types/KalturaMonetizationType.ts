@@ -1,7 +1,6 @@
 
 
 export enum KalturaMonetizationType {
-    boxset = 'boxset',
-	ppv = 'ppv',
+    ppv = 'ppv',
 	subscription = 'subscription'
 }

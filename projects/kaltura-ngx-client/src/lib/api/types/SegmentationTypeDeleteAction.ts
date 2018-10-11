@@ -11,7 +11,7 @@ export interface SegmentationTypeDeleteActionArgs  extends KalturaRequestArgs {
 /**
  * Build request payload for service 'segmentationType' action 'delete'.
  *
- * Usage: Delete a segmentation type from the system
+ * Usage:
  *
  * Server response type:         boolean
  * Server failure response type: KalturaAPIException

@@ -6,6 +6,7 @@ import { KalturaBaseSegmentValue, KalturaBaseSegmentValueArgs } from './KalturaB
 
 export interface KalturaSegmentValuesArgs  extends KalturaBaseSegmentValueArgs {
     source? : KalturaSegmentSource;
+	threshold? : number;
 	values? : KalturaSegmentValue[];
 }
 
@@ -13,6 +14,7 @@ export interface KalturaSegmentValuesArgs  extends KalturaBaseSegmentValueArgs {
 export class KalturaSegmentValues extends KalturaBaseSegmentValue {
 
     source : KalturaSegmentSource;
+	threshold : number;
 	values : KalturaSegmentValue[];
 
     constructor(data? : KalturaSegmentValuesArgs)
@@ -29,6 +31,7 @@ export class KalturaSegmentValues extends KalturaBaseSegmentValue {
             {
                 objectType : { type : 'c', default : 'KalturaSegmentValues' },
 				source : { type : 'o', subTypeConstructor : KalturaSegmentSource, subType : 'KalturaSegmentSource' },
+				threshold : { type : 'n' },
 				values : { type : 'a', subTypeConstructor : KalturaSegmentValue, subType : 'KalturaSegmentValue' }
             }
         );

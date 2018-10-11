@@ -4,22 +4,14 @@ import { KalturaContentActionCondition } from './KalturaContentActionCondition';
 import { KalturaBaseSegmentCondition, KalturaBaseSegmentConditionArgs } from './KalturaBaseSegmentCondition';
 
 export interface KalturaContentScoreConditionArgs  extends KalturaBaseSegmentConditionArgs {
-    minScore? : number;
-	maxScore? : number;
-	days? : number;
-	field? : string;
-	value? : string;
+    score? : number;
 	actions? : KalturaContentActionCondition[];
 }
 
 
 export class KalturaContentScoreCondition extends KalturaBaseSegmentCondition {
 
-    minScore : number;
-	maxScore : number;
-	days : number;
-	field : string;
-	value : string;
+    score : number;
 	actions : KalturaContentActionCondition[];
 
     constructor(data? : KalturaContentScoreConditionArgs)
@@ -35,11 +27,7 @@ export class KalturaContentScoreCondition extends KalturaBaseSegmentCondition {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaContentScoreCondition' },
-				minScore : { type : 'n' },
-				maxScore : { type : 'n' },
-				days : { type : 'n' },
-				field : { type : 's' },
-				value : { type : 's' },
+				score : { type : 'n' },
 				actions : { type : 'a', subTypeConstructor : KalturaContentActionCondition, subType : 'KalturaContentActionCondition' }
             }
         );
