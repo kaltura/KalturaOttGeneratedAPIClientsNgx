@@ -1,18 +1,15 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
+import { KalturaRule, KalturaRuleArgs } from './KalturaRule';
 
-export interface KalturaAssetRuleBaseArgs  extends KalturaObjectBaseArgs {
-    name? : string;
-	description? : string;
+export interface KalturaAssetRuleBaseArgs  extends KalturaRuleArgs {
+    
 }
 
 
-export class KalturaAssetRuleBase extends KalturaObjectBase {
+export class KalturaAssetRuleBase extends KalturaRule {
 
-    readonly id : number;
-	name : string;
-	description : string;
+    
 
     constructor(data? : KalturaAssetRuleBaseArgs)
     {
@@ -25,10 +22,7 @@ export class KalturaAssetRuleBase extends KalturaObjectBase {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaAssetRuleBase' },
-				id : { type : 'n', readOnly : true },
-				name : { type : 's' },
-				description : { type : 's' }
+                objectType : { type : 'c', default : 'KalturaAssetRuleBase' }
             }
         );
         return result;

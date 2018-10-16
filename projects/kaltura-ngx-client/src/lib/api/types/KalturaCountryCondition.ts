@@ -1,17 +1,15 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCondition, KalturaConditionArgs } from './KalturaCondition';
+import { KalturaNotCondition, KalturaNotConditionArgs } from './KalturaNotCondition';
 
-export interface KalturaCountryConditionArgs  extends KalturaConditionArgs {
-    not? : boolean;
-	countries? : string;
+export interface KalturaCountryConditionArgs  extends KalturaNotConditionArgs {
+    countries? : string;
 }
 
 
-export class KalturaCountryCondition extends KalturaCondition {
+export class KalturaCountryCondition extends KalturaNotCondition {
 
-    not : boolean;
-	countries : string;
+    countries : string;
 
     constructor(data? : KalturaCountryConditionArgs)
     {
@@ -25,7 +23,6 @@ export class KalturaCountryCondition extends KalturaCondition {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaCountryCondition' },
-				not : { type : 'b' },
 				countries : { type : 's' }
             }
         );
