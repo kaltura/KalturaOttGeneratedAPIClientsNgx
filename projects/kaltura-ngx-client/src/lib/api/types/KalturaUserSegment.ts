@@ -4,7 +4,6 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 
 export interface KalturaUserSegmentArgs  extends KalturaObjectBaseArgs {
     segmentId? : number;
-	segmentationTypeId? : number;
 	userId? : string;
 }
 
@@ -12,7 +11,6 @@ export interface KalturaUserSegmentArgs  extends KalturaObjectBaseArgs {
 export class KalturaUserSegment extends KalturaObjectBase {
 
     segmentId : number;
-	segmentationTypeId : number;
 	userId : string;
 
     constructor(data? : KalturaUserSegmentArgs)
@@ -28,7 +26,6 @@ export class KalturaUserSegment extends KalturaObjectBase {
             {
                 objectType : { type : 'c', default : 'KalturaUserSegment' },
 				segmentId : { type : 'n' },
-				segmentationTypeId : { type : 'n' },
 				userId : { type : 's' }
             }
         );

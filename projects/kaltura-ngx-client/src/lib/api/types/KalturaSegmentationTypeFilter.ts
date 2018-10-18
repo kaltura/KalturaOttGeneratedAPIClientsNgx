@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
 export interface KalturaSegmentationTypeFilterArgs  extends KalturaFilterArgs {
-    
+    idIn? : string;
 }
 
 
 export class KalturaSegmentationTypeFilter extends KalturaFilter {
 
-    
+    idIn : string;
 
     constructor(data? : KalturaSegmentationTypeFilterArgs)
     {
@@ -22,7 +22,8 @@ export class KalturaSegmentationTypeFilter extends KalturaFilter {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaSegmentationTypeFilter' }
+                objectType : { type : 'c', default : 'KalturaSegmentationTypeFilter' },
+				idIn : { type : 's' }
             }
         );
         return result;
