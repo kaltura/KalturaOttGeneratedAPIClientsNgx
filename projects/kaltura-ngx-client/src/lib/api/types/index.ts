@@ -108,7 +108,6 @@ export { KalturaBaseSegmentValue, KalturaBaseSegmentValueArgs } from './KalturaB
 export { KalturaSegmentationType, KalturaSegmentationTypeArgs } from './KalturaSegmentationType'
 export { KalturaSegmentationTypeListResponse, KalturaSegmentationTypeListResponseArgs } from './KalturaSegmentationTypeListResponse'
 export { KalturaMonetizationCondition, KalturaMonetizationConditionArgs } from './KalturaMonetizationCondition'
-export { KalturaScoredMonetizationCondition, KalturaScoredMonetizationConditionArgs } from './KalturaScoredMonetizationCondition'
 export { KalturaContentActionCondition, KalturaContentActionConditionArgs } from './KalturaContentActionCondition'
 export { KalturaContentScoreCondition, KalturaContentScoreConditionArgs } from './KalturaContentScoreCondition'
 export { KalturaUserDataCondition, KalturaUserDataConditionArgs } from './KalturaUserDataCondition'
