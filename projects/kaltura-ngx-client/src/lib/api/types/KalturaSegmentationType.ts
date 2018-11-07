@@ -20,6 +20,7 @@ export class KalturaSegmentationType extends KalturaObjectBase {
 	conditions : KalturaBaseSegmentCondition[];
 	value : KalturaBaseSegmentValue;
 	readonly createDate : number;
+	readonly version : number;
 
     constructor(data? : KalturaSegmentationTypeArgs)
     {
@@ -39,7 +40,8 @@ export class KalturaSegmentationType extends KalturaObjectBase {
 				description : { type : 's' },
 				conditions : { type : 'a', subTypeConstructor : KalturaBaseSegmentCondition, subType : 'KalturaBaseSegmentCondition' },
 				value : { type : 'o', subTypeConstructor : KalturaBaseSegmentValue, subType : 'KalturaBaseSegmentValue' },
-				createDate : { type : 'n', readOnly : true }
+				createDate : { type : 'n', readOnly : true },
+				version : { type : 'n', readOnly : true }
             }
         );
         return result;
