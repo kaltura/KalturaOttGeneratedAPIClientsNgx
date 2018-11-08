@@ -6,7 +6,7 @@ import { KalturaCollectionFilter } from './KalturaCollectionFilter';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface CollectionListActionArgs  extends KalturaRequestArgs {
-    filter : KalturaCollectionFilter;
+    filter? : KalturaCollectionFilter;
 }
 
 /**
@@ -21,7 +21,7 @@ export class CollectionListAction extends KalturaRequest<KalturaCollectionListRe
 
     filter : KalturaCollectionFilter;
 
-    constructor(data : CollectionListActionArgs)
+    constructor(data? : CollectionListActionArgs)
     {
         super(data, {responseType : 'o', responseSubType : 'KalturaCollectionListResponse', responseConstructor : KalturaCollectionListResponse  });
     }
