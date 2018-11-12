@@ -7,6 +7,7 @@ import { KalturaSegmentSource, KalturaSegmentSourceArgs } from './KalturaSegment
 export interface KalturaMonetizationSourceArgs  extends KalturaSegmentSourceArgs {
     type? : KalturaMonetizationType;
 	operator? : KalturaMathemticalOperatorType;
+	days? : number;
 }
 
 
@@ -14,6 +15,7 @@ export class KalturaMonetizationSource extends KalturaSegmentSource {
 
     type : KalturaMonetizationType;
 	operator : KalturaMathemticalOperatorType;
+	days : number;
 
     constructor(data? : KalturaMonetizationSourceArgs)
     {
@@ -28,7 +30,8 @@ export class KalturaMonetizationSource extends KalturaSegmentSource {
             {
                 objectType : { type : 'c', default : 'KalturaMonetizationSource' },
 				type : { type : 'es', subTypeConstructor : KalturaMonetizationType, subType : 'KalturaMonetizationType' },
-				operator : { type : 'es', subTypeConstructor : KalturaMathemticalOperatorType, subType : 'KalturaMathemticalOperatorType' }
+				operator : { type : 'es', subTypeConstructor : KalturaMathemticalOperatorType, subType : 'KalturaMathemticalOperatorType' },
+				days : { type : 'n' }
             }
         );
         return result;
