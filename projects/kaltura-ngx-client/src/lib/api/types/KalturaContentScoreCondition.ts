@@ -1,5 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaContentActionCondition } from './KalturaContentActionCondition';
 import { KalturaBaseSegmentCondition, KalturaBaseSegmentConditionArgs } from './KalturaBaseSegmentCondition';
 
@@ -8,7 +9,7 @@ export interface KalturaContentScoreConditionArgs  extends KalturaBaseSegmentCon
 	maxScore? : number;
 	days? : number;
 	field? : string;
-	value? : string;
+	values? : KalturaStringValue[];
 	actions? : KalturaContentActionCondition[];
 }
 
@@ -19,13 +20,14 @@ export class KalturaContentScoreCondition extends KalturaBaseSegmentCondition {
 	maxScore : number;
 	days : number;
 	field : string;
-	value : string;
+	values : KalturaStringValue[];
 	actions : KalturaContentActionCondition[];
 
     constructor(data? : KalturaContentScoreConditionArgs)
     {
         super(data);
-        if (typeof this.actions === 'undefined') this.actions = [];
+        if (typeof this.values === 'undefined') this.values = [];
+		if (typeof this.actions === 'undefined') this.actions = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -39,7 +41,7 @@ export class KalturaContentScoreCondition extends KalturaBaseSegmentCondition {
 				maxScore : { type : 'n' },
 				days : { type : 'n' },
 				field : { type : 's' },
-				value : { type : 's' },
+				values : { type : 'a', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
 				actions : { type : 'a', subTypeConstructor : KalturaContentActionCondition, subType : 'KalturaContentActionCondition' }
             }
         );
