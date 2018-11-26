@@ -1,7 +1,7 @@
 
 import { KalturaObjectMetadata } from './kaltura-object-base';
 import { KalturaBaseResponseProfile } from './types/KalturaBaseResponseProfile';
-import { KalturaSkipOptions } from './types/KalturaSkipOptions';
+import { KalturaSkipCondition } from './types/KalturaSkipCondition';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from './kaltura-object-base';
 import { InjectionToken } from '@angular/core';
 
@@ -16,7 +16,7 @@ export interface KalturaRequestOptionsArgs  extends KalturaObjectBaseArgs {
 	ks? : string;
 	responseProfile? : KalturaBaseResponseProfile;
 	abortAllOnError? : boolean;
-	skipOnError? : KalturaSkipOptions;
+	skipCondition? : KalturaSkipCondition;
 }
 
 
@@ -30,7 +30,7 @@ export class KalturaRequestOptions extends KalturaObjectBase {
 	ks : string;
 	responseProfile : KalturaBaseResponseProfile;
 	abortAllOnError : boolean;
-	skipOnError : KalturaSkipOptions;
+	skipCondition : KalturaSkipCondition;
 
     constructor(data? : KalturaRequestOptionsArgs)
     {
@@ -51,7 +51,7 @@ export class KalturaRequestOptions extends KalturaObjectBase {
 				ks : { type : 's' },
 				responseProfile : { type : 'o', subTypeConstructor : KalturaBaseResponseProfile, subType : 'KalturaBaseResponseProfile' },
 				abortAllOnError : { type : 'b' },
-				skipOnError : { type : 'es', subTypeConstructor : KalturaSkipOptions, subType : 'KalturaSkipOptions' }
+				skipCondition : { type : 'o', subTypeConstructor : KalturaSkipCondition, subType : 'KalturaSkipCondition' }
             }
         );
         return result;
