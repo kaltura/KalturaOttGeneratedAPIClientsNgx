@@ -1,27 +1,22 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaStringValueArray } from './KalturaStringValueArray';
 import { KalturaAssetFile, KalturaAssetFileArgs } from './KalturaAssetFile';
 
 export interface KalturaMediaFileArgs  extends KalturaAssetFileArgs {
     assetId? : number;
-	typeId? : number;
+	type? : string;
 	duration? : number;
 	externalId? : string;
-	altExternalId? : string;
+	billingType? : string;
+	quality? : string;
+	handlingType? : string;
+	cdnName? : string;
+	cdnCode? : string;
+	altCdnCode? : string;
+	ppvModules? : KalturaStringValueArray;
+	productCode? : string;
 	fileSize? : number;
-	additionalData? : string;
-	altStreamingCode? : string;
-	alternativeCdnAdapaterProfileId? : number;
-	endDate? : number;
-	startDate? : number;
-	externalStoreId? : string;
-	isDefaultLanguage? : boolean;
-	language? : string;
-	orderNum? : number;
-	outputProtecationLevel? : string;
-	cdnAdapaterProfileId? : number;
-	status? : boolean;
-	catalogEndDate? : number;
 }
 
 
@@ -29,25 +24,18 @@ export class KalturaMediaFile extends KalturaAssetFile {
 
     assetId : number;
 	readonly id : number;
-	readonly type : string;
-	typeId : number;
+	type : string;
 	duration : number;
 	externalId : string;
-	altExternalId : string;
+	billingType : string;
+	quality : string;
+	handlingType : string;
+	cdnName : string;
+	cdnCode : string;
+	altCdnCode : string;
+	ppvModules : KalturaStringValueArray;
+	productCode : string;
 	fileSize : number;
-	additionalData : string;
-	altStreamingCode : string;
-	alternativeCdnAdapaterProfileId : number;
-	endDate : number;
-	startDate : number;
-	externalStoreId : string;
-	isDefaultLanguage : boolean;
-	language : string;
-	orderNum : number;
-	outputProtecationLevel : string;
-	cdnAdapaterProfileId : number;
-	status : boolean;
-	catalogEndDate : number;
 
     constructor(data? : KalturaMediaFileArgs)
     {
@@ -63,25 +51,18 @@ export class KalturaMediaFile extends KalturaAssetFile {
                 objectType : { type : 'c', default : 'KalturaMediaFile' },
 				assetId : { type : 'n' },
 				id : { type : 'n', readOnly : true },
-				type : { type : 's', readOnly : true },
-				typeId : { type : 'n' },
+				type : { type : 's' },
 				duration : { type : 'n' },
 				externalId : { type : 's' },
-				altExternalId : { type : 's' },
-				fileSize : { type : 'n' },
-				additionalData : { type : 's' },
-				altStreamingCode : { type : 's' },
-				alternativeCdnAdapaterProfileId : { type : 'n' },
-				endDate : { type : 'n' },
-				startDate : { type : 'n' },
-				externalStoreId : { type : 's' },
-				isDefaultLanguage : { type : 'b' },
-				language : { type : 's' },
-				orderNum : { type : 'n' },
-				outputProtecationLevel : { type : 's' },
-				cdnAdapaterProfileId : { type : 'n' },
-				status : { type : 'b' },
-				catalogEndDate : { type : 'n' }
+				billingType : { type : 's' },
+				quality : { type : 's' },
+				handlingType : { type : 's' },
+				cdnName : { type : 's' },
+				cdnCode : { type : 's' },
+				altCdnCode : { type : 's' },
+				ppvModules : { type : 'o', subTypeConstructor : KalturaStringValueArray, subType : 'KalturaStringValueArray' },
+				productCode : { type : 's' },
+				fileSize : { type : 'n' }
             }
         );
         return result;

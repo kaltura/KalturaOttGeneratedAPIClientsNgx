@@ -1,21 +1,16 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaAssetGroupBy } from './KalturaAssetGroupBy';
-import { KalturaGroupByOrder } from './KalturaGroupByOrder';
 import { KalturaAssetFilter, KalturaAssetFilterArgs } from './KalturaAssetFilter';
 
 export interface KalturaBaseSearchAssetFilterArgs  extends KalturaAssetFilterArgs {
-    kSql? : string;
-	groupBy? : KalturaAssetGroupBy[];
-	groupOrderBy? : KalturaGroupByOrder;
+    groupBy? : KalturaAssetGroupBy[];
 }
 
 
 export class KalturaBaseSearchAssetFilter extends KalturaAssetFilter {
 
-    kSql : string;
-	groupBy : KalturaAssetGroupBy[];
-	groupOrderBy : KalturaGroupByOrder;
+    groupBy : KalturaAssetGroupBy[];
 
     constructor(data? : KalturaBaseSearchAssetFilterArgs)
     {
@@ -30,9 +25,7 @@ export class KalturaBaseSearchAssetFilter extends KalturaAssetFilter {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaBaseSearchAssetFilter' },
-				kSql : { type : 's' },
-				groupBy : { type : 'a', subTypeConstructor : KalturaAssetGroupBy, subType : 'KalturaAssetGroupBy' },
-				groupOrderBy : { type : 'es', subTypeConstructor : KalturaGroupByOrder, subType : 'KalturaGroupByOrder' }
+				groupBy : { type : 'a', subTypeConstructor : KalturaAssetGroupBy, subType : 'KalturaAssetGroupBy' }
             }
         );
         return result;

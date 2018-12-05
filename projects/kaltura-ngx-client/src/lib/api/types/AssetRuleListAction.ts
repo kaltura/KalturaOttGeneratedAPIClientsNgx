@@ -2,11 +2,10 @@
 import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaAssetRuleListResponse } from './KalturaAssetRuleListResponse';
 
-import { KalturaAssetRuleFilter } from './KalturaAssetRuleFilter';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface AssetRuleListActionArgs  extends KalturaRequestArgs {
-    filter? : KalturaAssetRuleFilter;
+    
 }
 
 /**
@@ -19,7 +18,7 @@ export interface AssetRuleListActionArgs  extends KalturaRequestArgs {
  */
 export class AssetRuleListAction extends KalturaRequest<KalturaAssetRuleListResponse> {
 
-    filter : KalturaAssetRuleFilter;
+    
 
     constructor(data? : AssetRuleListActionArgs)
     {
@@ -33,8 +32,7 @@ export class AssetRuleListAction extends KalturaRequest<KalturaAssetRuleListResp
             result.properties,
             {
                 service : { type : 'c', default : 'assetrule' },
-				action : { type : 'c', default : 'list' },
-				filter : { type : 'o', subTypeConstructor : KalturaAssetRuleFilter, subType : 'KalturaAssetRuleFilter' }
+				action : { type : 'c', default : 'list' }
             }
         );
         return result;
