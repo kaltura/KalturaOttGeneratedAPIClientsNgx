@@ -1,13 +1,14 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCondition, KalturaConditionArgs } from './KalturaCondition';
+import { KalturaCondition } from './KalturaCondition';
+import { KalturaNotCondition, KalturaNotConditionArgs } from './KalturaNotCondition';
 
-export interface KalturaOrConditionArgs  extends KalturaConditionArgs {
+export interface KalturaOrConditionArgs  extends KalturaNotConditionArgs {
     conditions? : KalturaCondition[];
 }
 
 
-export class KalturaOrCondition extends KalturaCondition {
+export class KalturaOrCondition extends KalturaNotCondition {
 
     conditions : KalturaCondition[];
 
