@@ -7,6 +7,7 @@ export interface KalturaPlaybackSourceArgs  extends KalturaMediaFileArgs {
     format? : string;
 	protocols? : string;
 	drm? : KalturaDrmPlaybackPluginData[];
+	isTokenized? : boolean;
 }
 
 
@@ -15,6 +16,7 @@ export class KalturaPlaybackSource extends KalturaMediaFile {
     format : string;
 	protocols : string;
 	drm : KalturaDrmPlaybackPluginData[];
+	isTokenized : boolean;
 
     constructor(data? : KalturaPlaybackSourceArgs)
     {
@@ -31,7 +33,8 @@ export class KalturaPlaybackSource extends KalturaMediaFile {
                 objectType : { type : 'c', default : 'KalturaPlaybackSource' },
 				format : { type : 's' },
 				protocols : { type : 's' },
-				drm : { type : 'a', subTypeConstructor : KalturaDrmPlaybackPluginData, subType : 'KalturaDrmPlaybackPluginData' }
+				drm : { type : 'a', subTypeConstructor : KalturaDrmPlaybackPluginData, subType : 'KalturaDrmPlaybackPluginData' },
+				isTokenized : { type : 'b' }
             }
         );
         return result;
