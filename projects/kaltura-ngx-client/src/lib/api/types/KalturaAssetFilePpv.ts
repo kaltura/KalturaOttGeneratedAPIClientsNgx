@@ -1,8 +1,8 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaAssetFilePpvArgs  extends KalturaObjectBaseArgs {
+export interface KalturaAssetFilePpvArgs  extends KalturaOTTObjectSupportNullableArgs {
     assetFileId? : number;
 	ppvModuleId? : number;
 	startDate? : number;
@@ -10,7 +10,7 @@ export interface KalturaAssetFilePpvArgs  extends KalturaObjectBaseArgs {
 }
 
 
-export class KalturaAssetFilePpv extends KalturaObjectBase {
+export class KalturaAssetFilePpv extends KalturaOTTObjectSupportNullable {
 
     assetFileId : number;
 	ppvModuleId : number;
