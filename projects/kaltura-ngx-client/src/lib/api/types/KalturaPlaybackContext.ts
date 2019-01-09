@@ -4,7 +4,7 @@ import { KalturaPlaybackSource } from './KalturaPlaybackSource';
 import { KalturaRuleAction } from './KalturaRuleAction';
 import { KalturaAccessControlMessage } from './KalturaAccessControlMessage';
 import { KalturaCaptionPlaybackPluginData } from './KalturaCaptionPlaybackPluginData';
-import { KalturaBumpersPlaybackPluginData } from './KalturaBumpersPlaybackPluginData';
+import { KalturaPlaybackPluginData } from './KalturaPlaybackPluginData';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaPlaybackContextArgs  extends KalturaObjectBaseArgs {
@@ -12,7 +12,7 @@ export interface KalturaPlaybackContextArgs  extends KalturaObjectBaseArgs {
 	actions? : KalturaRuleAction[];
 	messages? : KalturaAccessControlMessage[];
 	playbackCaptions? : KalturaCaptionPlaybackPluginData[];
-	playbackBumpers? : KalturaBumpersPlaybackPluginData[];
+	plugins? : KalturaPlaybackPluginData[];
 }
 
 
@@ -22,7 +22,7 @@ export class KalturaPlaybackContext extends KalturaObjectBase {
 	actions : KalturaRuleAction[];
 	messages : KalturaAccessControlMessage[];
 	playbackCaptions : KalturaCaptionPlaybackPluginData[];
-	playbackBumpers : KalturaBumpersPlaybackPluginData[];
+	plugins : KalturaPlaybackPluginData[];
 
     constructor(data? : KalturaPlaybackContextArgs)
     {
@@ -31,7 +31,7 @@ export class KalturaPlaybackContext extends KalturaObjectBase {
 		if (typeof this.actions === 'undefined') this.actions = [];
 		if (typeof this.messages === 'undefined') this.messages = [];
 		if (typeof this.playbackCaptions === 'undefined') this.playbackCaptions = [];
-		if (typeof this.playbackBumpers === 'undefined') this.playbackBumpers = [];
+		if (typeof this.plugins === 'undefined') this.plugins = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -45,7 +45,7 @@ export class KalturaPlaybackContext extends KalturaObjectBase {
 				actions : { type : 'a', subTypeConstructor : KalturaRuleAction, subType : 'KalturaRuleAction' },
 				messages : { type : 'a', subTypeConstructor : KalturaAccessControlMessage, subType : 'KalturaAccessControlMessage' },
 				playbackCaptions : { type : 'a', subTypeConstructor : KalturaCaptionPlaybackPluginData, subType : 'KalturaCaptionPlaybackPluginData' },
-				playbackBumpers : { type : 'a', subTypeConstructor : KalturaBumpersPlaybackPluginData, subType : 'KalturaBumpersPlaybackPluginData' }
+				plugins : { type : 'a', subTypeConstructor : KalturaPlaybackPluginData, subType : 'KalturaPlaybackPluginData' }
             }
         );
         return result;

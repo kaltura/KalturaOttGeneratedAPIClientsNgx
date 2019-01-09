@@ -1,14 +1,14 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
+import { KalturaPlaybackPluginData, KalturaPlaybackPluginDataArgs } from './KalturaPlaybackPluginData';
 
-export interface KalturaBumpersPlaybackPluginDataArgs  extends KalturaObjectBaseArgs {
+export interface KalturaBumpersPlaybackPluginDataArgs  extends KalturaPlaybackPluginDataArgs {
     url? : string;
 	streamertype? : string;
 }
 
 
-export class KalturaBumpersPlaybackPluginData extends KalturaObjectBase {
+export class KalturaBumpersPlaybackPluginData extends KalturaPlaybackPluginData {
 
     url : string;
 	streamertype : string;
