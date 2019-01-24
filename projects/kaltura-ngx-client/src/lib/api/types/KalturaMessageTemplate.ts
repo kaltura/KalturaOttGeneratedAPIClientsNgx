@@ -10,9 +10,6 @@ export interface KalturaMessageTemplateArgs  extends KalturaObjectBaseArgs {
 	sound? : string;
 	action? : string;
 	url? : string;
-	mailTemplate? : string;
-	mailSubject? : string;
-	ratioId? : string;
 }
 
 
@@ -24,9 +21,6 @@ export class KalturaMessageTemplate extends KalturaObjectBase {
 	sound : string;
 	action : string;
 	url : string;
-	mailTemplate : string;
-	mailSubject : string;
-	ratioId : string;
 
     constructor(data? : KalturaMessageTemplateArgs)
     {
@@ -45,10 +39,7 @@ export class KalturaMessageTemplate extends KalturaObjectBase {
 				messageType : { type : 'es', subTypeConstructor : KalturaMessageTemplateType, subType : 'KalturaMessageTemplateType' },
 				sound : { type : 's' },
 				action : { type : 's' },
-				url : { type : 's' },
-				mailTemplate : { type : 's' },
-				mailSubject : { type : 's' },
-				ratioId : { type : 's' }
+				url : { type : 's' }
             }
         );
         return result;

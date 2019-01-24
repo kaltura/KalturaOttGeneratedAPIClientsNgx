@@ -13,8 +13,6 @@ export class KalturaCoupon extends KalturaObjectBase {
 
     readonly couponsGroup : KalturaCouponsGroup;
 	readonly status : KalturaCouponStatus;
-	readonly totalUses : number;
-	readonly leftUses : number;
 
     constructor(data? : KalturaCouponArgs)
     {
@@ -29,9 +27,7 @@ export class KalturaCoupon extends KalturaObjectBase {
             {
                 objectType : { type : 'c', default : 'KalturaCoupon' },
 				couponsGroup : { type : 'o', readOnly : true, subTypeConstructor : KalturaCouponsGroup, subType : 'KalturaCouponsGroup' },
-				status : { type : 'es', readOnly : true, subTypeConstructor : KalturaCouponStatus, subType : 'KalturaCouponStatus' },
-				totalUses : { type : 'n', readOnly : true },
-				leftUses : { type : 'n', readOnly : true }
+				status : { type : 'es', readOnly : true, subTypeConstructor : KalturaCouponStatus, subType : 'KalturaCouponStatus' }
             }
         );
         return result;

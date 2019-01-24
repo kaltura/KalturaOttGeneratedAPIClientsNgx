@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaAssetRuleAction, KalturaAssetRuleActionArgs } from './KalturaAssetRuleAction';
+import { KalturaRuleAction, KalturaRuleActionArgs } from './KalturaRuleAction';
 
-export interface KalturaAccessControlBlockActionArgs  extends KalturaAssetRuleActionArgs {
+export interface KalturaAccessControlBlockActionArgs  extends KalturaRuleActionArgs {
     
 }
 
 
-export class KalturaAccessControlBlockAction extends KalturaAssetRuleAction {
+export class KalturaAccessControlBlockAction extends KalturaRuleAction {
 
     
 

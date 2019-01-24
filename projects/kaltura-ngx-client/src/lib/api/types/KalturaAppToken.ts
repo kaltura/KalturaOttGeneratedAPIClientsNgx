@@ -22,8 +22,6 @@ export class KalturaAppToken extends KalturaObjectBase {
 	sessionPrivileges : string;
 	readonly token : string;
 	sessionUserId : string;
-	readonly createDate : number;
-	readonly updateDate : number;
 
     constructor(data? : KalturaAppTokenArgs)
     {
@@ -44,9 +42,7 @@ export class KalturaAppToken extends KalturaObjectBase {
 				hashType : { type : 'es', subTypeConstructor : KalturaAppTokenHashType, subType : 'KalturaAppTokenHashType' },
 				sessionPrivileges : { type : 's' },
 				token : { type : 's', readOnly : true },
-				sessionUserId : { type : 's' },
-				createDate : { type : 'n', readOnly : true },
-				updateDate : { type : 'n', readOnly : true }
+				sessionUserId : { type : 's' }
             }
         );
         return result;

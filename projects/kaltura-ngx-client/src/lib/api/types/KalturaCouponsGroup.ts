@@ -1,17 +1,17 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaCouponGroupType } from './KalturaCouponGroupType';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaCouponsGroupArgs  extends KalturaObjectBaseArgs {
     name? : string;
+	descriptions? : KalturaTranslationToken[];
 	startDate? : number;
 	endDate? : number;
 	maxUsesNumber? : number;
 	maxUsesNumberOnRenewableSub? : number;
 	couponGroupType? : KalturaCouponGroupType;
-	maxHouseholdUses? : number;
-	discountId? : number;
 }
 
 
@@ -19,17 +19,17 @@ export class KalturaCouponsGroup extends KalturaObjectBase {
 
     readonly id : string;
 	name : string;
+	descriptions : KalturaTranslationToken[];
 	startDate : number;
 	endDate : number;
 	maxUsesNumber : number;
 	maxUsesNumberOnRenewableSub : number;
 	couponGroupType : KalturaCouponGroupType;
-	maxHouseholdUses : number;
-	discountId : number;
 
     constructor(data? : KalturaCouponsGroupArgs)
     {
         super(data);
+        if (typeof this.descriptions === 'undefined') this.descriptions = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -41,13 +41,12 @@ export class KalturaCouponsGroup extends KalturaObjectBase {
                 objectType : { type : 'c', default : 'KalturaCouponsGroup' },
 				id : { type : 's', readOnly : true },
 				name : { type : 's' },
+				descriptions : { type : 'a', subTypeConstructor : KalturaTranslationToken, subType : 'KalturaTranslationToken' },
 				startDate : { type : 'n' },
 				endDate : { type : 'n' },
 				maxUsesNumber : { type : 'n' },
 				maxUsesNumberOnRenewableSub : { type : 'n' },
-				couponGroupType : { type : 'es', subTypeConstructor : KalturaCouponGroupType, subType : 'KalturaCouponGroupType' },
-				maxHouseholdUses : { type : 'n' },
-				discountId : { type : 'n' }
+				couponGroupType : { type : 'es', subTypeConstructor : KalturaCouponGroupType, subType : 'KalturaCouponGroupType' }
             }
         );
         return result;

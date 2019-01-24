@@ -18,8 +18,6 @@ export interface KalturaNotificationsPartnerSettingsArgs  extends KalturaObjectB
 	churnMailSubject? : string;
 	senderEmail? : string;
 	mailSenderName? : string;
-	mailNotificationAdapterId? : number;
-	smsEnabled? : boolean;
 }
 
 
@@ -40,8 +38,6 @@ export class KalturaNotificationsPartnerSettings extends KalturaObjectBase {
 	churnMailSubject : string;
 	senderEmail : string;
 	mailSenderName : string;
-	mailNotificationAdapterId : number;
-	smsEnabled : boolean;
 
     constructor(data? : KalturaNotificationsPartnerSettingsArgs)
     {
@@ -69,9 +65,7 @@ export class KalturaNotificationsPartnerSettings extends KalturaObjectBase {
 				churnMailTemplateName : { type : 's' },
 				churnMailSubject : { type : 's' },
 				senderEmail : { type : 's' },
-				mailSenderName : { type : 's' },
-				mailNotificationAdapterId : { type : 'n' },
-				smsEnabled : { type : 'b' }
+				mailSenderName : { type : 's' }
             }
         );
         return result;

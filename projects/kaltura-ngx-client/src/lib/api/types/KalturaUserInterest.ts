@@ -4,13 +4,14 @@ import { KalturaUserInterestTopic } from './KalturaUserInterestTopic';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaUserInterestArgs  extends KalturaObjectBaseArgs {
-    topic? : KalturaUserInterestTopic;
+    id? : string;
+	topic? : KalturaUserInterestTopic;
 }
 
 
 export class KalturaUserInterest extends KalturaObjectBase {
 
-    readonly id : string;
+    id : string;
 	topic : KalturaUserInterestTopic;
 
     constructor(data? : KalturaUserInterestArgs)
@@ -25,7 +26,7 @@ export class KalturaUserInterest extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaUserInterest' },
-				id : { type : 's', readOnly : true },
+				id : { type : 's' },
 				topic : { type : 'o', subTypeConstructor : KalturaUserInterestTopic, subType : 'KalturaUserInterestTopic' }
             }
         );
