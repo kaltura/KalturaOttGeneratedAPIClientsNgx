@@ -219,6 +219,7 @@ export { KalturaAssetHistoryListResponse, KalturaAssetHistoryListResponseArgs } 
 export { KalturaRule, KalturaRuleArgs } from './KalturaRule'
 export { KalturaTvmRule, KalturaTvmRuleArgs } from './KalturaTvmRule'
 export { KalturaTvmRuleListResponse, KalturaTvmRuleListResponseArgs } from './KalturaTvmRuleListResponse'
+export { KalturaTvmDeviceRule, KalturaTvmDeviceRuleArgs } from './KalturaTvmDeviceRule'
 export { KalturaTvmGeoRule, KalturaTvmGeoRuleArgs } from './KalturaTvmGeoRule'
 export { KalturaCondition, KalturaConditionArgs } from './KalturaCondition'
 export { KalturaRuleAction, KalturaRuleActionArgs } from './KalturaRuleAction'
