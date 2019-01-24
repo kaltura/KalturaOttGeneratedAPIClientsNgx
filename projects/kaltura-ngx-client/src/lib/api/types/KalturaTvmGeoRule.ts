@@ -5,8 +5,10 @@ import { KalturaTvmRule, KalturaTvmRuleArgs } from './KalturaTvmRule';
 export interface KalturaTvmGeoRuleArgs  extends KalturaTvmRuleArgs {
     onlyOrBut? : boolean;
 	countryIds? : string;
-	proxyRule? : number;
-	proxyLevel? : number;
+	proxyRuleId? : number;
+	proxyRuleName? : string;
+	proxyLevelId? : number;
+	proxyLevelName? : string;
 }
 
 
@@ -14,8 +16,10 @@ export class KalturaTvmGeoRule extends KalturaTvmRule {
 
     onlyOrBut : boolean;
 	countryIds : string;
-	proxyRule : number;
-	proxyLevel : number;
+	proxyRuleId : number;
+	proxyRuleName : string;
+	proxyLevelId : number;
+	proxyLevelName : string;
 
     constructor(data? : KalturaTvmGeoRuleArgs)
     {
@@ -31,8 +35,10 @@ export class KalturaTvmGeoRule extends KalturaTvmRule {
                 objectType : { type : 'c', default : 'KalturaTvmGeoRule' },
 				onlyOrBut : { type : 'b' },
 				countryIds : { type : 's' },
-				proxyRule : { type : 'n' },
-				proxyLevel : { type : 'n' }
+				proxyRuleId : { type : 'n' },
+				proxyRuleName : { type : 's' },
+				proxyLevelId : { type : 'n' },
+				proxyLevelName : { type : 's' }
             }
         );
         return result;
