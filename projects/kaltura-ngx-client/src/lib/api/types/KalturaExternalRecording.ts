@@ -1,15 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaRecording, KalturaRecordingArgs } from './KalturaRecording';
 
 export interface KalturaExternalRecordingArgs  extends KalturaRecordingArgs {
     externalId? : string;
+	metaData? : { [key : string] : KalturaStringValue};
 }
 
 
 export class KalturaExternalRecording extends KalturaRecording {
 
     externalId : string;
+	metaData : { [key : string] : KalturaStringValue};
 
     constructor(data? : KalturaExternalRecordingArgs)
     {
@@ -23,7 +26,8 @@ export class KalturaExternalRecording extends KalturaRecording {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaExternalRecording' },
-				externalId : { type : 's' }
+				externalId : { type : 's' },
+				metaData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
             }
         );
         return result;
