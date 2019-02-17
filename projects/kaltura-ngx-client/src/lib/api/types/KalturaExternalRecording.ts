@@ -13,6 +13,7 @@ export class KalturaExternalRecording extends KalturaRecording {
 
     externalId : string;
 	metaData : { [key : string] : KalturaStringValue};
+	readonly expiryDate : number;
 
     constructor(data? : KalturaExternalRecordingArgs)
     {
@@ -27,7 +28,8 @@ export class KalturaExternalRecording extends KalturaRecording {
             {
                 objectType : { type : 'c', default : 'KalturaExternalRecording' },
 				externalId : { type : 's' },
-				metaData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
+				metaData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
+				expiryDate : { type : 'n', readOnly : true }
             }
         );
         return result;
