@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaAssetUserRuleAction, KalturaAssetUserRuleActionArgs } from './KalturaAssetUserRuleAction';
 
 export interface KalturaAssetUserRuleFilterActionArgs  extends KalturaAssetUserRuleActionArgs {
-    
+    applyOnChannel? : boolean;
 }
 
 
 export class KalturaAssetUserRuleFilterAction extends KalturaAssetUserRuleAction {
 
-    
+    applyOnChannel : boolean;
 
     constructor(data? : KalturaAssetUserRuleFilterActionArgs)
     {
@@ -22,7 +22,8 @@ export class KalturaAssetUserRuleFilterAction extends KalturaAssetUserRuleAction
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaAssetUserRuleFilterAction' }
+                objectType : { type : 'c', default : 'KalturaAssetUserRuleFilterAction' },
+				applyOnChannel : { type : 'b' }
             }
         );
         return result;
