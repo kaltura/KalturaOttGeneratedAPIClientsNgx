@@ -10,7 +10,7 @@ export interface KalturaGeneralPartnerConfigArgs  extends KalturaPartnerConfigur
 	secondaryLanguages? : string;
 	deleteMediaPolicy? : KalturaDeleteMediaPolicy;
 	mainCurrency? : number;
-	secondaryCurrencies? : string;
+	secondaryCurrencys? : string;
 	downgradePolicy? : KalturaDowngradePolicy;
 	mailSettings? : string;
 	dateFormat? : string;
@@ -25,7 +25,7 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 	secondaryLanguages : string;
 	deleteMediaPolicy : KalturaDeleteMediaPolicy;
 	mainCurrency : number;
-	secondaryCurrencies : string;
+	secondaryCurrencys : string;
 	downgradePolicy : KalturaDowngradePolicy;
 	mailSettings : string;
 	dateFormat : string;
@@ -48,7 +48,7 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 				secondaryLanguages : { type : 's' },
 				deleteMediaPolicy : { type : 'es', subTypeConstructor : KalturaDeleteMediaPolicy, subType : 'KalturaDeleteMediaPolicy' },
 				mainCurrency : { type : 'n' },
-				secondaryCurrencies : { type : 's' },
+				secondaryCurrencys : { type : 's' },
 				downgradePolicy : { type : 'es', subTypeConstructor : KalturaDowngradePolicy, subType : 'KalturaDowngradePolicy' },
 				mailSettings : { type : 's' },
 				dateFormat : { type : 's' },
