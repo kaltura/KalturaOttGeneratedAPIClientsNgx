@@ -1,16 +1,15 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaBulkUploadEntryData } from './KalturaBulkUploadEntryData';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaBulkUploadJobDataArgs  extends KalturaObjectBaseArgs {
-    entryData? : KalturaBulkUploadEntryData;
+    
 }
 
 
 export class KalturaBulkUploadJobData extends KalturaObjectBase {
 
-    entryData : KalturaBulkUploadEntryData;
+    
 
     constructor(data? : KalturaBulkUploadJobDataArgs)
     {
@@ -23,8 +22,7 @@ export class KalturaBulkUploadJobData extends KalturaObjectBase {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaBulkUploadJobData' },
-				entryData : { type : 'o', subTypeConstructor : KalturaBulkUploadEntryData, subType : 'KalturaBulkUploadEntryData' }
+                objectType : { type : 'c', default : 'KalturaBulkUploadJobData' }
             }
         );
         return result;

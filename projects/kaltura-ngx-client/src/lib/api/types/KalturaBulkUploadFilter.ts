@@ -1,16 +1,16 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaBatchUploadJobStatus } from './KalturaBatchUploadJobStatus';
+import { KalturaBulkUploadJobStatus } from './KalturaBulkUploadJobStatus';
 import { KalturaPersistedFilter, KalturaPersistedFilterArgs } from './KalturaPersistedFilter';
 
 export interface KalturaBulkUploadFilterArgs  extends KalturaPersistedFilterArgs {
-    statusEqual? : KalturaBatchUploadJobStatus;
+    statusEqual? : KalturaBulkUploadJobStatus;
 }
 
 
 export class KalturaBulkUploadFilter extends KalturaPersistedFilter {
 
-    statusEqual : KalturaBatchUploadJobStatus;
+    statusEqual : KalturaBulkUploadJobStatus;
 
     constructor(data? : KalturaBulkUploadFilterArgs)
     {
@@ -24,7 +24,7 @@ export class KalturaBulkUploadFilter extends KalturaPersistedFilter {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaBulkUploadFilter' },
-				statusEqual : { type : 'es', subTypeConstructor : KalturaBatchUploadJobStatus, subType : 'KalturaBatchUploadJobStatus' }
+				statusEqual : { type : 'es', subTypeConstructor : KalturaBulkUploadJobStatus, subType : 'KalturaBulkUploadJobStatus' }
             }
         );
         return result;

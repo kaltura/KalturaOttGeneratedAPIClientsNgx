@@ -1,6 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaResponseStatus } from './KalturaResponseStatus';
+import { KalturaBulkUploadResultStatus } from './KalturaBulkUploadResultStatus';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaBulkUploadResultArgs  extends KalturaObjectBaseArgs {
@@ -13,7 +13,9 @@ export class KalturaBulkUploadResult extends KalturaObjectBase {
     readonly objectId : number;
 	readonly index : number;
 	readonly bulkUploadId : number;
-	readonly status : KalturaResponseStatus;
+	readonly status : KalturaBulkUploadResultStatus;
+	readonly errorCode : number;
+	readonly errorMessage : string;
 
     constructor(data? : KalturaBulkUploadResultArgs)
     {
@@ -30,7 +32,9 @@ export class KalturaBulkUploadResult extends KalturaObjectBase {
 				objectId : { type : 'n', readOnly : true },
 				index : { type : 'n', readOnly : true },
 				bulkUploadId : { type : 'n', readOnly : true },
-				status : { type : 'o', readOnly : true, subTypeConstructor : KalturaResponseStatus, subType : 'KalturaResponseStatus' }
+				status : { type : 'es', readOnly : true, subTypeConstructor : KalturaBulkUploadResultStatus, subType : 'KalturaBulkUploadResultStatus' },
+				errorCode : { type : 'n', readOnly : true },
+				errorMessage : { type : 's', readOnly : true }
             }
         );
         return result;
