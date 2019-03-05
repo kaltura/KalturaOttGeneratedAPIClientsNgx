@@ -1,5 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaPlaybackContextType } from './KalturaPlaybackContextType';
 import { KalturaUrlType } from './KalturaUrlType';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
@@ -8,6 +9,7 @@ export interface KalturaPlaybackContextOptionsArgs  extends KalturaObjectBaseArg
     mediaProtocol? : string;
 	streamerType? : string;
 	assetFileIds? : string;
+	adapterData? : { [key : string] : KalturaStringValue};
 	context? : KalturaPlaybackContextType;
 	urlType? : KalturaUrlType;
 }
@@ -18,6 +20,7 @@ export class KalturaPlaybackContextOptions extends KalturaObjectBase {
     mediaProtocol : string;
 	streamerType : string;
 	assetFileIds : string;
+	adapterData : { [key : string] : KalturaStringValue};
 	context : KalturaPlaybackContextType;
 	urlType : KalturaUrlType;
 
@@ -36,6 +39,7 @@ export class KalturaPlaybackContextOptions extends KalturaObjectBase {
 				mediaProtocol : { type : 's' },
 				streamerType : { type : 's' },
 				assetFileIds : { type : 's' },
+				adapterData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
 				context : { type : 'es', subTypeConstructor : KalturaPlaybackContextType, subType : 'KalturaPlaybackContextType' },
 				urlType : { type : 'es', subTypeConstructor : KalturaUrlType, subType : 'KalturaUrlType' }
             }
