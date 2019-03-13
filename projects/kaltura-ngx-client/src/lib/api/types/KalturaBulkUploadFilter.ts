@@ -3,19 +3,19 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
 export interface KalturaBulkUploadFilterArgs  extends KalturaFilterArgs {
-    fileObjectNameEqual? : string;
+    bulkObjectNameEqual? : string;
 	createDateGreaterThanOrEqual? : number;
-	userIdEqualCurrent? : boolean;
-	shouldGetOnGoingBulkUploads? : boolean;
+	uploadedByUserIdEqualCurrent? : boolean;
+	statusIn? : string;
 }
 
 
 export class KalturaBulkUploadFilter extends KalturaFilter {
 
-    fileObjectNameEqual : string;
+    bulkObjectNameEqual : string;
 	createDateGreaterThanOrEqual : number;
-	userIdEqualCurrent : boolean;
-	shouldGetOnGoingBulkUploads : boolean;
+	uploadedByUserIdEqualCurrent : boolean;
+	statusIn : string;
 
     constructor(data? : KalturaBulkUploadFilterArgs)
     {
@@ -29,10 +29,10 @@ export class KalturaBulkUploadFilter extends KalturaFilter {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaBulkUploadFilter' },
-				fileObjectNameEqual : { type : 's' },
+				bulkObjectNameEqual : { type : 's' },
 				createDateGreaterThanOrEqual : { type : 'n' },
-				userIdEqualCurrent : { type : 'b' },
-				shouldGetOnGoingBulkUploads : { type : 'b' }
+				uploadedByUserIdEqualCurrent : { type : 'b' },
+				statusIn : { type : 's' }
             }
         );
         return result;

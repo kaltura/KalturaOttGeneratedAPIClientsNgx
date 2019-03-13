@@ -19,6 +19,7 @@ export class KalturaBulkUpload extends KalturaObjectBase {
 	readonly numOfObjects : number;
 	readonly createDate : number;
 	readonly updateDate : number;
+	readonly uploadedByUserId : number;
 	readonly results : KalturaBulkUploadResult[];
 
     constructor(data? : KalturaBulkUploadArgs)
@@ -41,6 +42,7 @@ export class KalturaBulkUpload extends KalturaObjectBase {
 				numOfObjects : { type : 'n', readOnly : true },
 				createDate : { type : 'n', readOnly : true },
 				updateDate : { type : 'n', readOnly : true },
+				uploadedByUserId : { type : 'n', readOnly : true },
 				results : { type : 'a', readOnly : true, subTypeConstructor : KalturaBulkUploadResult, subType : 'KalturaBulkUploadResult' }
             }
         );
