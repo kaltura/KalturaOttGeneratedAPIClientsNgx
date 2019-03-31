@@ -1,5 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaIngestProfileArgs  extends KalturaObjectBaseArgs {
@@ -7,7 +8,7 @@ export interface KalturaIngestProfileArgs  extends KalturaObjectBaseArgs {
 	externalId? : string;
 	assetTypeId? : number;
 	transformationAdapterUrl? : string;
-	transformationAdapterSettings? : string;
+	transformationAdapterSettings? : { [key : string] : KalturaStringValue};
 	transformationAdapterSharedSecret? : string;
 	defaultAutoFillPolicy? : number;
 	defaultOverlapPolicy? : number;
@@ -21,7 +22,7 @@ export class KalturaIngestProfile extends KalturaObjectBase {
 	externalId : string;
 	assetTypeId : number;
 	transformationAdapterUrl : string;
-	transformationAdapterSettings : string;
+	transformationAdapterSettings : { [key : string] : KalturaStringValue};
 	transformationAdapterSharedSecret : string;
 	defaultAutoFillPolicy : number;
 	defaultOverlapPolicy : number;
@@ -43,7 +44,7 @@ export class KalturaIngestProfile extends KalturaObjectBase {
 				externalId : { type : 's' },
 				assetTypeId : { type : 'n' },
 				transformationAdapterUrl : { type : 's' },
-				transformationAdapterSettings : { type : 's' },
+				transformationAdapterSettings : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
 				transformationAdapterSharedSecret : { type : 's' },
 				defaultAutoFillPolicy : { type : 'n' },
 				defaultOverlapPolicy : { type : 'n' }
