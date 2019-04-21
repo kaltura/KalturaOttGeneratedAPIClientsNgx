@@ -2,6 +2,7 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaChannelOrder } from './KalturaChannelOrder';
+import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaBaseChannel, KalturaBaseChannelArgs } from './KalturaBaseChannel';
 
 export interface KalturaChannelArgs  extends KalturaBaseChannelArgs {
@@ -14,6 +15,7 @@ export interface KalturaChannelArgs  extends KalturaBaseChannelArgs {
 	orderBy? : KalturaChannelOrder;
 	supportSegmentBasedOrdering? : boolean;
 	assetUserRuleId? : number;
+	metaData? : { [key : string] : KalturaStringValue};
 }
 
 
@@ -32,6 +34,7 @@ export class KalturaChannel extends KalturaBaseChannel {
 	readonly updateDate : number;
 	supportSegmentBasedOrdering : boolean;
 	assetUserRuleId : number;
+	metaData : { [key : string] : KalturaStringValue};
 
     constructor(data? : KalturaChannelArgs)
     {
@@ -59,7 +62,8 @@ export class KalturaChannel extends KalturaBaseChannel {
 				createDate : { type : 'n', readOnly : true },
 				updateDate : { type : 'n', readOnly : true },
 				supportSegmentBasedOrdering : { type : 'b' },
-				assetUserRuleId : { type : 'n' }
+				assetUserRuleId : { type : 'n' },
+				metaData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
             }
         );
         return result;

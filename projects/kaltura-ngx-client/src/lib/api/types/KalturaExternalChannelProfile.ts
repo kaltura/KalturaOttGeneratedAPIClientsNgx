@@ -1,6 +1,7 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaChannelEnrichmentHolder } from './KalturaChannelEnrichmentHolder';
+import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaExternalChannelProfileArgs  extends KalturaObjectBaseArgs {
@@ -11,6 +12,7 @@ export interface KalturaExternalChannelProfileArgs  extends KalturaObjectBaseArg
 	recommendationEngineId? : number;
 	enrichments? : KalturaChannelEnrichmentHolder[];
 	assetUserRuleId? : number;
+	metaData? : { [key : string] : KalturaStringValue};
 }
 
 
@@ -24,6 +26,7 @@ export class KalturaExternalChannelProfile extends KalturaObjectBase {
 	recommendationEngineId : number;
 	enrichments : KalturaChannelEnrichmentHolder[];
 	assetUserRuleId : number;
+	metaData : { [key : string] : KalturaStringValue};
 
     constructor(data? : KalturaExternalChannelProfileArgs)
     {
@@ -45,7 +48,8 @@ export class KalturaExternalChannelProfile extends KalturaObjectBase {
 				filterExpression : { type : 's' },
 				recommendationEngineId : { type : 'n' },
 				enrichments : { type : 'a', subTypeConstructor : KalturaChannelEnrichmentHolder, subType : 'KalturaChannelEnrichmentHolder' },
-				assetUserRuleId : { type : 'n' }
+				assetUserRuleId : { type : 'n' },
+				metaData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
             }
         );
         return result;

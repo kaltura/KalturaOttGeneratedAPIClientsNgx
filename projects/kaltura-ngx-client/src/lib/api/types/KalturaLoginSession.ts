@@ -4,14 +4,14 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 
 export interface KalturaLoginSessionArgs  extends KalturaObjectBaseArgs {
     ks? : string;
-	expiration? : number;
+	expiry? : number;
 }
 
 
 export class KalturaLoginSession extends KalturaObjectBase {
 
     ks : string;
-	expiration : number;
+	expiry : number;
 
     constructor(data? : KalturaLoginSessionArgs)
     {
@@ -26,7 +26,7 @@ export class KalturaLoginSession extends KalturaObjectBase {
             {
                 objectType : { type : 'c', default : 'KalturaLoginSession' },
 				ks : { type : 's' },
-				expiration : { type : 'n' }
+				expiry : { type : 'n' }
             }
         );
         return result;
