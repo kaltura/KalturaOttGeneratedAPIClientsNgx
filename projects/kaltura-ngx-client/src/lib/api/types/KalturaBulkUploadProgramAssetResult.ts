@@ -12,7 +12,6 @@ export class KalturaBulkUploadProgramAssetResult extends KalturaBulkUploadResult
     readonly programId : number;
 	readonly programExternalId : string;
 	readonly liveAssetId : number;
-	readonly liveAssetExternalId : string;
 
     constructor(data? : KalturaBulkUploadProgramAssetResultArgs)
     {
@@ -28,8 +27,7 @@ export class KalturaBulkUploadProgramAssetResult extends KalturaBulkUploadResult
                 objectType : { type : 'c', default : 'KalturaBulkUploadProgramAssetResult' },
 				programId : { type : 'n', readOnly : true },
 				programExternalId : { type : 's', readOnly : true },
-				liveAssetId : { type : 'n', readOnly : true },
-				liveAssetExternalId : { type : 's', readOnly : true }
+				liveAssetId : { type : 'n', readOnly : true }
             }
         );
         return result;
