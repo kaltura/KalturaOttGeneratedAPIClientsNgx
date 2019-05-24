@@ -6,6 +6,7 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 
 export interface KalturaTopicNotificationMessageArgs  extends KalturaObjectBaseArgs {
     message? : string;
+	imageUrl? : string;
 	topicNotificationId? : number;
 	trigger? : KalturaTrigger;
 	dispatchers? : KalturaDispatcher[];
@@ -16,6 +17,7 @@ export class KalturaTopicNotificationMessage extends KalturaObjectBase {
 
     readonly id : number;
 	message : string;
+	imageUrl : string;
 	topicNotificationId : number;
 	trigger : KalturaTrigger;
 	dispatchers : KalturaDispatcher[];
@@ -35,6 +37,7 @@ export class KalturaTopicNotificationMessage extends KalturaObjectBase {
                 objectType : { type : 'c', default : 'KalturaTopicNotificationMessage' },
 				id : { type : 'n', readOnly : true },
 				message : { type : 's' },
+				imageUrl : { type : 's' },
 				topicNotificationId : { type : 'n' },
 				trigger : { type : 'o', subTypeConstructor : KalturaTrigger, subType : 'KalturaTrigger' },
 				dispatchers : { type : 'a', subTypeConstructor : KalturaDispatcher, subType : 'KalturaDispatcher' }
