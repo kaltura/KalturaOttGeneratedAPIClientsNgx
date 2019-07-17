@@ -1,19 +1,19 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaCondition } from './KalturaCondition';
-import { KalturaBusinessModuleRuleAction } from './KalturaBusinessModuleRuleAction';
+import { KalturaApplyDiscountModuleAction } from './KalturaApplyDiscountModuleAction';
 import { KalturaRule, KalturaRuleArgs } from './KalturaRule';
 
 export interface KalturaBusinessModuleRuleArgs  extends KalturaRuleArgs {
     conditions? : KalturaCondition[];
-	actions? : KalturaBusinessModuleRuleAction[];
+	actions? : KalturaApplyDiscountModuleAction[];
 }
 
 
 export class KalturaBusinessModuleRule extends KalturaRule {
 
     conditions : KalturaCondition[];
-	actions : KalturaBusinessModuleRuleAction[];
+	actions : KalturaApplyDiscountModuleAction[];
 	readonly createDate : number;
 	readonly updateDate : number;
 
@@ -32,7 +32,7 @@ export class KalturaBusinessModuleRule extends KalturaRule {
             {
                 objectType : { type : 'c', default : 'KalturaBusinessModuleRule' },
 				conditions : { type : 'a', subTypeConstructor : KalturaCondition, subType : 'KalturaCondition' },
-				actions : { type : 'a', subTypeConstructor : KalturaBusinessModuleRuleAction, subType : 'KalturaBusinessModuleRuleAction' },
+				actions : { type : 'a', subTypeConstructor : KalturaApplyDiscountModuleAction, subType : 'KalturaApplyDiscountModuleAction' },
 				createDate : { type : 'n', readOnly : true },
 				updateDate : { type : 'n', readOnly : true }
             }
