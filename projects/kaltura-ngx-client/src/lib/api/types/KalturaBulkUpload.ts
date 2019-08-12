@@ -3,6 +3,7 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaBulkUploadJobStatus } from './KalturaBulkUploadJobStatus';
 import { KalturaBulkUploadJobAction } from './KalturaBulkUploadJobAction';
 import { KalturaBulkUploadResult } from './KalturaBulkUploadResult';
+import { KalturaMessage } from './KalturaMessage';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaBulkUploadArgs  extends KalturaObjectBaseArgs {
@@ -21,11 +22,13 @@ export class KalturaBulkUpload extends KalturaObjectBase {
 	readonly updateDate : number;
 	readonly uploadedByUserId : number;
 	readonly results : KalturaBulkUploadResult[];
+	readonly errors : KalturaMessage[];
 
     constructor(data? : KalturaBulkUploadArgs)
     {
         super(data);
         if (typeof this.results === 'undefined') this.results = [];
+		if (typeof this.errors === 'undefined') this.errors = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -43,7 +46,8 @@ export class KalturaBulkUpload extends KalturaObjectBase {
 				createDate : { type : 'n', readOnly : true },
 				updateDate : { type : 'n', readOnly : true },
 				uploadedByUserId : { type : 'n', readOnly : true },
-				results : { type : 'a', readOnly : true, subTypeConstructor : KalturaBulkUploadResult, subType : 'KalturaBulkUploadResult' }
+				results : { type : 'a', readOnly : true, subTypeConstructor : KalturaBulkUploadResult, subType : 'KalturaBulkUploadResult' },
+				errors : { type : 'a', readOnly : true, subTypeConstructor : KalturaMessage, subType : 'KalturaMessage' }
             }
         );
         return result;
