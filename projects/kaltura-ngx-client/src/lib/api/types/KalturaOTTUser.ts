@@ -40,8 +40,6 @@ export class KalturaOTTUser extends KalturaBaseOTTUser {
 	roleIds : string;
 	readonly createDate : number;
 	readonly updateDate : number;
-	readonly lastLoginDate : number;
-	readonly failedLoginCount : number;
 
     constructor(data? : KalturaOTTUserArgs)
     {
@@ -71,9 +69,7 @@ export class KalturaOTTUser extends KalturaBaseOTTUser {
 				userState : { type : 'es', readOnly : true, subTypeConstructor : KalturaUserState, subType : 'KalturaUserState' },
 				roleIds : { type : 's' },
 				createDate : { type : 'n', readOnly : true },
-				updateDate : { type : 'n', readOnly : true },
-				lastLoginDate : { type : 'n', readOnly : true },
-				failedLoginCount : { type : 'n', readOnly : true }
+				updateDate : { type : 'n', readOnly : true }
             }
         );
         return result;
