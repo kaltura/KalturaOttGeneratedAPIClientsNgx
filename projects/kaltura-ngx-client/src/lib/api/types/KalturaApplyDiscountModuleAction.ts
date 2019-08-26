@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaRuleAction, KalturaRuleActionArgs } from './KalturaRuleAction';
+import { KalturaBusinessModuleRuleAction, KalturaBusinessModuleRuleActionArgs } from './KalturaBusinessModuleRuleAction';
 
-export interface KalturaApplyDiscountModuleActionArgs  extends KalturaRuleActionArgs {
+export interface KalturaApplyDiscountModuleActionArgs  extends KalturaBusinessModuleRuleActionArgs {
     discountModuleId? : number;
 }
 
 
-export class KalturaApplyDiscountModuleAction extends KalturaRuleAction {
+export class KalturaApplyDiscountModuleAction extends KalturaBusinessModuleRuleAction {
 
     discountModuleId : number;
 
