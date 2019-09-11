@@ -15,6 +15,8 @@ export interface KalturaGeneralPartnerConfigArgs  extends KalturaPartnerConfigur
 	mailSettings? : string;
 	dateFormat? : string;
 	householdLimitationModule? : number;
+	enableRegionFiltering? : boolean;
+	defaultRegion? : number;
 }
 
 
@@ -30,6 +32,8 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 	mailSettings : string;
 	dateFormat : string;
 	householdLimitationModule : number;
+	enableRegionFiltering : boolean;
+	defaultRegion : number;
 
     constructor(data? : KalturaGeneralPartnerConfigArgs)
     {
@@ -52,7 +56,9 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 				downgradePolicy : { type : 'es', subTypeConstructor : KalturaDowngradePolicy, subType : 'KalturaDowngradePolicy' },
 				mailSettings : { type : 's' },
 				dateFormat : { type : 's' },
-				householdLimitationModule : { type : 'n' }
+				householdLimitationModule : { type : 'n' },
+				enableRegionFiltering : { type : 'b' },
+				defaultRegion : { type : 'n' }
             }
         );
         return result;
