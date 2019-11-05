@@ -1,12 +1,14 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTransactionType } from './KalturaTransactionType';
+import { KalturaRuleActionType } from './KalturaRuleActionType';
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
 export interface KalturaBusinessModuleRuleFilterArgs  extends KalturaFilterArgs {
     businessModuleTypeApplied? : KalturaTransactionType;
 	businessModuleIdApplied? : number;
 	segmentIdsApplied? : string;
+	actionsContainType? : KalturaRuleActionType;
 }
 
 
@@ -15,6 +17,7 @@ export class KalturaBusinessModuleRuleFilter extends KalturaFilter {
     businessModuleTypeApplied : KalturaTransactionType;
 	businessModuleIdApplied : number;
 	segmentIdsApplied : string;
+	actionsContainType : KalturaRuleActionType;
 
     constructor(data? : KalturaBusinessModuleRuleFilterArgs)
     {
@@ -30,7 +33,8 @@ export class KalturaBusinessModuleRuleFilter extends KalturaFilter {
                 objectType : { type : 'c', default : 'KalturaBusinessModuleRuleFilter' },
 				businessModuleTypeApplied : { type : 'es', subTypeConstructor : KalturaTransactionType, subType : 'KalturaTransactionType' },
 				businessModuleIdApplied : { type : 'n' },
-				segmentIdsApplied : { type : 's' }
+				segmentIdsApplied : { type : 's' },
+				actionsContainType : { type : 'es', subTypeConstructor : KalturaRuleActionType, subType : 'KalturaRuleActionType' }
             }
         );
         return result;

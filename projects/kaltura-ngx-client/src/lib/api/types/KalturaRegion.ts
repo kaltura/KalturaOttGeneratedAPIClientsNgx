@@ -7,8 +7,8 @@ export interface KalturaRegionArgs  extends KalturaObjectBaseArgs {
     id? : number;
 	name? : string;
 	externalId? : string;
-	isDefault? : boolean;
 	linearChannels? : KalturaRegionalChannel[];
+	parentId? : number;
 }
 
 
@@ -17,8 +17,9 @@ export class KalturaRegion extends KalturaObjectBase {
     id : number;
 	name : string;
 	externalId : string;
-	isDefault : boolean;
+	readonly isDefault : boolean;
 	linearChannels : KalturaRegionalChannel[];
+	parentId : number;
 
     constructor(data? : KalturaRegionArgs)
     {
@@ -36,8 +37,9 @@ export class KalturaRegion extends KalturaObjectBase {
 				id : { type : 'n' },
 				name : { type : 's' },
 				externalId : { type : 's' },
-				isDefault : { type : 'b' },
-				linearChannels : { type : 'a', subTypeConstructor : KalturaRegionalChannel, subType : 'KalturaRegionalChannel' }
+				isDefault : { type : 'b', readOnly : true },
+				linearChannels : { type : 'a', subTypeConstructor : KalturaRegionalChannel, subType : 'KalturaRegionalChannel' },
+				parentId : { type : 'n' }
             }
         );
         return result;
