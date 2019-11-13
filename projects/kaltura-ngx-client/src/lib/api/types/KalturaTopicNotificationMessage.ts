@@ -2,6 +2,7 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTrigger } from './KalturaTrigger';
 import { KalturaDispatcher } from './KalturaDispatcher';
+import { KalturaAnnouncementStatus } from './KalturaAnnouncementStatus';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaTopicNotificationMessageArgs  extends KalturaObjectBaseArgs {
@@ -21,6 +22,7 @@ export class KalturaTopicNotificationMessage extends KalturaObjectBase {
 	topicNotificationId : number;
 	trigger : KalturaTrigger;
 	dispatchers : KalturaDispatcher[];
+	readonly status : KalturaAnnouncementStatus;
 
     constructor(data? : KalturaTopicNotificationMessageArgs)
     {
@@ -40,7 +42,8 @@ export class KalturaTopicNotificationMessage extends KalturaObjectBase {
 				imageUrl : { type : 's' },
 				topicNotificationId : { type : 'n' },
 				trigger : { type : 'o', subTypeConstructor : KalturaTrigger, subType : 'KalturaTrigger' },
-				dispatchers : { type : 'a', subTypeConstructor : KalturaDispatcher, subType : 'KalturaDispatcher' }
+				dispatchers : { type : 'a', subTypeConstructor : KalturaDispatcher, subType : 'KalturaDispatcher' },
+				status : { type : 'es', readOnly : true, subTypeConstructor : KalturaAnnouncementStatus, subType : 'KalturaAnnouncementStatus' }
             }
         );
         return result;

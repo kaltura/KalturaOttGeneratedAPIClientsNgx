@@ -6,6 +6,7 @@ export interface KalturaSubscriptionFilterArgs  extends KalturaFilterArgs {
     subscriptionIdIn? : string;
 	mediaFileIdEqual? : number;
 	externalIdIn? : string;
+	couponGroupIdEqual? : number;
 }
 
 
@@ -14,6 +15,7 @@ export class KalturaSubscriptionFilter extends KalturaFilter {
     subscriptionIdIn : string;
 	mediaFileIdEqual : number;
 	externalIdIn : string;
+	couponGroupIdEqual : number;
 
     constructor(data? : KalturaSubscriptionFilterArgs)
     {
@@ -29,7 +31,8 @@ export class KalturaSubscriptionFilter extends KalturaFilter {
                 objectType : { type : 'c', default : 'KalturaSubscriptionFilter' },
 				subscriptionIdIn : { type : 's' },
 				mediaFileIdEqual : { type : 'n' },
-				externalIdIn : { type : 's' }
+				externalIdIn : { type : 's' },
+				couponGroupIdEqual : { type : 'n' }
             }
         );
         return result;
