@@ -5,6 +5,7 @@ import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 export interface KalturaCollectionFilterArgs  extends KalturaFilterArgs {
     collectionIdIn? : string;
 	mediaFileIdEqual? : number;
+	couponGroupIdEqual? : number;
 }
 
 
@@ -12,6 +13,7 @@ export class KalturaCollectionFilter extends KalturaFilter {
 
     collectionIdIn : string;
 	mediaFileIdEqual : number;
+	couponGroupIdEqual : number;
 
     constructor(data? : KalturaCollectionFilterArgs)
     {
@@ -26,7 +28,8 @@ export class KalturaCollectionFilter extends KalturaFilter {
             {
                 objectType : { type : 'c', default : 'KalturaCollectionFilter' },
 				collectionIdIn : { type : 's' },
-				mediaFileIdEqual : { type : 'n' }
+				mediaFileIdEqual : { type : 'n' },
+				couponGroupIdEqual : { type : 'n' }
             }
         );
         return result;

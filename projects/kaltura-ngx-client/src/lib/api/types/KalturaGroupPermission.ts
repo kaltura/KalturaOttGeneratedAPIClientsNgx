@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaPermission, KalturaPermissionArgs } from './KalturaPermission';
 
 export interface KalturaGroupPermissionArgs  extends KalturaPermissionArgs {
-    group? : string;
+    
 }
 
 
 export class KalturaGroupPermission extends KalturaPermission {
 
-    group : string;
+    readonly group : string;
 
     constructor(data? : KalturaGroupPermissionArgs)
     {
@@ -23,7 +23,7 @@ export class KalturaGroupPermission extends KalturaPermission {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaGroupPermission' },
-				group : { type : 's' }
+				group : { type : 's', readOnly : true }
             }
         );
         return result;
