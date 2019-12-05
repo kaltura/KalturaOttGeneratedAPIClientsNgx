@@ -3,12 +3,10 @@ import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaRegionListResponse } from './KalturaRegionListResponse';
 
 import { KalturaRegionFilter } from './KalturaRegionFilter';
-import { KalturaFilterPager } from './KalturaFilterPager';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface RegionListActionArgs  extends KalturaRequestArgs {
     filter : KalturaRegionFilter;
-	pager? : KalturaFilterPager;
 }
 
 /**
@@ -22,7 +20,6 @@ export interface RegionListActionArgs  extends KalturaRequestArgs {
 export class RegionListAction extends KalturaRequest<KalturaRegionListResponse> {
 
     filter : KalturaRegionFilter;
-	pager : KalturaFilterPager;
 
     constructor(data : RegionListActionArgs)
     {
@@ -37,8 +34,7 @@ export class RegionListAction extends KalturaRequest<KalturaRegionListResponse> 
             {
                 service : { type : 'c', default : 'region' },
 				action : { type : 'c', default : 'list' },
-				filter : { type : 'o', subTypeConstructor : KalturaRegionFilter, subType : 'KalturaRegionFilter' },
-				pager : { type : 'o', subTypeConstructor : KalturaFilterPager, subType : 'KalturaFilterPager' }
+				filter : { type : 'o', subTypeConstructor : KalturaRegionFilter, subType : 'KalturaRegionFilter' }
             }
         );
         return result;
