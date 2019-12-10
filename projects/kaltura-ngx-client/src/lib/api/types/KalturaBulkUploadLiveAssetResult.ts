@@ -1,23 +1,19 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaBulkUploadProgramAssetResult } from './KalturaBulkUploadProgramAssetResult';
-import { KalturaBulkUploadResult, KalturaBulkUploadResultArgs } from './KalturaBulkUploadResult';
+import { KalturaBulkUploadMediaAssetResult, KalturaBulkUploadMediaAssetResultArgs } from './KalturaBulkUploadMediaAssetResult';
 
-export interface KalturaBulkUploadLiveAssetResultArgs  extends KalturaBulkUploadResultArgs {
+export interface KalturaBulkUploadLiveAssetResultArgs  extends KalturaBulkUploadMediaAssetResultArgs {
     
 }
 
 
-export class KalturaBulkUploadLiveAssetResult extends KalturaBulkUploadResult {
+export class KalturaBulkUploadLiveAssetResult extends KalturaBulkUploadMediaAssetResult {
 
-    readonly id : number;
-	readonly externalEpgIngestId : string;
-	readonly programs : KalturaBulkUploadProgramAssetResult[];
+    
 
     constructor(data? : KalturaBulkUploadLiveAssetResultArgs)
     {
         super(data);
-        if (typeof this.programs === 'undefined') this.programs = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -26,10 +22,7 @@ export class KalturaBulkUploadLiveAssetResult extends KalturaBulkUploadResult {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaBulkUploadLiveAssetResult' },
-				id : { type : 'n', readOnly : true },
-				externalEpgIngestId : { type : 's', readOnly : true },
-				programs : { type : 'a', readOnly : true, subTypeConstructor : KalturaBulkUploadProgramAssetResult, subType : 'KalturaBulkUploadProgramAssetResult' }
+                objectType : { type : 'c', default : 'KalturaBulkUploadLiveAssetResult' }
             }
         );
         return result;
