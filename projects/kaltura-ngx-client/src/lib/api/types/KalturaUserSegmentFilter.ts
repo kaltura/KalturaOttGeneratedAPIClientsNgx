@@ -4,12 +4,14 @@ import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
 export interface KalturaUserSegmentFilterArgs  extends KalturaFilterArgs {
     userIdEqual? : string;
+	kSql? : string;
 }
 
 
 export class KalturaUserSegmentFilter extends KalturaFilter {
 
     userIdEqual : string;
+	kSql : string;
 
     constructor(data? : KalturaUserSegmentFilterArgs)
     {
@@ -23,7 +25,8 @@ export class KalturaUserSegmentFilter extends KalturaFilter {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaUserSegmentFilter' },
-				userIdEqual : { type : 's' }
+				userIdEqual : { type : 's' },
+				kSql : { type : 's' }
             }
         );
         return result;
