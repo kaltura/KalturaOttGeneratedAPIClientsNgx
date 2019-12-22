@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaSegementAssetFilterAction, KalturaSegementAssetFilterActionArgs } from './KalturaSegementAssetFilterAction';
+import { KalturaSegmentAssetFilterAction, KalturaSegmentAssetFilterActionArgs } from './KalturaSegmentAssetFilterAction';
 
-export interface KalturaSegementAssetFilterSubscriptionActionArgs  extends KalturaSegementAssetFilterActionArgs {
+export interface KalturaSegementAssetFilterSubscriptionActionArgs  extends KalturaSegmentAssetFilterActionArgs {
     
 }
 
 
-export class KalturaSegementAssetFilterSubscriptionAction extends KalturaSegementAssetFilterAction {
+export class KalturaSegementAssetFilterSubscriptionAction extends KalturaSegmentAssetFilterAction {
 
     
 

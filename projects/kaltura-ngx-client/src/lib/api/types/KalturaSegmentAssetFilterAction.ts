@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaKsqlSegmentAction, KalturaKsqlSegmentActionArgs } from './KalturaKsqlSegmentAction';
 
-export interface KalturaSegementAssetFilterActionArgs  extends KalturaKsqlSegmentActionArgs {
+export interface KalturaSegmentAssetFilterActionArgs  extends KalturaKsqlSegmentActionArgs {
     
 }
 
 
-export class KalturaSegementAssetFilterAction extends KalturaKsqlSegmentAction {
+export class KalturaSegmentAssetFilterAction extends KalturaKsqlSegmentAction {
 
     
 
-    constructor(data? : KalturaSegementAssetFilterActionArgs)
+    constructor(data? : KalturaSegmentAssetFilterActionArgs)
     {
         super(data);
     }
@@ -22,11 +22,11 @@ export class KalturaSegementAssetFilterAction extends KalturaKsqlSegmentAction {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaSegementAssetFilterAction' }
+                objectType : { type : 'c', default : 'KalturaSegmentAssetFilterAction' }
             }
         );
         return result;
     }
 }
 
-typesMappingStorage['KalturaSegementAssetFilterAction'] = KalturaSegementAssetFilterAction;
+typesMappingStorage['KalturaSegmentAssetFilterAction'] = KalturaSegmentAssetFilterAction;
