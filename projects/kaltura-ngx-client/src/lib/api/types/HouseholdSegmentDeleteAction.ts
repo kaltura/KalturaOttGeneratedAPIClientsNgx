@@ -5,26 +5,24 @@ import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface HouseholdSegmentDeleteActionArgs  extends KalturaRequestArgs {
-    householdId : number;
-	segmentId : number;
+    id : number;
 }
 
 /**
  * Build request payload for service 'householdSegment' action 'delete'.
  *
- * Usage: Deletes a segment from a household
+ * Usage: Remove segment from household
  *
- * Server response type:         boolean
+ * Server response type:         void
  * Server failure response type: KalturaAPIException
  */
-export class HouseholdSegmentDeleteAction extends KalturaRequest<boolean> {
+export class HouseholdSegmentDeleteAction extends KalturaRequest<void> {
 
-    householdId : number;
-	segmentId : number;
+    id : number;
 
     constructor(data : HouseholdSegmentDeleteActionArgs)
     {
-        super(data, {responseType : 'b', responseSubType : '', responseConstructor : null });
+        super(data, {responseType : 'v', responseSubType : '', responseConstructor : null });
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -35,8 +33,7 @@ export class HouseholdSegmentDeleteAction extends KalturaRequest<boolean> {
             {
                 service : { type : 'c', default : 'householdsegment' },
 				action : { type : 'c', default : 'delete' },
-				householdId : { type : 'n' },
-				segmentId : { type : 'n' }
+				id : { type : 'n' }
             }
         );
         return result;
