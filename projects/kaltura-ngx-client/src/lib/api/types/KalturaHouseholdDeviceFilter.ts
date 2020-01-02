@@ -5,6 +5,7 @@ import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 export interface KalturaHouseholdDeviceFilterArgs  extends KalturaFilterArgs {
     householdIdEqual? : number;
 	deviceFamilyIdIn? : string;
+	externalIdEqual? : string;
 }
 
 
@@ -12,6 +13,7 @@ export class KalturaHouseholdDeviceFilter extends KalturaFilter {
 
     householdIdEqual : number;
 	deviceFamilyIdIn : string;
+	externalIdEqual : string;
 
     constructor(data? : KalturaHouseholdDeviceFilterArgs)
     {
@@ -26,7 +28,8 @@ export class KalturaHouseholdDeviceFilter extends KalturaFilter {
             {
                 objectType : { type : 'c', default : 'KalturaHouseholdDeviceFilter' },
 				householdIdEqual : { type : 'n' },
-				deviceFamilyIdIn : { type : 's' }
+				deviceFamilyIdIn : { type : 's' },
+				externalIdEqual : { type : 's' }
             }
         );
         return result;
