@@ -1,6 +1,7 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaBookmarkActionType } from './KalturaBookmarkActionType';
+import { KalturaTransactionType } from './KalturaTransactionType';
 import { KalturaEventObject, KalturaEventObjectArgs } from './KalturaEventObject';
 
 export interface KalturaBookmarkEventArgs  extends KalturaEventObjectArgs {
@@ -10,6 +11,8 @@ export interface KalturaBookmarkEventArgs  extends KalturaEventObjectArgs {
 	fileId? : number;
 	position? : number;
 	action? : KalturaBookmarkActionType;
+	productType? : KalturaTransactionType;
+	productId? : number;
 }
 
 
@@ -21,6 +24,8 @@ export class KalturaBookmarkEvent extends KalturaEventObject {
 	fileId : number;
 	position : number;
 	action : KalturaBookmarkActionType;
+	productType : KalturaTransactionType;
+	productId : number;
 
     constructor(data? : KalturaBookmarkEventArgs)
     {
@@ -39,7 +44,9 @@ export class KalturaBookmarkEvent extends KalturaEventObject {
 				assetId : { type : 'n' },
 				fileId : { type : 'n' },
 				position : { type : 'n' },
-				action : { type : 'es', subTypeConstructor : KalturaBookmarkActionType, subType : 'KalturaBookmarkActionType' }
+				action : { type : 'es', subTypeConstructor : KalturaBookmarkActionType, subType : 'KalturaBookmarkActionType' },
+				productType : { type : 'es', subTypeConstructor : KalturaTransactionType, subType : 'KalturaTransactionType' },
+				productId : { type : 'n' }
             }
         );
         return result;
