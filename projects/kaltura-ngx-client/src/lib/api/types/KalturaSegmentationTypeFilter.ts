@@ -1,14 +1,14 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaBaseSegmentationTypeFilter, KalturaBaseSegmentationTypeFilterArgs } from './KalturaBaseSegmentationTypeFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaSegmentationTypeFilterArgs  extends KalturaBaseSegmentationTypeFilterArgs {
+export interface KalturaSegmentationTypeFilterArgs  extends KalturaFilterArgs {
     idIn? : string;
 	kSql? : string;
 }
 
 
-export class KalturaSegmentationTypeFilter extends KalturaBaseSegmentationTypeFilter {
+export class KalturaSegmentationTypeFilter extends KalturaFilter {
 
     idIn : string;
 	kSql : string;
