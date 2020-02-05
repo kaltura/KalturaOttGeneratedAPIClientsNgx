@@ -1,8 +1,8 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaBaseRegionFilter, KalturaBaseRegionFilterArgs } from './KalturaBaseRegionFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaRegionFilterArgs  extends KalturaBaseRegionFilterArgs {
+export interface KalturaRegionFilterArgs  extends KalturaFilterArgs {
     externalIdIn? : string;
 	idIn? : string;
 	parentIdEqual? : number;
@@ -11,7 +11,7 @@ export interface KalturaRegionFilterArgs  extends KalturaBaseRegionFilterArgs {
 }
 
 
-export class KalturaRegionFilter extends KalturaBaseRegionFilter {
+export class KalturaRegionFilter extends KalturaFilter {
 
     externalIdIn : string;
 	idIn : string;
