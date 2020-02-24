@@ -2,14 +2,14 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaUnifiedChannelInfo } from './KalturaUnifiedChannelInfo';
 import { KalturaStringValue } from './KalturaStringValue';
-import { KalturaMediaImage } from './KalturaMediaImage';
+import { KalturaImage } from './KalturaImage';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaCategoryTreeArgs  extends KalturaObjectBaseArgs {
     name? : string;
 	unifiedChannels? : KalturaUnifiedChannelInfo[];
 	dynamicData? : { [key : string] : KalturaStringValue};
-	images? : KalturaMediaImage[];
+	images? : KalturaImage[];
 }
 
 
@@ -20,7 +20,7 @@ export class KalturaCategoryTree extends KalturaObjectBase {
 	readonly children : KalturaCategoryTree[];
 	unifiedChannels : KalturaUnifiedChannelInfo[];
 	dynamicData : { [key : string] : KalturaStringValue};
-	images : KalturaMediaImage[];
+	images : KalturaImage[];
 
     constructor(data? : KalturaCategoryTreeArgs)
     {
@@ -42,7 +42,7 @@ export class KalturaCategoryTree extends KalturaObjectBase {
 				children : { type : 'a', readOnly : true, subTypeConstructor : KalturaCategoryTree, subType : 'KalturaCategoryTree' },
 				unifiedChannels : { type : 'a', subTypeConstructor : KalturaUnifiedChannelInfo, subType : 'KalturaUnifiedChannelInfo' },
 				dynamicData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
-				images : { type : 'a', subTypeConstructor : KalturaMediaImage, subType : 'KalturaMediaImage' }
+				images : { type : 'a', subTypeConstructor : KalturaImage, subType : 'KalturaImage' }
             }
         );
         return result;
