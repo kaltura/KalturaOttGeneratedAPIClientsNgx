@@ -1,11 +1,12 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaUnifiedChannel } from './KalturaUnifiedChannel';
 import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaCrudObject, KalturaCrudObjectArgs } from './KalturaCrudObject';
 
 export interface KalturaCategoryItemArgs  extends KalturaCrudObjectArgs {
-    name? : string;
+    multilingualName? : KalturaTranslationToken[];
 	childrenIds? : string;
 	unifiedChannels? : KalturaUnifiedChannel[];
 	dynamicData? : { [key : string] : KalturaStringValue};
@@ -15,7 +16,8 @@ export interface KalturaCategoryItemArgs  extends KalturaCrudObjectArgs {
 export class KalturaCategoryItem extends KalturaCrudObject {
 
     readonly id : number;
-	name : string;
+	readonly name : string;
+	multilingualName : KalturaTranslationToken[];
 	readonly parentId : number;
 	childrenIds : string;
 	unifiedChannels : KalturaUnifiedChannel[];
@@ -24,7 +26,8 @@ export class KalturaCategoryItem extends KalturaCrudObject {
     constructor(data? : KalturaCategoryItemArgs)
     {
         super(data);
-        if (typeof this.unifiedChannels === 'undefined') this.unifiedChannels = [];
+        if (typeof this.multilingualName === 'undefined') this.multilingualName = [];
+		if (typeof this.unifiedChannels === 'undefined') this.unifiedChannels = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -35,7 +38,8 @@ export class KalturaCategoryItem extends KalturaCrudObject {
             {
                 objectType : { type : 'c', default : 'KalturaCategoryItem' },
 				id : { type : 'n', readOnly : true },
-				name : { type : 's' },
+				name : { type : 's', readOnly : true },
+				multilingualName : { type : 'a', subTypeConstructor : KalturaTranslationToken, subType : 'KalturaTranslationToken' },
 				parentId : { type : 'n', readOnly : true },
 				childrenIds : { type : 's' },
 				unifiedChannels : { type : 'a', subTypeConstructor : KalturaUnifiedChannel, subType : 'KalturaUnifiedChannel' },
