@@ -7,6 +7,8 @@ export interface KalturaPushMessageArgs  extends KalturaObjectBaseArgs {
 	sound? : string;
 	action? : string;
 	url? : string;
+	udid? : string;
+	pushChannels? : string;
 }
 
 
@@ -16,6 +18,8 @@ export class KalturaPushMessage extends KalturaObjectBase {
 	sound : string;
 	action : string;
 	url : string;
+	udid : string;
+	pushChannels : string;
 
     constructor(data? : KalturaPushMessageArgs)
     {
@@ -32,7 +36,9 @@ export class KalturaPushMessage extends KalturaObjectBase {
 				message : { type : 's' },
 				sound : { type : 's' },
 				action : { type : 's' },
-				url : { type : 's' }
+				url : { type : 's' },
+				udid : { type : 's' },
+				pushChannels : { type : 's' }
             }
         );
         return result;
