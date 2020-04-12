@@ -1,16 +1,16 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaDefault } from './KalturaDefault';
+import { KalturaIotDefault } from './KalturaIotDefault';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaCognitoUserPoolArgs  extends KalturaObjectBaseArgs {
-    default? : KalturaDefault;
+    iotDefault? : KalturaIotDefault;
 }
 
 
 export class KalturaCognitoUserPool extends KalturaObjectBase {
 
-    default : KalturaDefault;
+    iotDefault : KalturaIotDefault;
 
     constructor(data? : KalturaCognitoUserPoolArgs)
     {
@@ -24,7 +24,7 @@ export class KalturaCognitoUserPool extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaCognitoUserPool' },
-				default : { type : 'o', subTypeConstructor : KalturaDefault, subType : 'KalturaDefault' }
+				iotDefault : { type : 'o', subTypeConstructor : KalturaIotDefault, subType : 'KalturaIotDefault' }
             }
         );
         return result;

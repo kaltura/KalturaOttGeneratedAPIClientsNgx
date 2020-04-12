@@ -2,20 +2,20 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
-export interface KalturaDefaultArgs  extends KalturaObjectBaseArgs {
+export interface KalturaIotDefaultArgs  extends KalturaObjectBaseArgs {
     poolId? : string;
 	region? : string;
 	appClientId? : string;
 }
 
 
-export class KalturaDefault extends KalturaObjectBase {
+export class KalturaIotDefault extends KalturaObjectBase {
 
     poolId : string;
 	region : string;
 	appClientId : string;
 
-    constructor(data? : KalturaDefaultArgs)
+    constructor(data? : KalturaIotDefaultArgs)
     {
         super(data);
     }
@@ -26,7 +26,7 @@ export class KalturaDefault extends KalturaObjectBase {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaDefault' },
+                objectType : { type : 'c', default : 'KalturaIotDefault' },
 				poolId : { type : 's' },
 				region : { type : 's' },
 				appClientId : { type : 's' }
@@ -36,4 +36,4 @@ export class KalturaDefault extends KalturaObjectBase {
     }
 }
 
-typesMappingStorage['KalturaDefault'] = KalturaDefault;
+typesMappingStorage['KalturaIotDefault'] = KalturaIotDefault;
