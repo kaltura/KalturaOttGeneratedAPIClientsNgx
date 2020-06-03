@@ -1,15 +1,15 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaChannelType } from './KalturaChannelType';
-import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaUnifiedChannelArgs  extends KalturaObjectBaseArgs {
+export interface KalturaUnifiedChannelArgs  extends KalturaOTTObjectSupportNullableArgs {
     id? : number;
 	type? : KalturaChannelType;
 }
 
 
-export class KalturaUnifiedChannel extends KalturaObjectBase {
+export class KalturaUnifiedChannel extends KalturaOTTObjectSupportNullable {
 
     id : number;
 	type : KalturaChannelType;
