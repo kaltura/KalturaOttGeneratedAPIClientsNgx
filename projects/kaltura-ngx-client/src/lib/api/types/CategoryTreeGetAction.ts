@@ -6,7 +6,6 @@ import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface CategoryTreeGetActionArgs  extends KalturaRequestArgs {
     categoryItemId : number;
-	filter? : boolean;
 }
 
 /**
@@ -20,12 +19,10 @@ export interface CategoryTreeGetActionArgs  extends KalturaRequestArgs {
 export class CategoryTreeGetAction extends KalturaRequest<KalturaCategoryTree> {
 
     categoryItemId : number;
-	filter : boolean;
 
     constructor(data : CategoryTreeGetActionArgs)
     {
         super(data, {responseType : 'o', responseSubType : 'KalturaCategoryTree', responseConstructor : KalturaCategoryTree  });
-        if (typeof this.filter === 'undefined') this.filter = false;
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -36,8 +33,7 @@ export class CategoryTreeGetAction extends KalturaRequest<KalturaCategoryTree> {
             {
                 service : { type : 'c', default : 'categorytree' },
 				action : { type : 'c', default : 'get' },
-				categoryItemId : { type : 'n' },
-				filter : { type : 'b' }
+				categoryItemId : { type : 'n' }
             }
         );
         return result;
