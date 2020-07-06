@@ -5,20 +5,20 @@ import { KalturaAssetHistory } from './KalturaAssetHistory';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface AssetHistoryGetNextEpisodeActionArgs  extends KalturaRequestArgs {
-    seriesId : string;
+    assetId : number;
 }
 
 /**
  * Build request payload for service 'assetHistory' action 'getNextEpisode'.
  *
- * Usage: Get next episode by last watch asset in given seriesId
+ * Usage: Get next episode by last watch asset in given assetId
  *
  * Server response type:         KalturaAssetHistory
  * Server failure response type: KalturaAPIException
  */
 export class AssetHistoryGetNextEpisodeAction extends KalturaRequest<KalturaAssetHistory> {
 
-    seriesId : string;
+    assetId : number;
 
     constructor(data : AssetHistoryGetNextEpisodeActionArgs)
     {
@@ -33,7 +33,7 @@ export class AssetHistoryGetNextEpisodeAction extends KalturaRequest<KalturaAsse
             {
                 service : { type : 'c', default : 'assethistory' },
 				action : { type : 'c', default : 'getNextEpisode' },
-				seriesId : { type : 's' }
+				assetId : { type : 'n' }
             }
         );
         return result;
