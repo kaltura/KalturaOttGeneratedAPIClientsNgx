@@ -1,6 +1,7 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaHouseholdPaymentGatewaySelectedBy } from './KalturaHouseholdPaymentGatewaySelectedBy';
+import { KalturaSuspendSettings } from './KalturaSuspendSettings';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaHouseholdPaymentGatewayArgs  extends KalturaObjectBaseArgs {
@@ -16,6 +17,7 @@ export class KalturaHouseholdPaymentGateway extends KalturaObjectBase {
 	name : string;
 	isDefault : boolean;
 	selectedBy : KalturaHouseholdPaymentGatewaySelectedBy;
+	readonly suspendSettings : KalturaSuspendSettings;
 
     constructor(data? : KalturaHouseholdPaymentGatewayArgs)
     {
@@ -32,7 +34,8 @@ export class KalturaHouseholdPaymentGateway extends KalturaObjectBase {
 				id : { type : 'n', readOnly : true },
 				name : { type : 's' },
 				isDefault : { type : 'b' },
-				selectedBy : { type : 'es', subTypeConstructor : KalturaHouseholdPaymentGatewaySelectedBy, subType : 'KalturaHouseholdPaymentGatewaySelectedBy' }
+				selectedBy : { type : 'es', subTypeConstructor : KalturaHouseholdPaymentGatewaySelectedBy, subType : 'KalturaHouseholdPaymentGatewaySelectedBy' },
+				suspendSettings : { type : 'o', readOnly : true, subTypeConstructor : KalturaSuspendSettings, subType : 'KalturaSuspendSettings' }
             }
         );
         return result;
