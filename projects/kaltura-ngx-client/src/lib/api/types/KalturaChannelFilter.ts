@@ -1,16 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaBaseSearchAssetFilter, KalturaBaseSearchAssetFilterArgs } from './KalturaBaseSearchAssetFilter';
+import { KalturaAssetFilter, KalturaAssetFilterArgs } from './KalturaAssetFilter';
 
-export interface KalturaChannelFilterArgs  extends KalturaBaseSearchAssetFilterArgs {
+export interface KalturaChannelFilterArgs  extends KalturaAssetFilterArgs {
     idEqual? : number;
+	kSql? : string;
 	excludeWatched? : boolean;
 }
 
 
-export class KalturaChannelFilter extends KalturaBaseSearchAssetFilter {
+export class KalturaChannelFilter extends KalturaAssetFilter {
 
     idEqual : number;
+	kSql : string;
 	excludeWatched : boolean;
 
     constructor(data? : KalturaChannelFilterArgs)
@@ -26,6 +28,7 @@ export class KalturaChannelFilter extends KalturaBaseSearchAssetFilter {
             {
                 objectType : { type : 'c', default : 'KalturaChannelFilter' },
 				idEqual : { type : 'n' },
+				kSql : { type : 's' },
 				excludeWatched : { type : 'b' }
             }
         );
