@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaBaseChannelArgs  extends KalturaObjectBaseArgs {
+export interface KalturaBaseChannelArgs  extends KalturaOTTObjectSupportNullableArgs {
     
 }
 
 
-export class KalturaBaseChannel extends KalturaObjectBase {
+export class KalturaBaseChannel extends KalturaOTTObjectSupportNullable {
 
     readonly id : number;
 
