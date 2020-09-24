@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaDynamicListFilter, KalturaDynamicListFilterArgs } from './KalturaDynamicListFilter';
+import { KalturaDynamicListSearchFilter, KalturaDynamicListSearchFilterArgs } from './KalturaDynamicListSearchFilter';
 
-export interface KalturaUdidDynamicListSearchFilterArgs  extends KalturaDynamicListFilterArgs {
+export interface KalturaUdidDynamicListSearchFilterArgs  extends KalturaDynamicListSearchFilterArgs {
     
 }
 
 
-export class KalturaUdidDynamicListSearchFilter extends KalturaDynamicListFilter {
+export class KalturaUdidDynamicListSearchFilter extends KalturaDynamicListSearchFilter {
 
     
 
