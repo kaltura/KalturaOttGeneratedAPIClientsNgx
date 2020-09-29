@@ -17,6 +17,7 @@ export interface KalturaPaymentGatewayProfileArgs  extends KalturaPaymentGateway
 	renewIntervalMinutes? : number;
 	renewStartMinutes? : number;
 	externalVerification? : boolean;
+	isAsyncPolicy? : boolean;
 }
 
 
@@ -35,6 +36,7 @@ export class KalturaPaymentGatewayProfile extends KalturaPaymentGatewayBaseProfi
 	renewIntervalMinutes : number;
 	renewStartMinutes : number;
 	externalVerification : boolean;
+	isAsyncPolicy : boolean;
 
     constructor(data? : KalturaPaymentGatewayProfileArgs)
     {
@@ -60,7 +62,8 @@ export class KalturaPaymentGatewayProfile extends KalturaPaymentGatewayBaseProfi
 				sharedSecret : { type : 's' },
 				renewIntervalMinutes : { type : 'n' },
 				renewStartMinutes : { type : 'n' },
-				externalVerification : { type : 'b' }
+				externalVerification : { type : 'b' },
+				isAsyncPolicy : { type : 'b' }
             }
         );
         return result;
