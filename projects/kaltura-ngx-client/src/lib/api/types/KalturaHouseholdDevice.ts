@@ -13,7 +13,7 @@ export interface KalturaHouseholdDeviceArgs  extends KalturaOTTObjectSupportNull
 	externalId? : string;
 	macAddress? : string;
 	model? : string;
-	manufacturerId? : number;
+	manufacturer? : string;
 }
 
 
@@ -30,7 +30,8 @@ export class KalturaHouseholdDevice extends KalturaOTTObjectSupportNullable {
 	externalId : string;
 	macAddress : string;
 	model : string;
-	manufacturerId : number;
+	manufacturer : string;
+	readonly manufacturerId : number;
 
     constructor(data? : KalturaHouseholdDeviceArgs)
     {
@@ -55,7 +56,8 @@ export class KalturaHouseholdDevice extends KalturaOTTObjectSupportNullable {
 				externalId : { type : 's' },
 				macAddress : { type : 's' },
 				model : { type : 's' },
-				manufacturerId : { type : 'n' }
+				manufacturer : { type : 's' },
+				manufacturerId : { type : 'n', readOnly : true }
             }
         );
         return result;
