@@ -1,6 +1,5 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaPrice } from './KalturaPrice';
 import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaIntegerValue } from './KalturaIntegerValue';
 import { KalturaProductPrice, KalturaProductPriceArgs } from './KalturaProductPrice';
@@ -9,7 +8,6 @@ export interface KalturaPpvPriceArgs  extends KalturaProductPriceArgs {
     fileId? : number;
 	ppvModuleId? : string;
 	isSubscriptionOnly? : boolean;
-	fullPrice? : KalturaPrice;
 	subscriptionId? : string;
 	collectionId? : string;
 	prePaidId? : string;
@@ -31,7 +29,6 @@ export class KalturaPpvPrice extends KalturaProductPrice {
     fileId : number;
 	ppvModuleId : string;
 	isSubscriptionOnly : boolean;
-	fullPrice : KalturaPrice;
 	subscriptionId : string;
 	collectionId : string;
 	prePaidId : string;
@@ -63,7 +60,6 @@ export class KalturaPpvPrice extends KalturaProductPrice {
 				fileId : { type : 'n' },
 				ppvModuleId : { type : 's' },
 				isSubscriptionOnly : { type : 'b' },
-				fullPrice : { type : 'o', subTypeConstructor : KalturaPrice, subType : 'KalturaPrice' },
 				subscriptionId : { type : 's' },
 				collectionId : { type : 's' },
 				prePaidId : { type : 's' },
