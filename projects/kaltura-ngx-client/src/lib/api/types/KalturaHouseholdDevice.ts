@@ -32,6 +32,7 @@ export class KalturaHouseholdDevice extends KalturaOTTObjectSupportNullable {
 	model : string;
 	manufacturer : string;
 	readonly manufacturerId : number;
+	readonly lastActivityTime : number;
 
     constructor(data? : KalturaHouseholdDeviceArgs)
     {
@@ -57,7 +58,8 @@ export class KalturaHouseholdDevice extends KalturaOTTObjectSupportNullable {
 				macAddress : { type : 's' },
 				model : { type : 's' },
 				manufacturer : { type : 's' },
-				manufacturerId : { type : 'n', readOnly : true }
+				manufacturerId : { type : 'n', readOnly : true },
+				lastActivityTime : { type : 'n', readOnly : true }
             }
         );
         return result;
