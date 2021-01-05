@@ -13,7 +13,6 @@ export interface KalturaCategoryItemArgs  extends KalturaCrudObjectArgs {
 	isActive? : boolean;
 	startDateInSeconds? : number;
 	endDateInSeconds? : number;
-	type? : string;
 }
 
 
@@ -30,7 +29,6 @@ export class KalturaCategoryItem extends KalturaCrudObject {
 	isActive : boolean;
 	startDateInSeconds : number;
 	endDateInSeconds : number;
-	type : string;
 
     constructor(data? : KalturaCategoryItemArgs)
     {
@@ -56,8 +54,7 @@ export class KalturaCategoryItem extends KalturaCrudObject {
 				updateDate : { type : 'n', readOnly : true },
 				isActive : { type : 'b' },
 				startDateInSeconds : { type : 'n' },
-				endDateInSeconds : { type : 'n' },
-				type : { type : 's' }
+				endDateInSeconds : { type : 'n' }
             }
         );
         return result;
