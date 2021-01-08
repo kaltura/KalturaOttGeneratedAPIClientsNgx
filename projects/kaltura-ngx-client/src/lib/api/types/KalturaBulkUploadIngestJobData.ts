@@ -4,12 +4,14 @@ import { KalturaBulkUploadJobData, KalturaBulkUploadJobDataArgs } from './Kaltur
 
 export interface KalturaBulkUploadIngestJobDataArgs  extends KalturaBulkUploadJobDataArgs {
     ingestProfileId? : number;
+	disableEpgNotification? : boolean;
 }
 
 
 export class KalturaBulkUploadIngestJobData extends KalturaBulkUploadJobData {
 
     ingestProfileId : number;
+	disableEpgNotification : boolean;
 
     constructor(data? : KalturaBulkUploadIngestJobDataArgs)
     {
@@ -23,7 +25,8 @@ export class KalturaBulkUploadIngestJobData extends KalturaBulkUploadJobData {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaBulkUploadIngestJobData' },
-				ingestProfileId : { type : 'n' }
+				ingestProfileId : { type : 'n' },
+				disableEpgNotification : { type : 'b' }
             }
         );
         return result;

@@ -31,7 +31,6 @@ export class KalturaCategoryItem extends KalturaCrudObject {
 	startDateInSeconds : number;
 	endDateInSeconds : number;
 	type : string;
-	readonly versionId : number;
 
     constructor(data? : KalturaCategoryItemArgs)
     {
@@ -58,8 +57,7 @@ export class KalturaCategoryItem extends KalturaCrudObject {
 				isActive : { type : 'b' },
 				startDateInSeconds : { type : 'n' },
 				endDateInSeconds : { type : 'n' },
-				type : { type : 's' },
-				versionId : { type : 'n', readOnly : true }
+				type : { type : 's' }
             }
         );
         return result;
