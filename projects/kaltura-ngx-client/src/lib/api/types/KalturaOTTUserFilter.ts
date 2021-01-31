@@ -7,6 +7,7 @@ export interface KalturaOTTUserFilterArgs  extends KalturaFilterArgs {
 	externalIdEqual? : string;
 	idIn? : string;
 	roleIdsIn? : string;
+	emailEqual? : string;
 }
 
 
@@ -16,6 +17,7 @@ export class KalturaOTTUserFilter extends KalturaFilter {
 	externalIdEqual : string;
 	idIn : string;
 	roleIdsIn : string;
+	emailEqual : string;
 
     constructor(data? : KalturaOTTUserFilterArgs)
     {
@@ -32,7 +34,8 @@ export class KalturaOTTUserFilter extends KalturaFilter {
 				usernameEqual : { type : 's' },
 				externalIdEqual : { type : 's' },
 				idIn : { type : 's' },
-				roleIdsIn : { type : 's' }
+				roleIdsIn : { type : 's' },
+				emailEqual : { type : 's' }
             }
         );
         return result;
