@@ -1,18 +1,15 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCategoryManagement } from './KalturaCategoryManagement';
 import { KalturaPartnerConfiguration, KalturaPartnerConfigurationArgs } from './KalturaPartnerConfiguration';
 
 export interface KalturaCatalogPartnerConfigArgs  extends KalturaPartnerConfigurationArgs {
     singleMultilingualMode? : boolean;
-	categoryManagement? : KalturaCategoryManagement;
 }
 
 
 export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
 
     singleMultilingualMode : boolean;
-	categoryManagement : KalturaCategoryManagement;
 
     constructor(data? : KalturaCatalogPartnerConfigArgs)
     {
@@ -26,8 +23,7 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaCatalogPartnerConfig' },
-				singleMultilingualMode : { type : 'b' },
-				categoryManagement : { type : 'o', subTypeConstructor : KalturaCategoryManagement, subType : 'KalturaCategoryManagement' }
+				singleMultilingualMode : { type : 'b' }
             }
         );
         return result;
