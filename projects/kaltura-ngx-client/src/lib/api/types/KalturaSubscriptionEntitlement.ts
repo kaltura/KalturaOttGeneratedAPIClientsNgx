@@ -1,6 +1,5 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaEntitlementPriceDetails } from './KalturaEntitlementPriceDetails';
 import { KalturaEntitlement, KalturaEntitlementArgs } from './KalturaEntitlement';
 
 export interface KalturaSubscriptionEntitlementArgs  extends KalturaEntitlementArgs {
@@ -20,7 +19,6 @@ export class KalturaSubscriptionEntitlement extends KalturaEntitlement {
 	readonly scheduledSubscriptionId : number;
 	readonly unifiedPaymentId : number;
 	readonly isSuspended : boolean;
-	readonly priceDetails : KalturaEntitlementPriceDetails;
 
     constructor(data? : KalturaSubscriptionEntitlementArgs)
     {
@@ -42,8 +40,7 @@ export class KalturaSubscriptionEntitlement extends KalturaEntitlement {
 				paymentMethodId : { type : 'n' },
 				scheduledSubscriptionId : { type : 'n', readOnly : true },
 				unifiedPaymentId : { type : 'n', readOnly : true },
-				isSuspended : { type : 'b', readOnly : true },
-				priceDetails : { type : 'o', readOnly : true, subTypeConstructor : KalturaEntitlementPriceDetails, subType : 'KalturaEntitlementPriceDetails' }
+				isSuspended : { type : 'b', readOnly : true }
             }
         );
         return result;
