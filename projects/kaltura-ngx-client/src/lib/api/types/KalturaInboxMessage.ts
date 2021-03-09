@@ -19,7 +19,6 @@ export class KalturaInboxMessage extends KalturaObjectBase {
 	type : KalturaInboxMessageType;
 	readonly createdAt : number;
 	url : string;
-	readonly campaignId : number;
 
     constructor(data? : KalturaInboxMessageArgs)
     {
@@ -38,8 +37,7 @@ export class KalturaInboxMessage extends KalturaObjectBase {
 				status : { type : 'es', readOnly : true, subTypeConstructor : KalturaInboxMessageStatus, subType : 'KalturaInboxMessageStatus' },
 				type : { type : 'es', subTypeConstructor : KalturaInboxMessageType, subType : 'KalturaInboxMessageType' },
 				createdAt : { type : 'n', readOnly : true },
-				url : { type : 's' },
-				campaignId : { type : 'n', readOnly : true }
+				url : { type : 's' }
             }
         );
         return result;
