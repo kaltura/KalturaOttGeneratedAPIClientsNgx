@@ -6,6 +6,7 @@ import { KalturaPartnerConfiguration, KalturaPartnerConfigurationArgs } from './
 export interface KalturaCatalogPartnerConfigArgs  extends KalturaPartnerConfigurationArgs {
     singleMultilingualMode? : boolean;
 	categoryManagement? : KalturaCategoryManagement;
+	epgMultilingualFallbackSupport? : boolean;
 }
 
 
@@ -13,6 +14,7 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
 
     singleMultilingualMode : boolean;
 	categoryManagement : KalturaCategoryManagement;
+	epgMultilingualFallbackSupport : boolean;
 
     constructor(data? : KalturaCatalogPartnerConfigArgs)
     {
@@ -27,7 +29,8 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
             {
                 objectType : { type : 'c', default : 'KalturaCatalogPartnerConfig' },
 				singleMultilingualMode : { type : 'b' },
-				categoryManagement : { type : 'o', subTypeConstructor : KalturaCategoryManagement, subType : 'KalturaCategoryManagement' }
+				categoryManagement : { type : 'o', subTypeConstructor : KalturaCategoryManagement, subType : 'KalturaCategoryManagement' },
+				epgMultilingualFallbackSupport : { type : 'b' }
             }
         );
         return result;
