@@ -9,7 +9,6 @@ export interface KalturaIotClientConfigurationArgs  extends KalturaObjectBaseArg
 	credentialsProvider? : KalturaCredentialsProvider;
 	cognitoUserPool? : KalturaCognitoUserPool;
 	json? : string;
-	topics? : string;
 }
 
 
@@ -19,7 +18,6 @@ export class KalturaIotClientConfiguration extends KalturaObjectBase {
 	credentialsProvider : KalturaCredentialsProvider;
 	cognitoUserPool : KalturaCognitoUserPool;
 	json : string;
-	topics : string;
 
     constructor(data? : KalturaIotClientConfigurationArgs)
     {
@@ -36,8 +34,7 @@ export class KalturaIotClientConfiguration extends KalturaObjectBase {
 				announcementTopic : { type : 's' },
 				credentialsProvider : { type : 'o', subTypeConstructor : KalturaCredentialsProvider, subType : 'KalturaCredentialsProvider' },
 				cognitoUserPool : { type : 'o', subTypeConstructor : KalturaCognitoUserPool, subType : 'KalturaCognitoUserPool' },
-				json : { type : 's' },
-				topics : { type : 's' }
+				json : { type : 's' }
             }
         );
         return result;
