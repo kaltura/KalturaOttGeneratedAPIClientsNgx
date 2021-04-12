@@ -6,7 +6,8 @@ export interface KalturaEpgNotificationSettingsArgs  extends KalturaObjectBaseAr
     enabled? : boolean;
 	deviceFamilyIds? : string;
 	liveAssetIds? : string;
-	timeRange? : number;
+	backwardTimeRange? : number;
+	forwardTimeRange? : number;
 }
 
 
@@ -15,7 +16,8 @@ export class KalturaEpgNotificationSettings extends KalturaObjectBase {
     enabled : boolean;
 	deviceFamilyIds : string;
 	liveAssetIds : string;
-	timeRange : number;
+	backwardTimeRange : number;
+	forwardTimeRange : number;
 
     constructor(data? : KalturaEpgNotificationSettingsArgs)
     {
@@ -32,7 +34,8 @@ export class KalturaEpgNotificationSettings extends KalturaObjectBase {
 				enabled : { type : 'b' },
 				deviceFamilyIds : { type : 's' },
 				liveAssetIds : { type : 's' },
-				timeRange : { type : 'n' }
+				backwardTimeRange : { type : 'n' },
+				forwardTimeRange : { type : 'n' }
             }
         );
         return result;
