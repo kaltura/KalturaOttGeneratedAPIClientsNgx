@@ -6,8 +6,6 @@ import { KalturaPartnerConfiguration, KalturaPartnerConfigurationArgs } from './
 export interface KalturaConcurrencyPartnerConfigArgs  extends KalturaPartnerConfigurationArgs {
     deviceFamilyIds? : string;
 	evictionPolicy? : KalturaEvictionPolicyType;
-	concurrencyThresholdInSeconds? : number;
-	revokeOnDeviceDelete? : boolean;
 }
 
 
@@ -15,8 +13,6 @@ export class KalturaConcurrencyPartnerConfig extends KalturaPartnerConfiguration
 
     deviceFamilyIds : string;
 	evictionPolicy : KalturaEvictionPolicyType;
-	concurrencyThresholdInSeconds : number;
-	revokeOnDeviceDelete : boolean;
 
     constructor(data? : KalturaConcurrencyPartnerConfigArgs)
     {
@@ -31,9 +27,7 @@ export class KalturaConcurrencyPartnerConfig extends KalturaPartnerConfiguration
             {
                 objectType : { type : 'c', default : 'KalturaConcurrencyPartnerConfig' },
 				deviceFamilyIds : { type : 's' },
-				evictionPolicy : { type : 'es', subTypeConstructor : KalturaEvictionPolicyType, subType : 'KalturaEvictionPolicyType' },
-				concurrencyThresholdInSeconds : { type : 'n' },
-				revokeOnDeviceDelete : { type : 'b' }
+				evictionPolicy : { type : 'es', subTypeConstructor : KalturaEvictionPolicyType, subType : 'KalturaEvictionPolicyType' }
             }
         );
         return result;

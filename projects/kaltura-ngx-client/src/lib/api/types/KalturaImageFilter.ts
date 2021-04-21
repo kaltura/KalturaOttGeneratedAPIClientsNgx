@@ -8,7 +8,6 @@ export interface KalturaImageFilterArgs  extends KalturaFilterArgs {
 	imageObjectIdEqual? : number;
 	imageObjectTypeEqual? : KalturaImageObjectType;
 	isDefaultEqual? : boolean;
-	imageObjectIdIn? : string;
 }
 
 
@@ -18,7 +17,6 @@ export class KalturaImageFilter extends KalturaFilter {
 	imageObjectIdEqual : number;
 	imageObjectTypeEqual : KalturaImageObjectType;
 	isDefaultEqual : boolean;
-	imageObjectIdIn : string;
 
     constructor(data? : KalturaImageFilterArgs)
     {
@@ -35,8 +33,7 @@ export class KalturaImageFilter extends KalturaFilter {
 				idIn : { type : 's' },
 				imageObjectIdEqual : { type : 'n' },
 				imageObjectTypeEqual : { type : 'es', subTypeConstructor : KalturaImageObjectType, subType : 'KalturaImageObjectType' },
-				isDefaultEqual : { type : 'b' },
-				imageObjectIdIn : { type : 's' }
+				isDefaultEqual : { type : 'b' }
             }
         );
         return result;

@@ -8,7 +8,6 @@ export interface KalturaRegionFilterArgs  extends KalturaBaseRegionFilterArgs {
 	parentIdEqual? : number;
 	liveAssetIdEqual? : number;
 	parentOnly? : boolean;
-	exclusiveLcn? : boolean;
 }
 
 
@@ -19,7 +18,6 @@ export class KalturaRegionFilter extends KalturaBaseRegionFilter {
 	parentIdEqual : number;
 	liveAssetIdEqual : number;
 	parentOnly : boolean;
-	exclusiveLcn : boolean;
 
     constructor(data? : KalturaRegionFilterArgs)
     {
@@ -37,8 +35,7 @@ export class KalturaRegionFilter extends KalturaBaseRegionFilter {
 				idIn : { type : 's' },
 				parentIdEqual : { type : 'n' },
 				liveAssetIdEqual : { type : 'n' },
-				parentOnly : { type : 'b' },
-				exclusiveLcn : { type : 'b' }
+				parentOnly : { type : 'b' }
             }
         );
         return result;

@@ -8,7 +8,6 @@ export interface KalturaAssetHistoryFilterArgs  extends KalturaFilterArgs {
 	assetIdIn? : string;
 	statusEqual? : KalturaWatchStatus;
 	daysLessThanOrEqual? : number;
-	kSql? : string;
 }
 
 
@@ -18,7 +17,6 @@ export class KalturaAssetHistoryFilter extends KalturaFilter {
 	assetIdIn : string;
 	statusEqual : KalturaWatchStatus;
 	daysLessThanOrEqual : number;
-	kSql : string;
 
     constructor(data? : KalturaAssetHistoryFilterArgs)
     {
@@ -35,8 +33,7 @@ export class KalturaAssetHistoryFilter extends KalturaFilter {
 				typeIn : { type : 's' },
 				assetIdIn : { type : 's' },
 				statusEqual : { type : 'es', subTypeConstructor : KalturaWatchStatus, subType : 'KalturaWatchStatus' },
-				daysLessThanOrEqual : { type : 'n' },
-				kSql : { type : 's' }
+				daysLessThanOrEqual : { type : 'n' }
             }
         );
         return result;
