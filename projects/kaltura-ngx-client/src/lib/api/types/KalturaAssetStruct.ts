@@ -1,7 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTranslationToken } from './KalturaTranslationToken';
-import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaAssetStructArgs  extends KalturaObjectBaseArgs {
@@ -14,7 +13,6 @@ export interface KalturaAssetStructArgs  extends KalturaObjectBaseArgs {
 	parentId? : number;
 	connectingMetaId? : number;
 	connectedParentMetaId? : number;
-	dynamicData? : { [key : string] : KalturaStringValue};
 }
 
 
@@ -33,7 +31,6 @@ export class KalturaAssetStruct extends KalturaObjectBase {
 	parentId : number;
 	connectingMetaId : number;
 	connectedParentMetaId : number;
-	dynamicData : { [key : string] : KalturaStringValue};
 
     constructor(data? : KalturaAssetStructArgs)
     {
@@ -60,8 +57,7 @@ export class KalturaAssetStruct extends KalturaObjectBase {
 				pluralName : { type : 's' },
 				parentId : { type : 'n' },
 				connectingMetaId : { type : 'n' },
-				connectedParentMetaId : { type : 'n' },
-				dynamicData : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
+				connectedParentMetaId : { type : 'n' }
             }
         );
         return result;
