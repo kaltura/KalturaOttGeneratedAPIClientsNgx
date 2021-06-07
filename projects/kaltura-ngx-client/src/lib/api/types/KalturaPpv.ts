@@ -9,8 +9,7 @@ import { KalturaUsageModule } from './KalturaUsageModule';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaPpvArgs  extends KalturaObjectBaseArgs {
-    id? : string;
-	name? : string;
+    name? : string;
 	price? : KalturaPriceDetails;
 	fileTypes? : KalturaIntegerValue[];
 	discountModule? : KalturaDiscountModule;
@@ -25,7 +24,7 @@ export interface KalturaPpvArgs  extends KalturaObjectBaseArgs {
 
 export class KalturaPpv extends KalturaObjectBase {
 
-    id : string;
+    readonly id : string;
 	name : string;
 	price : KalturaPriceDetails;
 	fileTypes : KalturaIntegerValue[];
@@ -51,7 +50,7 @@ export class KalturaPpv extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaPpv' },
-				id : { type : 's' },
+				id : { type : 's', readOnly : true },
 				name : { type : 's' },
 				price : { type : 'o', subTypeConstructor : KalturaPriceDetails, subType : 'KalturaPriceDetails' },
 				fileTypes : { type : 'a', subTypeConstructor : KalturaIntegerValue, subType : 'KalturaIntegerValue' },
