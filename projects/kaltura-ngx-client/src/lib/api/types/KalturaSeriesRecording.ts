@@ -2,6 +2,7 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaRecordingType } from './KalturaRecordingType';
 import { KalturaIntegerValue } from './KalturaIntegerValue';
+import { KalturaSeriesRecordingOption } from './KalturaSeriesRecordingOption';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaSeriesRecordingArgs  extends KalturaObjectBaseArgs {
@@ -24,6 +25,7 @@ export class KalturaSeriesRecording extends KalturaObjectBase {
 	readonly createDate : number;
 	readonly updateDate : number;
 	readonly excludedSeasons : KalturaIntegerValue[];
+	readonly seriesRecordingOption : KalturaSeriesRecordingOption;
 
     constructor(data? : KalturaSeriesRecordingArgs)
     {
@@ -46,7 +48,8 @@ export class KalturaSeriesRecording extends KalturaObjectBase {
 				type : { type : 'es', subTypeConstructor : KalturaRecordingType, subType : 'KalturaRecordingType' },
 				createDate : { type : 'n', readOnly : true },
 				updateDate : { type : 'n', readOnly : true },
-				excludedSeasons : { type : 'a', readOnly : true, subTypeConstructor : KalturaIntegerValue, subType : 'KalturaIntegerValue' }
+				excludedSeasons : { type : 'a', readOnly : true, subTypeConstructor : KalturaIntegerValue, subType : 'KalturaIntegerValue' },
+				seriesRecordingOption : { type : 'es', readOnly : true, subTypeConstructor : KalturaSeriesRecordingOption, subType : 'KalturaSeriesRecordingOption' }
             }
         );
         return result;
