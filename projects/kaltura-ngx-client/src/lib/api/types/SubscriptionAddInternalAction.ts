@@ -4,23 +4,23 @@ import { KalturaSubscriptionInternal } from './KalturaSubscriptionInternal';
 
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
-export interface SubscriptionAddActionArgs  extends KalturaRequestArgs {
+export interface SubscriptionAddInternalActionArgs  extends KalturaRequestArgs {
     subscription : KalturaSubscriptionInternal;
 }
 
 /**
- * Build request payload for service 'subscription' action 'add'.
+ * Build request payload for service 'subscription' action 'addInternal'.
  *
  * Usage: Internal API !!! Insert new subscription for partner
  *
  * Server response type:         KalturaSubscriptionInternal
  * Server failure response type: KalturaAPIException
  */
-export class SubscriptionAddAction extends KalturaRequest<KalturaSubscriptionInternal> {
+export class SubscriptionAddInternalAction extends KalturaRequest<KalturaSubscriptionInternal> {
 
     subscription : KalturaSubscriptionInternal;
 
-    constructor(data : SubscriptionAddActionArgs)
+    constructor(data : SubscriptionAddInternalActionArgs)
     {
         super(data, {responseType : 'o', responseSubType : 'KalturaSubscriptionInternal', responseConstructor : KalturaSubscriptionInternal  });
     }
@@ -32,7 +32,7 @@ export class SubscriptionAddAction extends KalturaRequest<KalturaSubscriptionInt
             result.properties,
             {
                 service : { type : 'c', default : 'subscription' },
-				action : { type : 'c', default : 'add' },
+				action : { type : 'c', default : 'addInternal' },
 				subscription : { type : 'o', subTypeConstructor : KalturaSubscriptionInternal, subType : 'KalturaSubscriptionInternal' }
             }
         );
