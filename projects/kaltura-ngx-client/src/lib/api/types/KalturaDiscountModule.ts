@@ -3,8 +3,7 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaDiscountModuleArgs  extends KalturaObjectBaseArgs {
-    id? : number;
-	percent? : number;
+    percent? : number;
 	startDate? : number;
 	endDate? : number;
 }
@@ -12,8 +11,7 @@ export interface KalturaDiscountModuleArgs  extends KalturaObjectBaseArgs {
 
 export class KalturaDiscountModule extends KalturaObjectBase {
 
-    id : number;
-	percent : number;
+    percent : number;
 	startDate : number;
 	endDate : number;
 
@@ -29,7 +27,6 @@ export class KalturaDiscountModule extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaDiscountModule' },
-				id : { type : 'n' },
 				percent : { type : 'n' },
 				startDate : { type : 'n' },
 				endDate : { type : 'n' }

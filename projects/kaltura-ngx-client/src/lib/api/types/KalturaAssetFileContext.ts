@@ -12,7 +12,6 @@ export class KalturaAssetFileContext extends KalturaObjectBase {
     readonly viewLifeCycle : string;
 	readonly fullLifeCycle : string;
 	readonly isOfflinePlayBack : boolean;
-	readonly isLivePlayBack : boolean;
 
     constructor(data? : KalturaAssetFileContextArgs)
     {
@@ -28,8 +27,7 @@ export class KalturaAssetFileContext extends KalturaObjectBase {
                 objectType : { type : 'c', default : 'KalturaAssetFileContext' },
 				viewLifeCycle : { type : 's', readOnly : true },
 				fullLifeCycle : { type : 's', readOnly : true },
-				isOfflinePlayBack : { type : 'b', readOnly : true },
-				isLivePlayBack : { type : 'b', readOnly : true }
+				isOfflinePlayBack : { type : 'b', readOnly : true }
             }
         );
         return result;
