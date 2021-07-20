@@ -26,6 +26,7 @@ export interface KalturaMediaFileArgs  extends KalturaAssetFileArgs {
 	catalogEndDate? : number;
 	opl? : string;
 	businessModuleDetails? : KalturaBusinessModuleDetails;
+	labels? : string;
 }
 
 
@@ -55,6 +56,7 @@ export class KalturaMediaFile extends KalturaAssetFile {
 	catalogEndDate : number;
 	opl : string;
 	businessModuleDetails : KalturaBusinessModuleDetails;
+	labels : string;
 
     constructor(data? : KalturaMediaFileArgs)
     {
@@ -91,7 +93,8 @@ export class KalturaMediaFile extends KalturaAssetFile {
 				status : { type : 'b' },
 				catalogEndDate : { type : 'n' },
 				opl : { type : 's' },
-				businessModuleDetails : { type : 'o', subTypeConstructor : KalturaBusinessModuleDetails, subType : 'KalturaBusinessModuleDetails' }
+				businessModuleDetails : { type : 'o', subTypeConstructor : KalturaBusinessModuleDetails, subType : 'KalturaBusinessModuleDetails' },
+				labels : { type : 's' }
             }
         );
         return result;
