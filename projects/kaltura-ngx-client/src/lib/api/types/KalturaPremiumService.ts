@@ -3,13 +3,14 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaPremiumServiceArgs  extends KalturaObjectBaseArgs {
-    name? : string;
+    id? : number;
+	name? : string;
 }
 
 
 export class KalturaPremiumService extends KalturaObjectBase {
 
-    readonly id : number;
+    id : number;
 	name : string;
 
     constructor(data? : KalturaPremiumServiceArgs)
@@ -24,7 +25,7 @@ export class KalturaPremiumService extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaPremiumService' },
-				id : { type : 'n', readOnly : true },
+				id : { type : 'n' },
 				name : { type : 's' }
             }
         );
