@@ -8,8 +8,6 @@ export interface KalturaDiscountDetailsArgs  extends KalturaObjectBaseArgs {
 	multiCurrencyDiscount? : KalturaDiscount[];
 	startDate? : number;
 	endDate? : number;
-	whenAlgoTimes? : number;
-	whenAlgoType? : number;
 }
 
 
@@ -20,8 +18,6 @@ export class KalturaDiscountDetails extends KalturaObjectBase {
 	multiCurrencyDiscount : KalturaDiscount[];
 	startDate : number;
 	endDate : number;
-	whenAlgoTimes : number;
-	whenAlgoType : number;
 
     constructor(data? : KalturaDiscountDetailsArgs)
     {
@@ -40,9 +36,7 @@ export class KalturaDiscountDetails extends KalturaObjectBase {
 				name : { type : 's' },
 				multiCurrencyDiscount : { type : 'a', subTypeConstructor : KalturaDiscount, subType : 'KalturaDiscount' },
 				startDate : { type : 'n' },
-				endDate : { type : 'n' },
-				whenAlgoTimes : { type : 'n' },
-				whenAlgoType : { type : 'n' }
+				endDate : { type : 'n' }
             }
         );
         return result;

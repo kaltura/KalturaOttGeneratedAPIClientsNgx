@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaPrice, KalturaPriceArgs } from './KalturaPrice';
 
 export interface KalturaDiscountArgs  extends KalturaPriceArgs {
-    percentage? : number;
+    
 }
 
 
 export class KalturaDiscount extends KalturaPrice {
 
-    percentage : number;
+    readonly percentage : number;
 
     constructor(data? : KalturaDiscountArgs)
     {
@@ -23,7 +23,7 @@ export class KalturaDiscount extends KalturaPrice {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaDiscount' },
-				percentage : { type : 'n' }
+				percentage : { type : 'n', readOnly : true }
             }
         );
         return result;
