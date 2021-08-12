@@ -7,6 +7,7 @@ export interface KalturaCatalogPartnerConfigArgs  extends KalturaPartnerConfigur
     singleMultilingualMode? : boolean;
 	categoryManagement? : KalturaCategoryManagement;
 	epgMultilingualFallbackSupport? : boolean;
+	uploadExportDatalake? : boolean;
 }
 
 
@@ -15,6 +16,7 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
     singleMultilingualMode : boolean;
 	categoryManagement : KalturaCategoryManagement;
 	epgMultilingualFallbackSupport : boolean;
+	uploadExportDatalake : boolean;
 
     constructor(data? : KalturaCatalogPartnerConfigArgs)
     {
@@ -30,7 +32,8 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
                 objectType : { type : 'c', default : 'KalturaCatalogPartnerConfig' },
 				singleMultilingualMode : { type : 'b' },
 				categoryManagement : { type : 'o', subTypeConstructor : KalturaCategoryManagement, subType : 'KalturaCategoryManagement' },
-				epgMultilingualFallbackSupport : { type : 'b' }
+				epgMultilingualFallbackSupport : { type : 'b' },
+				uploadExportDatalake : { type : 'b' }
             }
         );
         return result;
