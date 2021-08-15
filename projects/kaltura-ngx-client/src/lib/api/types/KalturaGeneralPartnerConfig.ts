@@ -22,6 +22,7 @@ export interface KalturaGeneralPartnerConfigArgs  extends KalturaPartnerConfigur
 	rollingDeviceData? : KalturaRollingDeviceRemovalData;
 	finishedPercentThreshold? : number;
 	suspensionProfileInheritanceType? : KalturaSuspensionProfileInheritanceType;
+	allowDeviceMobility? : boolean;
 }
 
 
@@ -42,6 +43,7 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 	rollingDeviceData : KalturaRollingDeviceRemovalData;
 	finishedPercentThreshold : number;
 	suspensionProfileInheritanceType : KalturaSuspensionProfileInheritanceType;
+	allowDeviceMobility : boolean;
 
     constructor(data? : KalturaGeneralPartnerConfigArgs)
     {
@@ -69,7 +71,8 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 				defaultRegion : { type : 'n' },
 				rollingDeviceData : { type : 'o', subTypeConstructor : KalturaRollingDeviceRemovalData, subType : 'KalturaRollingDeviceRemovalData' },
 				finishedPercentThreshold : { type : 'n' },
-				suspensionProfileInheritanceType : { type : 'es', subTypeConstructor : KalturaSuspensionProfileInheritanceType, subType : 'KalturaSuspensionProfileInheritanceType' }
+				suspensionProfileInheritanceType : { type : 'es', subTypeConstructor : KalturaSuspensionProfileInheritanceType, subType : 'KalturaSuspensionProfileInheritanceType' },
+				allowDeviceMobility : { type : 'b' }
             }
         );
         return result;
