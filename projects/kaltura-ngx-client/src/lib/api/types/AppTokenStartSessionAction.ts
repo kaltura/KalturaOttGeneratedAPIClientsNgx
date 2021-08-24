@@ -2,7 +2,6 @@
 import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaSessionInfo } from './KalturaSessionInfo';
 
-import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface AppTokenStartSessionActionArgs  extends KalturaRequestArgs {
@@ -11,7 +10,6 @@ export interface AppTokenStartSessionActionArgs  extends KalturaRequestArgs {
 	userId? : string;
 	expiry? : number;
 	udid? : string;
-	extraParams? : { [key : string] : KalturaStringValue};
 }
 
 /**
@@ -29,7 +27,6 @@ export class AppTokenStartSessionAction extends KalturaRequest<KalturaSessionInf
 	userId : string;
 	expiry : number;
 	udid : string;
-	extraParams : { [key : string] : KalturaStringValue};
 
     constructor(data : AppTokenStartSessionActionArgs)
     {
@@ -48,8 +45,7 @@ export class AppTokenStartSessionAction extends KalturaRequest<KalturaSessionInf
 				tokenHash : { type : 's' },
 				userId : { type : 's' },
 				expiry : { type : 'n' },
-				udid : { type : 's' },
-				extraParams : { type : 'm', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
+				udid : { type : 's' }
             }
         );
         return result;
