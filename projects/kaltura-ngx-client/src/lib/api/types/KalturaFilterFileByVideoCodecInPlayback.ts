@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaFilterFileByVideoCodec, KalturaFilterFileByVideoCodecArgs } from './KalturaFilterFileByVideoCodec';
+import { KalturaFilterFileByVideoCodecAction, KalturaFilterFileByVideoCodecActionArgs } from './KalturaFilterFileByVideoCodecAction';
 
-export interface KalturaFilterFileByVideoCodecInPlaybackArgs  extends KalturaFilterFileByVideoCodecArgs {
+export interface KalturaFilterFileByVideoCodecInPlaybackArgs  extends KalturaFilterFileByVideoCodecActionArgs {
     
 }
 
 
-export class KalturaFilterFileByVideoCodecInPlayback extends KalturaFilterFileByVideoCodec {
+export class KalturaFilterFileByVideoCodecInPlayback extends KalturaFilterFileByVideoCodecAction {
 
     
 

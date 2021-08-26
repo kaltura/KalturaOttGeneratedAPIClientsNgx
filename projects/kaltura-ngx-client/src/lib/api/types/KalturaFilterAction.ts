@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaAssetRuleAction, KalturaAssetRuleActionArgs } from './KalturaAssetRuleAction';
 
-export interface KalturaFilterAssetByKsqlArgs  extends KalturaAssetRuleActionArgs {
-    ksql? : string;
+export interface KalturaFilterActionArgs  extends KalturaAssetRuleActionArgs {
+    
 }
 
 
-export class KalturaFilterAssetByKsql extends KalturaAssetRuleAction {
+export class KalturaFilterAction extends KalturaAssetRuleAction {
 
-    ksql : string;
+    
 
-    constructor(data? : KalturaFilterAssetByKsqlArgs)
+    constructor(data? : KalturaFilterActionArgs)
     {
         super(data);
     }
@@ -22,12 +22,11 @@ export class KalturaFilterAssetByKsql extends KalturaAssetRuleAction {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaFilterAssetByKsql' },
-				ksql : { type : 's' }
+                objectType : { type : 'c', default : 'KalturaFilterAction' }
             }
         );
         return result;
     }
 }
 
-typesMappingStorage['KalturaFilterAssetByKsql'] = KalturaFilterAssetByKsql;
+typesMappingStorage['KalturaFilterAction'] = KalturaFilterAction;

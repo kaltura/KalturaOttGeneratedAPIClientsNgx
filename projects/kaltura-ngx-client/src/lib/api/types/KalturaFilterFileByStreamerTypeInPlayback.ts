@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaFilterFileByStreamerType, KalturaFilterFileByStreamerTypeArgs } from './KalturaFilterFileByStreamerType';
+import { KalturaFilterFileByStreamerTypeAction, KalturaFilterFileByStreamerTypeActionArgs } from './KalturaFilterFileByStreamerTypeAction';
 
-export interface KalturaFilterFileByStreamerTypeInPlaybackArgs  extends KalturaFilterFileByStreamerTypeArgs {
+export interface KalturaFilterFileByStreamerTypeInPlaybackArgs  extends KalturaFilterFileByStreamerTypeActionArgs {
     
 }
 
 
-export class KalturaFilterFileByStreamerTypeInPlayback extends KalturaFilterFileByStreamerType {
+export class KalturaFilterFileByStreamerTypeInPlayback extends KalturaFilterFileByStreamerTypeAction {
 
     
 
