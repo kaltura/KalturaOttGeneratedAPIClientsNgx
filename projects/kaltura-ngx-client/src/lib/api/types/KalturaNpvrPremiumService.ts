@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaPremiumService, KalturaPremiumServiceArgs } from './KalturaPremiumService';
 
 export interface KalturaNpvrPremiumServiceArgs  extends KalturaPremiumServiceArgs {
-    
+    quotaInMinutes? : number;
 }
 
 
 export class KalturaNpvrPremiumService extends KalturaPremiumService {
 
-    readonly quotaInMinutes : number;
+    quotaInMinutes : number;
 
     constructor(data? : KalturaNpvrPremiumServiceArgs)
     {
@@ -23,7 +23,7 @@ export class KalturaNpvrPremiumService extends KalturaPremiumService {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaNpvrPremiumService' },
-				quotaInMinutes : { type : 'n', readOnly : true }
+				quotaInMinutes : { type : 'n' }
             }
         );
         return result;
