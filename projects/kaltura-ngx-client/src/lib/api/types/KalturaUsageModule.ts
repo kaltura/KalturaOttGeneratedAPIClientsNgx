@@ -8,6 +8,9 @@ export interface KalturaUsageModuleArgs  extends KalturaObjectBaseArgs {
 	maxViewsNumber? : number;
 	viewLifeCycle? : number;
 	fullLifeCycle? : number;
+	waiverPeriod? : number;
+	isWaiverEnabled? : boolean;
+	isOfflinePlayback? : boolean;
 }
 
 
@@ -19,9 +22,9 @@ export class KalturaUsageModule extends KalturaObjectBase {
 	viewLifeCycle : number;
 	fullLifeCycle : number;
 	readonly couponId : number;
-	readonly waiverPeriod : number;
-	readonly isWaiverEnabled : boolean;
-	readonly isOfflinePlayback : boolean;
+	waiverPeriod : number;
+	isWaiverEnabled : boolean;
+	isOfflinePlayback : boolean;
 
     constructor(data? : KalturaUsageModuleArgs)
     {
@@ -41,9 +44,9 @@ export class KalturaUsageModule extends KalturaObjectBase {
 				viewLifeCycle : { type : 'n' },
 				fullLifeCycle : { type : 'n' },
 				couponId : { type : 'n', readOnly : true },
-				waiverPeriod : { type : 'n', readOnly : true },
-				isWaiverEnabled : { type : 'b', readOnly : true },
-				isOfflinePlayback : { type : 'b', readOnly : true }
+				waiverPeriod : { type : 'n' },
+				isWaiverEnabled : { type : 'b' },
+				isOfflinePlayback : { type : 'b' }
             }
         );
         return result;

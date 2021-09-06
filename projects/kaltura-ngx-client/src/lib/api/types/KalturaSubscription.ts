@@ -13,9 +13,9 @@ import { KalturaSubscriptionCouponGroup } from './KalturaSubscriptionCouponGroup
 import { KalturaProductCode } from './KalturaProductCode';
 import { KalturaSubscriptionDependencyType } from './KalturaSubscriptionDependencyType';
 import { KalturaAdsPolicy } from './KalturaAdsPolicy';
-import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaSubscriptionArgs  extends KalturaObjectBaseArgs {
+export interface KalturaSubscriptionArgs  extends KalturaOTTObjectSupportNullableArgs {
     id? : string;
 	channelsIds? : string;
 	startDate? : number;
@@ -42,7 +42,7 @@ export interface KalturaSubscriptionArgs  extends KalturaObjectBaseArgs {
 }
 
 
-export class KalturaSubscription extends KalturaObjectBase {
+export class KalturaSubscription extends KalturaOTTObjectSupportNullable {
 
     id : string;
 	readonly channels : KalturaBaseChannel[];
@@ -84,6 +84,8 @@ export class KalturaSubscription extends KalturaObjectBase {
 	adsPolicy : KalturaAdsPolicy;
 	adsParam : string;
 	isActive : boolean;
+	readonly createDate : number;
+	readonly updateDate : number;
 
     constructor(data? : KalturaSubscriptionArgs)
     {
@@ -145,7 +147,9 @@ export class KalturaSubscription extends KalturaObjectBase {
 				preSaleDate : { type : 'n' },
 				adsPolicy : { type : 'es', subTypeConstructor : KalturaAdsPolicy, subType : 'KalturaAdsPolicy' },
 				adsParam : { type : 's' },
-				isActive : { type : 'b' }
+				isActive : { type : 'b' },
+				createDate : { type : 'n', readOnly : true },
+				updateDate : { type : 'n', readOnly : true }
             }
         );
         return result;
