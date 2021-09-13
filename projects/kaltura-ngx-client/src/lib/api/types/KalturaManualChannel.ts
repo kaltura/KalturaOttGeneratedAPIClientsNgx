@@ -1,18 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaSlimAsset } from './KalturaSlimAsset';
+import { KalturaManualCollectionAsset } from './KalturaManualCollectionAsset';
 import { KalturaChannel, KalturaChannelArgs } from './KalturaChannel';
 
 export interface KalturaManualChannelArgs  extends KalturaChannelArgs {
     mediaIds? : string;
-	assets? : KalturaSlimAsset[];
+	assets? : KalturaManualCollectionAsset[];
 }
 
 
 export class KalturaManualChannel extends KalturaChannel {
 
     mediaIds : string;
-	assets : KalturaSlimAsset[];
+	assets : KalturaManualCollectionAsset[];
 
     constructor(data? : KalturaManualChannelArgs)
     {
@@ -28,7 +28,7 @@ export class KalturaManualChannel extends KalturaChannel {
             {
                 objectType : { type : 'c', default : 'KalturaManualChannel' },
 				mediaIds : { type : 's' },
-				assets : { type : 'a', subTypeConstructor : KalturaSlimAsset, subType : 'KalturaSlimAsset' }
+				assets : { type : 'a', subTypeConstructor : KalturaManualCollectionAsset, subType : 'KalturaManualCollectionAsset' }
             }
         );
         return result;
