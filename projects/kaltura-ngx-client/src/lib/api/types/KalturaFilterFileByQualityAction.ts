@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaFilterAction, KalturaFilterActionArgs } from './KalturaFilterAction';
 
 export interface KalturaFilterFileByQualityActionArgs  extends KalturaFilterActionArgs {
-    typeQualityIn? : string;
+    qualityIn? : string;
 }
 
 
 export class KalturaFilterFileByQualityAction extends KalturaFilterAction {
 
-    typeQualityIn : string;
+    qualityIn : string;
 
     constructor(data? : KalturaFilterFileByQualityActionArgs)
     {
@@ -23,7 +23,7 @@ export class KalturaFilterFileByQualityAction extends KalturaFilterAction {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaFilterFileByQualityAction' },
-				typeQualityIn : { type : 's' }
+				qualityIn : { type : 's' }
             }
         );
         return result;

@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaFilterFileByFileTypeIdAction, KalturaFilterFileByFileTypeIdActionArgs } from './KalturaFilterFileByFileTypeIdAction';
 
-export interface KalturaFilterFileByAssetTypeActionArgs  extends KalturaFilterFileByFileTypeIdActionArgs {
+export interface KalturaFilterFileByFileTypeIdForAssetTypeActionArgs  extends KalturaFilterFileByFileTypeIdActionArgs {
     assetTypeIn? : string;
 }
 
 
-export class KalturaFilterFileByAssetTypeAction extends KalturaFilterFileByFileTypeIdAction {
+export class KalturaFilterFileByFileTypeIdForAssetTypeAction extends KalturaFilterFileByFileTypeIdAction {
 
     assetTypeIn : string;
 
-    constructor(data? : KalturaFilterFileByAssetTypeActionArgs)
+    constructor(data? : KalturaFilterFileByFileTypeIdForAssetTypeActionArgs)
     {
         super(data);
     }
@@ -22,7 +22,7 @@ export class KalturaFilterFileByAssetTypeAction extends KalturaFilterFileByFileT
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaFilterFileByAssetTypeAction' },
+                objectType : { type : 'c', default : 'KalturaFilterFileByFileTypeIdForAssetTypeAction' },
 				assetTypeIn : { type : 's' }
             }
         );
@@ -30,4 +30,4 @@ export class KalturaFilterFileByAssetTypeAction extends KalturaFilterFileByFileT
     }
 }
 
-typesMappingStorage['KalturaFilterFileByAssetTypeAction'] = KalturaFilterFileByAssetTypeAction;
+typesMappingStorage['KalturaFilterFileByFileTypeIdForAssetTypeAction'] = KalturaFilterFileByFileTypeIdForAssetTypeAction;
