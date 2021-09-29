@@ -6,7 +6,6 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 
 export interface KalturaImageArgs  extends KalturaObjectBaseArgs {
     imageTypeId? : number;
-	imageTypeName? : string;
 	imageObjectId? : number;
 	imageObjectType? : KalturaImageObjectType;
 }
@@ -17,7 +16,6 @@ export class KalturaImage extends KalturaObjectBase {
     readonly id : number;
 	readonly version : string;
 	imageTypeId : number;
-	imageTypeName : string;
 	imageObjectId : number;
 	imageObjectType : KalturaImageObjectType;
 	readonly status : KalturaImageStatus;
@@ -40,7 +38,6 @@ export class KalturaImage extends KalturaObjectBase {
 				id : { type : 'n', readOnly : true },
 				version : { type : 's', readOnly : true },
 				imageTypeId : { type : 'n' },
-				imageTypeName : { type : 's' },
 				imageObjectId : { type : 'n' },
 				imageObjectType : { type : 'es', subTypeConstructor : KalturaImageObjectType, subType : 'KalturaImageObjectType' },
 				status : { type : 'es', readOnly : true, subTypeConstructor : KalturaImageStatus, subType : 'KalturaImageStatus' },

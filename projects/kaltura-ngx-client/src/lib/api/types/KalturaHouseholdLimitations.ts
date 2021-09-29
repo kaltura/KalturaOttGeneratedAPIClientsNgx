@@ -11,8 +11,6 @@ export interface KalturaHouseholdLimitationsArgs  extends KalturaObjectBaseArgs 
 	userFrequency? : number;
 	usersLimit? : number;
 	deviceFamiliesLimitations? : KalturaHouseholdDeviceFamilyLimitations[];
-	description? : string;
-	associatedDeviceFamiliesIdsIn? : string;
 }
 
 
@@ -29,8 +27,6 @@ export class KalturaHouseholdLimitations extends KalturaObjectBase {
 	readonly npvrQuotaInSeconds : number;
 	usersLimit : number;
 	deviceFamiliesLimitations : KalturaHouseholdDeviceFamilyLimitations[];
-	description : string;
-	associatedDeviceFamiliesIdsIn : string;
 
     constructor(data? : KalturaHouseholdLimitationsArgs)
     {
@@ -55,9 +51,7 @@ export class KalturaHouseholdLimitations extends KalturaObjectBase {
 				userFrequencyDescription : { type : 's', readOnly : true },
 				npvrQuotaInSeconds : { type : 'n', readOnly : true },
 				usersLimit : { type : 'n' },
-				deviceFamiliesLimitations : { type : 'a', subTypeConstructor : KalturaHouseholdDeviceFamilyLimitations, subType : 'KalturaHouseholdDeviceFamilyLimitations' },
-				description : { type : 's' },
-				associatedDeviceFamiliesIdsIn : { type : 's' }
+				deviceFamiliesLimitations : { type : 'a', subTypeConstructor : KalturaHouseholdDeviceFamilyLimitations, subType : 'KalturaHouseholdDeviceFamilyLimitations' }
             }
         );
         return result;

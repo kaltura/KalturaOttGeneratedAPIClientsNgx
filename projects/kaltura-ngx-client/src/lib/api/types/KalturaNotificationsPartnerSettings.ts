@@ -1,7 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaEpgNotificationSettings } from './KalturaEpgNotificationSettings';
-import { KalturaLineupNotificationSettings } from './KalturaLineupNotificationSettings';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaNotificationsPartnerSettingsArgs  extends KalturaObjectBaseArgs {
@@ -24,7 +23,6 @@ export interface KalturaNotificationsPartnerSettingsArgs  extends KalturaObjectB
 	smsEnabled? : boolean;
 	iotEnabled? : boolean;
 	epgNotification? : KalturaEpgNotificationSettings;
-	lineupNotification? : KalturaLineupNotificationSettings;
 }
 
 
@@ -49,7 +47,6 @@ export class KalturaNotificationsPartnerSettings extends KalturaObjectBase {
 	smsEnabled : boolean;
 	iotEnabled : boolean;
 	epgNotification : KalturaEpgNotificationSettings;
-	lineupNotification : KalturaLineupNotificationSettings;
 
     constructor(data? : KalturaNotificationsPartnerSettingsArgs)
     {
@@ -81,8 +78,7 @@ export class KalturaNotificationsPartnerSettings extends KalturaObjectBase {
 				mailNotificationAdapterId : { type : 'n' },
 				smsEnabled : { type : 'b' },
 				iotEnabled : { type : 'b' },
-				epgNotification : { type : 'o', subTypeConstructor : KalturaEpgNotificationSettings, subType : 'KalturaEpgNotificationSettings' },
-				lineupNotification : { type : 'o', subTypeConstructor : KalturaLineupNotificationSettings, subType : 'KalturaLineupNotificationSettings' }
+				epgNotification : { type : 'o', subTypeConstructor : KalturaEpgNotificationSettings, subType : 'KalturaEpgNotificationSettings' }
             }
         );
         return result;
