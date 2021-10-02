@@ -13,7 +13,6 @@ export class KalturaDuration extends KalturaObjectBase {
 
     unit : KalturaDurationUnit;
 	value : number;
-	readonly code : number;
 
     constructor(data? : KalturaDurationArgs)
     {
@@ -28,8 +27,7 @@ export class KalturaDuration extends KalturaObjectBase {
             {
                 objectType : { type : 'c', default : 'KalturaDuration' },
 				unit : { type : 'es', subTypeConstructor : KalturaDurationUnit, subType : 'KalturaDurationUnit' },
-				value : { type : 'n' },
-				code : { type : 'n', readOnly : true }
+				value : { type : 'n' }
             }
         );
         return result;
