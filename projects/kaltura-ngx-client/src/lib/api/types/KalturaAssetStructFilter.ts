@@ -1,9 +1,9 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaObjectVirtualAssetInfoType } from './KalturaObjectVirtualAssetInfoType';
-import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
+import { KalturaBaseAssetStructFilter, KalturaBaseAssetStructFilterArgs } from './KalturaBaseAssetStructFilter';
 
-export interface KalturaAssetStructFilterArgs  extends KalturaFilterArgs {
+export interface KalturaAssetStructFilterArgs  extends KalturaBaseAssetStructFilterArgs {
     idIn? : string;
 	metaIdEqual? : number;
 	isProtectedEqual? : boolean;
@@ -11,7 +11,7 @@ export interface KalturaAssetStructFilterArgs  extends KalturaFilterArgs {
 }
 
 
-export class KalturaAssetStructFilter extends KalturaFilter {
+export class KalturaAssetStructFilter extends KalturaBaseAssetStructFilter {
 
     idIn : string;
 	metaIdEqual : number;
