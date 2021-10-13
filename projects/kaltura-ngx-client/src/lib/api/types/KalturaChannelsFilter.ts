@@ -1,8 +1,8 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaChannelsBaseFilter, KalturaChannelsBaseFilterArgs } from './KalturaChannelsBaseFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaChannelsFilterArgs  extends KalturaChannelsBaseFilterArgs {
+export interface KalturaChannelsFilterArgs  extends KalturaFilterArgs {
     idEqual? : number;
 	mediaIdEqual? : number;
 	nameEqual? : string;
@@ -11,7 +11,7 @@ export interface KalturaChannelsFilterArgs  extends KalturaChannelsBaseFilterArg
 }
 
 
-export class KalturaChannelsFilter extends KalturaChannelsBaseFilter {
+export class KalturaChannelsFilter extends KalturaFilter {
 
     idEqual : number;
 	mediaIdEqual : number;
