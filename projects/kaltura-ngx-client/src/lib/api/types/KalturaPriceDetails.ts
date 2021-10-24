@@ -5,7 +5,8 @@ import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaPriceDetailsArgs  extends KalturaObjectBaseArgs {
-    name? : string;
+    id? : number;
+	name? : string;
 	multiCurrencyPrice? : KalturaPrice[];
 	descriptions? : KalturaTranslationToken[];
 }
@@ -13,7 +14,7 @@ export interface KalturaPriceDetailsArgs  extends KalturaObjectBaseArgs {
 
 export class KalturaPriceDetails extends KalturaObjectBase {
 
-    readonly id : number;
+    id : number;
 	name : string;
 	readonly price : KalturaPrice;
 	multiCurrencyPrice : KalturaPrice[];
@@ -33,7 +34,7 @@ export class KalturaPriceDetails extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaPriceDetails' },
-				id : { type : 'n', readOnly : true },
+				id : { type : 'n' },
 				name : { type : 's' },
 				price : { type : 'o', readOnly : true, subTypeConstructor : KalturaPrice, subType : 'KalturaPrice' },
 				multiCurrencyPrice : { type : 'a', subTypeConstructor : KalturaPrice, subType : 'KalturaPrice' },
