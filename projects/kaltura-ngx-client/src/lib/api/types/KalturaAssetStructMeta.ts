@@ -9,6 +9,7 @@ export interface KalturaAssetStructMetaArgs  extends KalturaObjectBaseArgs {
 	isInherited? : boolean;
 	isLocationTag? : boolean;
 	suppressedOrder? : number;
+	aliasName? : string;
 }
 
 
@@ -24,6 +25,7 @@ export class KalturaAssetStructMeta extends KalturaObjectBase {
 	isInherited : boolean;
 	isLocationTag : boolean;
 	suppressedOrder : number;
+	aliasName : string;
 
     constructor(data? : KalturaAssetStructMetaArgs)
     {
@@ -46,7 +48,8 @@ export class KalturaAssetStructMeta extends KalturaObjectBase {
 				updateDate : { type : 'n', readOnly : true },
 				isInherited : { type : 'b' },
 				isLocationTag : { type : 'b' },
-				suppressedOrder : { type : 'n' }
+				suppressedOrder : { type : 'n' },
+				aliasName : { type : 's' }
             }
         );
         return result;
