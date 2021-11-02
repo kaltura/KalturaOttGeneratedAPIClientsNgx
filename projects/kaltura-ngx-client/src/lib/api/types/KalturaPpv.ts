@@ -46,6 +46,7 @@ export class KalturaPpv extends KalturaObjectBase {
 	isActive : boolean;
 	readonly updateDate : number;
 	readonly createDate : number;
+	readonly virtualAssetId : number;
 
     constructor(data? : KalturaPpvArgs)
     {
@@ -77,7 +78,8 @@ export class KalturaPpv extends KalturaObjectBase {
 				adsPolicy : { type : 'es', subTypeConstructor : KalturaAdsPolicy, subType : 'KalturaAdsPolicy' },
 				isActive : { type : 'b' },
 				updateDate : { type : 'n', readOnly : true },
-				createDate : { type : 'n', readOnly : true }
+				createDate : { type : 'n', readOnly : true },
+				virtualAssetId : { type : 'n', readOnly : true }
             }
         );
         return result;
