@@ -2,23 +2,24 @@
 import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaUsageModuleListResponse } from './KalturaUsageModuleListResponse';
 
+import { KalturaUsageModuleFilter } from './KalturaUsageModuleFilter';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface UsageModuleListActionArgs  extends KalturaRequestArgs {
-    
+    filter? : KalturaUsageModuleFilter;
 }
 
 /**
  * Build request payload for service 'usageModule' action 'list'.
  *
- * Usage: Internal API !!! Returns the list of available usage module
+ * Usage: Returns the list of available usage module
  *
  * Server response type:         KalturaUsageModuleListResponse
  * Server failure response type: KalturaAPIException
  */
 export class UsageModuleListAction extends KalturaRequest<KalturaUsageModuleListResponse> {
 
-    
+    filter : KalturaUsageModuleFilter;
 
     constructor(data? : UsageModuleListActionArgs)
     {
@@ -32,7 +33,8 @@ export class UsageModuleListAction extends KalturaRequest<KalturaUsageModuleList
             result.properties,
             {
                 service : { type : 'c', default : 'usagemodule' },
-				action : { type : 'c', default : 'list' }
+				action : { type : 'c', default : 'list' },
+				filter : { type : 'o', subTypeConstructor : KalturaUsageModuleFilter, subType : 'KalturaUsageModuleFilter' }
             }
         );
         return result;
