@@ -4,23 +4,23 @@ import { KalturaObjectMetadata } from '../kaltura-object-base';
 
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
-export interface PriceDetailsDeleteActionArgs  extends KalturaRequestArgs {
+export interface SearchPriorityGroupDeleteActionArgs  extends KalturaRequestArgs {
     id : number;
 }
 
 /**
- * Build request payload for service 'priceDetails' action 'delete'.
+ * Build request payload for service 'searchPriorityGroup' action 'delete'.
  *
- * Usage: Delete PriceDetails
+ * Usage: Delete the existing priority group by its identifier
  *
  * Server response type:         boolean
  * Server failure response type: KalturaAPIException
  */
-export class PriceDetailsDeleteAction extends KalturaRequest<boolean> {
+export class SearchPriorityGroupDeleteAction extends KalturaRequest<boolean> {
 
     id : number;
 
-    constructor(data : PriceDetailsDeleteActionArgs)
+    constructor(data : SearchPriorityGroupDeleteActionArgs)
     {
         super(data, {responseType : 'b', responseSubType : '', responseConstructor : null });
     }
@@ -31,7 +31,7 @@ export class PriceDetailsDeleteAction extends KalturaRequest<boolean> {
         Object.assign(
             result.properties,
             {
-                service : { type : 'c', default : 'pricedetails' },
+                service : { type : 'c', default : 'searchprioritygroup' },
 				action : { type : 'c', default : 'delete' },
 				id : { type : 'n' }
             }
