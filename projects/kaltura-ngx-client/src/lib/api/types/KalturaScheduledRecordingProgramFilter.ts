@@ -8,7 +8,6 @@ export interface KalturaScheduledRecordingProgramFilterArgs  extends KalturaAsse
 	channelsIn? : string;
 	startDateGreaterThanOrNull? : number;
 	endDateLessThanOrNull? : number;
-	seriesIdsIn? : string;
 }
 
 
@@ -18,7 +17,6 @@ export class KalturaScheduledRecordingProgramFilter extends KalturaAssetFilter {
 	channelsIn : string;
 	startDateGreaterThanOrNull : number;
 	endDateLessThanOrNull : number;
-	seriesIdsIn : string;
 
     constructor(data? : KalturaScheduledRecordingProgramFilterArgs)
     {
@@ -35,8 +33,7 @@ export class KalturaScheduledRecordingProgramFilter extends KalturaAssetFilter {
 				recordingTypeEqual : { type : 'es', subTypeConstructor : KalturaScheduledRecordingAssetType, subType : 'KalturaScheduledRecordingAssetType' },
 				channelsIn : { type : 's' },
 				startDateGreaterThanOrNull : { type : 'n' },
-				endDateLessThanOrNull : { type : 'n' },
-				seriesIdsIn : { type : 's' }
+				endDateLessThanOrNull : { type : 'n' }
             }
         );
         return result;
