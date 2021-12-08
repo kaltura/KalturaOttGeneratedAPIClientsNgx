@@ -6,7 +6,6 @@ import { KalturaAssetFile, KalturaAssetFileArgs } from './KalturaAssetFile';
 export interface KalturaMediaFileArgs  extends KalturaAssetFileArgs {
     assetId? : number;
 	typeId? : number;
-	altUrl? : string;
 	duration? : number;
 	externalId? : string;
 	altExternalId? : string;
@@ -26,7 +25,6 @@ export interface KalturaMediaFileArgs  extends KalturaAssetFileArgs {
 	catalogEndDate? : number;
 	opl? : string;
 	businessModuleDetails? : KalturaBusinessModuleDetails;
-	labels? : string;
 }
 
 
@@ -36,7 +34,6 @@ export class KalturaMediaFile extends KalturaAssetFile {
 	readonly id : number;
 	readonly type : string;
 	typeId : number;
-	altUrl : string;
 	duration : number;
 	externalId : string;
 	altExternalId : string;
@@ -56,7 +53,6 @@ export class KalturaMediaFile extends KalturaAssetFile {
 	catalogEndDate : number;
 	opl : string;
 	businessModuleDetails : KalturaBusinessModuleDetails;
-	labels : string;
 
     constructor(data? : KalturaMediaFileArgs)
     {
@@ -74,7 +70,6 @@ export class KalturaMediaFile extends KalturaAssetFile {
 				id : { type : 'n', readOnly : true },
 				type : { type : 's', readOnly : true },
 				typeId : { type : 'n' },
-				altUrl : { type : 's' },
 				duration : { type : 'n' },
 				externalId : { type : 's' },
 				altExternalId : { type : 's' },
@@ -93,8 +88,7 @@ export class KalturaMediaFile extends KalturaAssetFile {
 				status : { type : 'b' },
 				catalogEndDate : { type : 'n' },
 				opl : { type : 's' },
-				businessModuleDetails : { type : 'o', subTypeConstructor : KalturaBusinessModuleDetails, subType : 'KalturaBusinessModuleDetails' },
-				labels : { type : 's' }
+				businessModuleDetails : { type : 'o', subTypeConstructor : KalturaBusinessModuleDetails, subType : 'KalturaBusinessModuleDetails' }
             }
         );
         return result;

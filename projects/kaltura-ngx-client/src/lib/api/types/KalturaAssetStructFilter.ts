@@ -1,22 +1,19 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaObjectVirtualAssetInfoType } from './KalturaObjectVirtualAssetInfoType';
-import { KalturaBaseAssetStructFilter, KalturaBaseAssetStructFilterArgs } from './KalturaBaseAssetStructFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaAssetStructFilterArgs  extends KalturaBaseAssetStructFilterArgs {
+export interface KalturaAssetStructFilterArgs  extends KalturaFilterArgs {
     idIn? : string;
 	metaIdEqual? : number;
 	isProtectedEqual? : boolean;
-	objectVirtualAssetInfoTypeEqual? : KalturaObjectVirtualAssetInfoType;
 }
 
 
-export class KalturaAssetStructFilter extends KalturaBaseAssetStructFilter {
+export class KalturaAssetStructFilter extends KalturaFilter {
 
     idIn : string;
 	metaIdEqual : number;
 	isProtectedEqual : boolean;
-	objectVirtualAssetInfoTypeEqual : KalturaObjectVirtualAssetInfoType;
 
     constructor(data? : KalturaAssetStructFilterArgs)
     {
@@ -32,8 +29,7 @@ export class KalturaAssetStructFilter extends KalturaBaseAssetStructFilter {
                 objectType : { type : 'c', default : 'KalturaAssetStructFilter' },
 				idIn : { type : 's' },
 				metaIdEqual : { type : 'n' },
-				isProtectedEqual : { type : 'b' },
-				objectVirtualAssetInfoTypeEqual : { type : 'es', subTypeConstructor : KalturaObjectVirtualAssetInfoType, subType : 'KalturaObjectVirtualAssetInfoType' }
+				isProtectedEqual : { type : 'b' }
             }
         );
         return result;

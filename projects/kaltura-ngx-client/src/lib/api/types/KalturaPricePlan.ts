@@ -3,18 +3,15 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaUsageModule, KalturaUsageModuleArgs } from './KalturaUsageModule';
 
 export interface KalturaPricePlanArgs  extends KalturaUsageModuleArgs {
-    isRenewable? : boolean;
-	renewalsNumber? : number;
-	discountId? : number;
-	priceDetailsId? : number;
+    priceDetailsId? : number;
 }
 
 
 export class KalturaPricePlan extends KalturaUsageModule {
 
-    isRenewable : boolean;
-	renewalsNumber : number;
-	discountId : number;
+    readonly isRenewable : boolean;
+	readonly renewalsNumber : number;
+	readonly discountId : number;
 	priceDetailsId : number;
 
     constructor(data? : KalturaPricePlanArgs)
@@ -29,9 +26,9 @@ export class KalturaPricePlan extends KalturaUsageModule {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaPricePlan' },
-				isRenewable : { type : 'b' },
-				renewalsNumber : { type : 'n' },
-				discountId : { type : 'n' },
+				isRenewable : { type : 'b', readOnly : true },
+				renewalsNumber : { type : 'n', readOnly : true },
+				discountId : { type : 'n', readOnly : true },
 				priceDetailsId : { type : 'n' }
             }
         );
