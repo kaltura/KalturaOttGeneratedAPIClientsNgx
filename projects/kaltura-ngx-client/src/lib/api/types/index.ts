@@ -1499,6 +1499,3 @@ export { UserSessionProfileAddAction, UserSessionProfileAddActionArgs } from './
 export { UserSessionProfileDeleteAction, UserSessionProfileDeleteActionArgs } from './UserSessionProfileDeleteAction'
 export { UserSessionProfileListAction, UserSessionProfileListActionArgs } from './UserSessionProfileListAction'
 export { UserSessionProfileUpdateAction, UserSessionProfileUpdateActionArgs } from './UserSessionProfileUpdateAction'
-
-
-console.warn('Notice! Your application bundle the whole package of kaltura-xxx-client (either rxjs/ngx/typescript), please refer to the library `readme.md` to reduce app bundle size.')
