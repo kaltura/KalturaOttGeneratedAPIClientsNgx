@@ -97,6 +97,7 @@ export { KalturaChannelExternalFilter, KalturaChannelExternalFilterArgs } from '
 export { KalturaRelatedExternalFilter, KalturaRelatedExternalFilterArgs } from './KalturaRelatedExternalFilter'
 export { KalturaScheduledRecordingProgramFilter, KalturaScheduledRecordingProgramFilterArgs } from './KalturaScheduledRecordingProgramFilter'
 export { KalturaSearchExternalFilter, KalturaSearchExternalFilterArgs } from './KalturaSearchExternalFilter'
+export { KalturaPriorityGroupFilter, KalturaPriorityGroupFilterArgs } from './KalturaPriorityGroupFilter'
 export { KalturaReportFilter, KalturaReportFilterArgs } from './KalturaReportFilter'
 export { KalturaDeviceReportFilter, KalturaDeviceReportFilterArgs } from './KalturaDeviceReportFilter'
 export { KalturaHouseholdCouponCodeFilter, KalturaHouseholdCouponCodeFilterArgs } from './KalturaHouseholdCouponCodeFilter'
@@ -1498,6 +1499,3 @@ export { UserSessionProfileAddAction, UserSessionProfileAddActionArgs } from './
 export { UserSessionProfileDeleteAction, UserSessionProfileDeleteActionArgs } from './UserSessionProfileDeleteAction'
 export { UserSessionProfileListAction, UserSessionProfileListActionArgs } from './UserSessionProfileListAction'
 export { UserSessionProfileUpdateAction, UserSessionProfileUpdateActionArgs } from './UserSessionProfileUpdateAction'
-
-
-console.warn('Notice! Your application bundle the whole package of kaltura-xxx-client (either rxjs/ngx/typescript), please refer to the library `readme.md` to reduce app bundle size.')
