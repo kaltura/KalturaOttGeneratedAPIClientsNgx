@@ -2,6 +2,7 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaChannelOrder } from './KalturaChannelOrder';
+import { KalturaBaseChannelOrder } from './KalturaBaseChannelOrder';
 import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaBaseChannel, KalturaBaseChannelArgs } from './KalturaBaseChannel';
 
@@ -13,6 +14,7 @@ export interface KalturaChannelArgs  extends KalturaBaseChannelArgs {
 	oldDescription? : string;
 	isActive? : boolean;
 	orderBy? : KalturaChannelOrder;
+	orderingParametersEqual? : KalturaBaseChannelOrder[];
 	supportSegmentBasedOrdering? : boolean;
 	assetUserRuleId? : number;
 	metaData? : { [key : string] : KalturaStringValue};
@@ -30,6 +32,7 @@ export class KalturaChannel extends KalturaBaseChannel {
 	oldDescription : string;
 	isActive : boolean;
 	orderBy : KalturaChannelOrder;
+	orderingParametersEqual : KalturaBaseChannelOrder[];
 	readonly createDate : number;
 	readonly updateDate : number;
 	supportSegmentBasedOrdering : boolean;
@@ -42,6 +45,7 @@ export class KalturaChannel extends KalturaBaseChannel {
         super(data);
         if (typeof this.multilingualName === 'undefined') this.multilingualName = [];
 		if (typeof this.multilingualDescription === 'undefined') this.multilingualDescription = [];
+		if (typeof this.orderingParametersEqual === 'undefined') this.orderingParametersEqual = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -60,6 +64,7 @@ export class KalturaChannel extends KalturaBaseChannel {
 				oldDescription : { type : 's' },
 				isActive : { type : 'b' },
 				orderBy : { type : 'o', subTypeConstructor : KalturaChannelOrder, subType : 'KalturaChannelOrder' },
+				orderingParametersEqual : { type : 'a', subTypeConstructor : KalturaBaseChannelOrder, subType : 'KalturaBaseChannelOrder' },
 				createDate : { type : 'n', readOnly : true },
 				updateDate : { type : 'n', readOnly : true },
 				supportSegmentBasedOrdering : { type : 'b' },
