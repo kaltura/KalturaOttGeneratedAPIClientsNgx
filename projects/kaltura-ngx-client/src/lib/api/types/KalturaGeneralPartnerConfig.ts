@@ -14,6 +14,7 @@ export interface KalturaGeneralPartnerConfigArgs  extends KalturaPartnerConfigur
 	mainCurrency? : number;
 	secondaryCurrencies? : string;
 	downgradePolicy? : KalturaDowngradePolicy;
+	downgradePriorityFamilyIds? : string;
 	mailSettings? : string;
 	dateFormat? : string;
 	householdLimitationModule? : number;
@@ -24,6 +25,7 @@ export interface KalturaGeneralPartnerConfigArgs  extends KalturaPartnerConfigur
 	finishedPercentThreshold? : number;
 	suspensionProfileInheritanceType? : KalturaSuspensionProfileInheritanceType;
 	allowDeviceMobility? : boolean;
+	enableMultiLcns? : boolean;
 }
 
 
@@ -36,6 +38,7 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 	mainCurrency : number;
 	secondaryCurrencies : string;
 	downgradePolicy : KalturaDowngradePolicy;
+	downgradePriorityFamilyIds : string;
 	mailSettings : string;
 	dateFormat : string;
 	householdLimitationModule : number;
@@ -46,6 +49,7 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 	finishedPercentThreshold : number;
 	suspensionProfileInheritanceType : KalturaSuspensionProfileInheritanceType;
 	allowDeviceMobility : boolean;
+	enableMultiLcns : boolean;
 
     constructor(data? : KalturaGeneralPartnerConfigArgs)
     {
@@ -66,6 +70,7 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 				mainCurrency : { type : 'n' },
 				secondaryCurrencies : { type : 's' },
 				downgradePolicy : { type : 'es', subTypeConstructor : KalturaDowngradePolicy, subType : 'KalturaDowngradePolicy' },
+				downgradePriorityFamilyIds : { type : 's' },
 				mailSettings : { type : 's' },
 				dateFormat : { type : 's' },
 				householdLimitationModule : { type : 'n' },
@@ -75,7 +80,8 @@ export class KalturaGeneralPartnerConfig extends KalturaPartnerConfiguration {
 				linearWatchHistoryThreshold : { type : 'n' },
 				finishedPercentThreshold : { type : 'n' },
 				suspensionProfileInheritanceType : { type : 'es', subTypeConstructor : KalturaSuspensionProfileInheritanceType, subType : 'KalturaSuspensionProfileInheritanceType' },
-				allowDeviceMobility : { type : 'b' }
+				allowDeviceMobility : { type : 'b' },
+				enableMultiLcns : { type : 'b' }
             }
         );
         return result;
