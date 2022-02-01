@@ -6,6 +6,7 @@ import { KalturaPersistedFilter, KalturaPersistedFilterArgs } from './KalturaPer
 export interface KalturaAssetFilterArgs  extends KalturaPersistedFilterArgs {
     dynamicOrderBy? : KalturaDynamicOrderBy;
 	trendingDaysEqual? : number;
+	shouldApplyPriorityGroupsEqual? : boolean;
 }
 
 
@@ -13,6 +14,7 @@ export class KalturaAssetFilter extends KalturaPersistedFilter {
 
     dynamicOrderBy : KalturaDynamicOrderBy;
 	trendingDaysEqual : number;
+	shouldApplyPriorityGroupsEqual : boolean;
 
     constructor(data? : KalturaAssetFilterArgs)
     {
@@ -27,7 +29,8 @@ export class KalturaAssetFilter extends KalturaPersistedFilter {
             {
                 objectType : { type : 'c', default : 'KalturaAssetFilter' },
 				dynamicOrderBy : { type : 'o', subTypeConstructor : KalturaDynamicOrderBy, subType : 'KalturaDynamicOrderBy' },
-				trendingDaysEqual : { type : 'n' }
+				trendingDaysEqual : { type : 'n' },
+				shouldApplyPriorityGroupsEqual : { type : 'b' }
             }
         );
         return result;
