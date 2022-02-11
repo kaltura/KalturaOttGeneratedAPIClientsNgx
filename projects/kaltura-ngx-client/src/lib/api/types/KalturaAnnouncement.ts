@@ -17,6 +17,7 @@ export interface KalturaAnnouncementArgs  extends KalturaObjectBaseArgs {
 	mailSubject? : string;
 	includeSms? : boolean;
 	includeIot? : boolean;
+	includeUserInbox? : boolean;
 }
 
 
@@ -36,6 +37,7 @@ export class KalturaAnnouncement extends KalturaObjectBase {
 	mailSubject : string;
 	includeSms : boolean;
 	includeIot : boolean;
+	includeUserInbox : boolean;
 
     constructor(data? : KalturaAnnouncementArgs)
     {
@@ -62,7 +64,8 @@ export class KalturaAnnouncement extends KalturaObjectBase {
 				mailTemplate : { type : 's' },
 				mailSubject : { type : 's' },
 				includeSms : { type : 'b' },
-				includeIot : { type : 'b' }
+				includeIot : { type : 'b' },
+				includeUserInbox : { type : 'b' }
             }
         );
         return result;
