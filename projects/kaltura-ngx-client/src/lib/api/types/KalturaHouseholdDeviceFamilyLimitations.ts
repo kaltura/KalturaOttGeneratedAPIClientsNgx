@@ -15,7 +15,7 @@ export class KalturaHouseholdDeviceFamilyLimitations extends KalturaDeviceFamily
 	deviceLimit : number;
 	concurrentLimit : number;
 	readonly isDefaultDeviceLimit : boolean;
-	readonly isDefaultConcurrentLimit : boolean;
+	readonly isDefaultConcurrentLimit  : boolean;
 
     constructor(data? : KalturaHouseholdDeviceFamilyLimitationsArgs)
     {
@@ -33,7 +33,7 @@ export class KalturaHouseholdDeviceFamilyLimitations extends KalturaDeviceFamily
 				deviceLimit : { type : 'n' },
 				concurrentLimit : { type : 'n' },
 				isDefaultDeviceLimit : { type : 'b', readOnly : true },
-				isDefaultConcurrentLimit : { type : 'b', readOnly : true }
+				isDefaultConcurrentLimit  : { type : 'b', readOnly : true }
             }
         );
         return result;
