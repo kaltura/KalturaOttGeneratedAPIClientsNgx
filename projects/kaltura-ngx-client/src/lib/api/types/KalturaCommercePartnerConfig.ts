@@ -6,6 +6,8 @@ import { KalturaPartnerConfiguration, KalturaPartnerConfigurationArgs } from './
 export interface KalturaCommercePartnerConfigArgs  extends KalturaPartnerConfigurationArgs {
     bookmarkEventThresholds? : KalturaBookmarkEventThreshold[];
 	keepSubscriptionAddOns? : boolean;
+	programAssetEntitlementPaddingStart? : number;
+	programAssetEntitlementPaddingEnd? : number;
 }
 
 
@@ -13,6 +15,8 @@ export class KalturaCommercePartnerConfig extends KalturaPartnerConfiguration {
 
     bookmarkEventThresholds : KalturaBookmarkEventThreshold[];
 	keepSubscriptionAddOns : boolean;
+	programAssetEntitlementPaddingStart : number;
+	programAssetEntitlementPaddingEnd : number;
 
     constructor(data? : KalturaCommercePartnerConfigArgs)
     {
@@ -28,7 +32,9 @@ export class KalturaCommercePartnerConfig extends KalturaPartnerConfiguration {
             {
                 objectType : { type : 'c', default : 'KalturaCommercePartnerConfig' },
 				bookmarkEventThresholds : { type : 'a', subTypeConstructor : KalturaBookmarkEventThreshold, subType : 'KalturaBookmarkEventThreshold' },
-				keepSubscriptionAddOns : { type : 'b' }
+				keepSubscriptionAddOns : { type : 'b' },
+				programAssetEntitlementPaddingStart : { type : 'n' },
+				programAssetEntitlementPaddingEnd : { type : 'n' }
             }
         );
         return result;
