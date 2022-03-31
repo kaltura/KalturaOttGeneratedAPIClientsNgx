@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCrudFilter, KalturaCrudFilterArgs } from './KalturaCrudFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaHouseholdSegmentFilterArgs  extends KalturaCrudFilterArgs {
+export interface KalturaHouseholdSegmentFilterArgs  extends KalturaFilterArgs {
     kSql? : string;
 }
 
 
-export class KalturaHouseholdSegmentFilter extends KalturaCrudFilter {
+export class KalturaHouseholdSegmentFilter extends KalturaFilter {
 
     kSql : string;
 

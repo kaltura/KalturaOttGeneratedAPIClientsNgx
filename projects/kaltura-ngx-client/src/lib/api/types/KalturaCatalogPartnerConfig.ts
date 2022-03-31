@@ -8,6 +8,7 @@ export interface KalturaCatalogPartnerConfigArgs  extends KalturaPartnerConfigur
 	categoryManagement? : KalturaCategoryManagement;
 	epgMultilingualFallbackSupport? : boolean;
 	uploadExportDatalake? : boolean;
+	shopMarkerMetaId? : number;
 }
 
 
@@ -17,6 +18,7 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
 	categoryManagement : KalturaCategoryManagement;
 	epgMultilingualFallbackSupport : boolean;
 	uploadExportDatalake : boolean;
+	shopMarkerMetaId : number;
 
     constructor(data? : KalturaCatalogPartnerConfigArgs)
     {
@@ -33,7 +35,8 @@ export class KalturaCatalogPartnerConfig extends KalturaPartnerConfiguration {
 				singleMultilingualMode : { type : 'b' },
 				categoryManagement : { type : 'o', subTypeConstructor : KalturaCategoryManagement, subType : 'KalturaCategoryManagement' },
 				epgMultilingualFallbackSupport : { type : 'b' },
-				uploadExportDatalake : { type : 'b' }
+				uploadExportDatalake : { type : 'b' },
+				shopMarkerMetaId : { type : 'n' }
             }
         );
         return result;

@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaAssetConditionBase, KalturaAssetConditionBaseArgs } from './KalturaAssetConditionBase';
 
-export interface KalturaAssetConditionArgs  extends KalturaAssetConditionBaseArgs {
-    ksql? : string;
+export interface KalturaAssetShopConditionArgs  extends KalturaAssetConditionBaseArgs {
+    value? : string;
 }
 
 
-export class KalturaAssetCondition extends KalturaAssetConditionBase {
+export class KalturaAssetShopCondition extends KalturaAssetConditionBase {
 
-    ksql : string;
+    value : string;
 
-    constructor(data? : KalturaAssetConditionArgs)
+    constructor(data? : KalturaAssetShopConditionArgs)
     {
         super(data);
     }
@@ -22,12 +22,12 @@ export class KalturaAssetCondition extends KalturaAssetConditionBase {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaAssetCondition' },
-				ksql : { type : 's' }
+                objectType : { type : 'c', default : 'KalturaAssetShopCondition' },
+				value : { type : 's' }
             }
         );
         return result;
     }
 }
 
-typesMappingStorage['KalturaAssetCondition'] = KalturaAssetCondition;
+typesMappingStorage['KalturaAssetShopCondition'] = KalturaAssetShopCondition;
