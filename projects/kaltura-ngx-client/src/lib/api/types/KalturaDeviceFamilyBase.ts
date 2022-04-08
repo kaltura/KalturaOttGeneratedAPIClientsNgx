@@ -1,16 +1,19 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaDeviceFamilyType } from './KalturaDeviceFamilyType';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaDeviceFamilyBaseArgs  extends KalturaObjectBaseArgs {
     id? : number;
+	name? : string;
 }
 
 
 export class KalturaDeviceFamilyBase extends KalturaObjectBase {
 
     id : number;
-	readonly name : string;
+	name : string;
+	readonly type : KalturaDeviceFamilyType;
 
     constructor(data? : KalturaDeviceFamilyBaseArgs)
     {
@@ -25,7 +28,8 @@ export class KalturaDeviceFamilyBase extends KalturaObjectBase {
             {
                 objectType : { type : 'c', default : 'KalturaDeviceFamilyBase' },
 				id : { type : 'n' },
-				name : { type : 's', readOnly : true }
+				name : { type : 's' },
+				type : { type : 'es', readOnly : true, subTypeConstructor : KalturaDeviceFamilyType, subType : 'KalturaDeviceFamilyType' }
             }
         );
         return result;

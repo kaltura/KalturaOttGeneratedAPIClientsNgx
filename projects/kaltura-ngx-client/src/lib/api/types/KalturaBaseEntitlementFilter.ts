@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaCrudFilterArgs  extends KalturaFilterArgs {
+export interface KalturaBaseEntitlementFilterArgs  extends KalturaFilterArgs {
     
 }
 
 
-export class KalturaCrudFilter extends KalturaFilter {
+export class KalturaBaseEntitlementFilter extends KalturaFilter {
 
     
 
-    constructor(data? : KalturaCrudFilterArgs)
+    constructor(data? : KalturaBaseEntitlementFilterArgs)
     {
         super(data);
     }
@@ -22,11 +22,11 @@ export class KalturaCrudFilter extends KalturaFilter {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaCrudFilter' }
+                objectType : { type : 'c', default : 'KalturaBaseEntitlementFilter' }
             }
         );
         return result;
     }
 }
 
-typesMappingStorage['KalturaCrudFilter'] = KalturaCrudFilter;
+typesMappingStorage['KalturaBaseEntitlementFilter'] = KalturaBaseEntitlementFilter;
