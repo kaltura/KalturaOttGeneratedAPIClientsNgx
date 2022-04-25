@@ -1,14 +1,14 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCrudObject, KalturaCrudObjectArgs } from './KalturaCrudObject';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaHouseholdCouponArgs  extends KalturaCrudObjectArgs {
+export interface KalturaHouseholdCouponArgs  extends KalturaOTTObjectSupportNullableArgs {
     code? : string;
 	lastUsageDate? : number;
 }
 
 
-export class KalturaHouseholdCoupon extends KalturaCrudObject {
+export class KalturaHouseholdCoupon extends KalturaOTTObjectSupportNullable {
 
     code : string;
 	lastUsageDate : number;

@@ -2,9 +2,9 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTransactionType } from './KalturaTransactionType';
 import { KalturaCouponStatus } from './KalturaCouponStatus';
-import { KalturaCrudFilter, KalturaCrudFilterArgs } from './KalturaCrudFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaHouseholdCouponFilterArgs  extends KalturaCrudFilterArgs {
+export interface KalturaHouseholdCouponFilterArgs  extends KalturaFilterArgs {
     businessModuleTypeEqual? : KalturaTransactionType;
 	businessModuleIdEqual? : number;
 	couponCode? : string;
@@ -12,7 +12,7 @@ export interface KalturaHouseholdCouponFilterArgs  extends KalturaCrudFilterArgs
 }
 
 
-export class KalturaHouseholdCouponFilter extends KalturaCrudFilter {
+export class KalturaHouseholdCouponFilter extends KalturaFilter {
 
     businessModuleTypeEqual : KalturaTransactionType;
 	businessModuleIdEqual : number;

@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCrudFilter, KalturaCrudFilterArgs } from './KalturaCrudFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaCampaignFilterArgs  extends KalturaCrudFilterArgs {
+export interface KalturaCampaignFilterArgs  extends KalturaFilterArgs {
     
 }
 
 
-export class KalturaCampaignFilter extends KalturaCrudFilter {
+export class KalturaCampaignFilter extends KalturaFilter {
 
     
 

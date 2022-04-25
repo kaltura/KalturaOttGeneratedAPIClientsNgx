@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaTransactionType } from './KalturaTransactionType';
 import { KalturaEntityReferenceBy } from './KalturaEntityReferenceBy';
-import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
+import { KalturaBaseEntitlementFilter, KalturaBaseEntitlementFilterArgs } from './KalturaBaseEntitlementFilter';
 
-export interface KalturaEntitlementFilterArgs  extends KalturaFilterArgs {
+export interface KalturaEntitlementFilterArgs  extends KalturaBaseEntitlementFilterArgs {
     productTypeEqual? : KalturaTransactionType;
 	entityReferenceEqual? : KalturaEntityReferenceBy;
 	isExpiredEqual? : boolean;
 }
 
 
-export class KalturaEntitlementFilter extends KalturaFilter {
+export class KalturaEntitlementFilter extends KalturaBaseEntitlementFilter {
 
     productTypeEqual : KalturaTransactionType;
 	entityReferenceEqual : KalturaEntityReferenceBy;

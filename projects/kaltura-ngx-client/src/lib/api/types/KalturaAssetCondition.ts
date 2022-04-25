@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCondition, KalturaConditionArgs } from './KalturaCondition';
+import { KalturaAssetConditionBase, KalturaAssetConditionBaseArgs } from './KalturaAssetConditionBase';
 
-export interface KalturaAssetConditionArgs  extends KalturaConditionArgs {
+export interface KalturaAssetConditionArgs  extends KalturaAssetConditionBaseArgs {
     ksql? : string;
 }
 
 
-export class KalturaAssetCondition extends KalturaCondition {
+export class KalturaAssetCondition extends KalturaAssetConditionBase {
 
     ksql : string;
 
