@@ -1,14 +1,14 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCrudObject, KalturaCrudObjectArgs } from './KalturaCrudObject';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaHouseholdSegmentArgs  extends KalturaCrudObjectArgs {
+export interface KalturaHouseholdSegmentArgs  extends KalturaOTTObjectSupportNullableArgs {
     segmentId? : number;
 	householdId? : number;
 }
 
 
-export class KalturaHouseholdSegment extends KalturaCrudObject {
+export class KalturaHouseholdSegment extends KalturaOTTObjectSupportNullable {
 
     segmentId : number;
 	householdId : number;

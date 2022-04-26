@@ -1,13 +1,13 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaCrudFilter, KalturaCrudFilterArgs } from './KalturaCrudFilter';
+import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaPasswordPolicyFilterArgs  extends KalturaCrudFilterArgs {
+export interface KalturaPasswordPolicyFilterArgs  extends KalturaFilterArgs {
     userRoleIdIn? : string;
 }
 
 
-export class KalturaPasswordPolicyFilter extends KalturaCrudFilter {
+export class KalturaPasswordPolicyFilter extends KalturaFilter {
 
     userRoleIdIn : string;
 

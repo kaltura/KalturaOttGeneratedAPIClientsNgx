@@ -1,16 +1,16 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaCategoryVersionState } from './KalturaCategoryVersionState';
-import { KalturaCrudObject, KalturaCrudObjectArgs } from './KalturaCrudObject';
+import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
-export interface KalturaCategoryVersionArgs  extends KalturaCrudObjectArgs {
+export interface KalturaCategoryVersionArgs  extends KalturaOTTObjectSupportNullableArgs {
     name? : string;
 	baseVersionId? : number;
 	comment? : string;
 }
 
 
-export class KalturaCategoryVersion extends KalturaCrudObject {
+export class KalturaCategoryVersion extends KalturaOTTObjectSupportNullable {
 
     readonly id : number;
 	name : string;
