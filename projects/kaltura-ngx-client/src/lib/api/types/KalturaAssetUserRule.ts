@@ -1,18 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaAssetConditionBase } from './KalturaAssetConditionBase';
+import { KalturaAssetCondition } from './KalturaAssetCondition';
 import { KalturaAssetUserRuleAction } from './KalturaAssetUserRuleAction';
 import { KalturaAssetRuleBase, KalturaAssetRuleBaseArgs } from './KalturaAssetRuleBase';
 
 export interface KalturaAssetUserRuleArgs  extends KalturaAssetRuleBaseArgs {
-    conditions? : KalturaAssetConditionBase[];
+    conditions? : KalturaAssetCondition[];
 	actions? : KalturaAssetUserRuleAction[];
 }
 
 
 export class KalturaAssetUserRule extends KalturaAssetRuleBase {
 
-    conditions : KalturaAssetConditionBase[];
+    conditions : KalturaAssetCondition[];
 	actions : KalturaAssetUserRuleAction[];
 
     constructor(data? : KalturaAssetUserRuleArgs)
@@ -29,7 +29,7 @@ export class KalturaAssetUserRule extends KalturaAssetRuleBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaAssetUserRule' },
-				conditions : { type : 'a', subTypeConstructor : KalturaAssetConditionBase, subType : 'KalturaAssetConditionBase' },
+				conditions : { type : 'a', subTypeConstructor : KalturaAssetCondition, subType : 'KalturaAssetCondition' },
 				actions : { type : 'a', subTypeConstructor : KalturaAssetUserRuleAction, subType : 'KalturaAssetUserRuleAction' }
             }
         );
