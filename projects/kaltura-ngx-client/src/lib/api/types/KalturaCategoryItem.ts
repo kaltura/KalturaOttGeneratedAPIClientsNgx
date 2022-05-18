@@ -3,9 +3,9 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaTranslationToken } from './KalturaTranslationToken';
 import { KalturaUnifiedChannel } from './KalturaUnifiedChannel';
 import { KalturaStringValue } from './KalturaStringValue';
-import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
+import { KalturaCrudObject, KalturaCrudObjectArgs } from './KalturaCrudObject';
 
-export interface KalturaCategoryItemArgs  extends KalturaOTTObjectSupportNullableArgs {
+export interface KalturaCategoryItemArgs  extends KalturaCrudObjectArgs {
     multilingualName? : KalturaTranslationToken[];
 	childrenIds? : string;
 	unifiedChannels? : KalturaUnifiedChannel[];
@@ -18,7 +18,7 @@ export interface KalturaCategoryItemArgs  extends KalturaOTTObjectSupportNullabl
 }
 
 
-export class KalturaCategoryItem extends KalturaOTTObjectSupportNullable {
+export class KalturaCategoryItem extends KalturaCrudObject {
 
     readonly id : number;
 	readonly name : string;
