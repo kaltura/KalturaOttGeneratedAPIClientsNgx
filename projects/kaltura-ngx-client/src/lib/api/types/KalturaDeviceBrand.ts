@@ -6,7 +6,7 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 export interface KalturaDeviceBrandArgs  extends KalturaObjectBaseArgs {
     id? : number;
 	name? : string;
-	deviceFamilyId? : number;
+	deviceFamilyid? : number;
 }
 
 
@@ -14,7 +14,7 @@ export class KalturaDeviceBrand extends KalturaObjectBase {
 
     id : number;
 	name : string;
-	deviceFamilyId : number;
+	deviceFamilyid : number;
 	readonly type : KalturaDeviceBrandType;
 
     constructor(data? : KalturaDeviceBrandArgs)
@@ -31,7 +31,7 @@ export class KalturaDeviceBrand extends KalturaObjectBase {
                 objectType : { type : 'c', default : 'KalturaDeviceBrand' },
 				id : { type : 'n' },
 				name : { type : 's' },
-				deviceFamilyId : { type : 'n' },
+				deviceFamilyid : { type : 'n' },
 				type : { type : 'es', readOnly : true, subTypeConstructor : KalturaDeviceBrandType, subType : 'KalturaDeviceBrandType' }
             }
         );
