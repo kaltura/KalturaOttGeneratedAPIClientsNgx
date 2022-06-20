@@ -1,6 +1,7 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaAssetInheritancePolicy } from './KalturaAssetInheritancePolicy';
+import { KalturaLiveToVodInfoAsset } from './KalturaLiveToVodInfoAsset';
 import { KalturaAsset, KalturaAssetArgs } from './KalturaAsset';
 
 export interface KalturaMediaAssetArgs  extends KalturaAssetArgs {
@@ -10,6 +11,7 @@ export interface KalturaMediaAssetArgs  extends KalturaAssetArgs {
 	geoBlockRuleId? : number;
 	status? : boolean;
 	inheritancePolicy? : KalturaAssetInheritancePolicy;
+	liveToVod? : KalturaLiveToVodInfoAsset;
 }
 
 
@@ -21,6 +23,7 @@ export class KalturaMediaAsset extends KalturaAsset {
 	geoBlockRuleId : number;
 	status : boolean;
 	inheritancePolicy : KalturaAssetInheritancePolicy;
+	liveToVod : KalturaLiveToVodInfoAsset;
 
     constructor(data? : KalturaMediaAssetArgs)
     {
@@ -39,7 +42,8 @@ export class KalturaMediaAsset extends KalturaAsset {
 				deviceRuleId : { type : 'n' },
 				geoBlockRuleId : { type : 'n' },
 				status : { type : 'b' },
-				inheritancePolicy : { type : 'es', subTypeConstructor : KalturaAssetInheritancePolicy, subType : 'KalturaAssetInheritancePolicy' }
+				inheritancePolicy : { type : 'es', subTypeConstructor : KalturaAssetInheritancePolicy, subType : 'KalturaAssetInheritancePolicy' },
+				liveToVod : { type : 'o', subTypeConstructor : KalturaLiveToVodInfoAsset, subType : 'KalturaLiveToVodInfoAsset' }
             }
         );
         return result;
