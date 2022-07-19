@@ -2,6 +2,7 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaPositionOwner } from './KalturaPositionOwner';
 import { KalturaBookmarkPlayerData } from './KalturaBookmarkPlayerData';
+import { KalturaPlaybackContextType } from './KalturaPlaybackContextType';
 import { KalturaSlimAsset, KalturaSlimAssetArgs } from './KalturaSlimAsset';
 
 export interface KalturaBookmarkArgs  extends KalturaSlimAssetArgs {
@@ -9,6 +10,7 @@ export interface KalturaBookmarkArgs  extends KalturaSlimAssetArgs {
 	playerData? : KalturaBookmarkPlayerData;
 	programId? : number;
 	isReportingMode? : boolean;
+	context? : KalturaPlaybackContextType;
 }
 
 
@@ -21,6 +23,7 @@ export class KalturaBookmark extends KalturaSlimAsset {
 	playerData : KalturaBookmarkPlayerData;
 	programId : number;
 	isReportingMode : boolean;
+	context : KalturaPlaybackContextType;
 
     constructor(data? : KalturaBookmarkArgs)
     {
@@ -40,7 +43,8 @@ export class KalturaBookmark extends KalturaSlimAsset {
 				finishedWatching : { type : 'b', readOnly : true },
 				playerData : { type : 'o', subTypeConstructor : KalturaBookmarkPlayerData, subType : 'KalturaBookmarkPlayerData' },
 				programId : { type : 'n' },
-				isReportingMode : { type : 'b' }
+				isReportingMode : { type : 'b' },
+				context : { type : 'es', subTypeConstructor : KalturaPlaybackContextType, subType : 'KalturaPlaybackContextType' }
             }
         );
         return result;
