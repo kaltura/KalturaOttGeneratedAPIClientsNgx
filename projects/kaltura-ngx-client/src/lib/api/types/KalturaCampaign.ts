@@ -1,7 +1,7 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaObjectState } from './KalturaObjectState';
-import { KalturaPromotion } from './KalturaPromotion';
+import { KalturaBasePromotion } from './KalturaBasePromotion';
 import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
 
 export interface KalturaCampaignArgs  extends KalturaOTTObjectSupportNullableArgs {
@@ -10,7 +10,7 @@ export interface KalturaCampaignArgs  extends KalturaOTTObjectSupportNullableArg
 	name? : string;
 	systemName? : string;
 	description? : string;
-	promotion? : KalturaPromotion;
+	promotion? : KalturaBasePromotion;
 	message? : string;
 	collectionIdIn? : string;
 }
@@ -27,7 +27,7 @@ export class KalturaCampaign extends KalturaOTTObjectSupportNullable {
 	systemName : string;
 	description : string;
 	readonly state : KalturaObjectState;
-	promotion : KalturaPromotion;
+	promotion : KalturaBasePromotion;
 	message : string;
 	collectionIdIn : string;
 
@@ -52,7 +52,7 @@ export class KalturaCampaign extends KalturaOTTObjectSupportNullable {
 				systemName : { type : 's' },
 				description : { type : 's' },
 				state : { type : 'es', readOnly : true, subTypeConstructor : KalturaObjectState, subType : 'KalturaObjectState' },
-				promotion : { type : 'o', subTypeConstructor : KalturaPromotion, subType : 'KalturaPromotion' },
+				promotion : { type : 'o', subTypeConstructor : KalturaBasePromotion, subType : 'KalturaBasePromotion' },
 				message : { type : 's' },
 				collectionIdIn : { type : 's' }
             }
