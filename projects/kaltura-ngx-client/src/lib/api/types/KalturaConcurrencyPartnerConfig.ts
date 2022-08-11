@@ -8,6 +8,7 @@ export interface KalturaConcurrencyPartnerConfigArgs  extends KalturaPartnerConf
 	evictionPolicy? : KalturaEvictionPolicyType;
 	concurrencyThresholdInSeconds? : number;
 	revokeOnDeviceDelete? : boolean;
+	excludeFreeContentFromConcurrency? : boolean;
 }
 
 
@@ -17,6 +18,7 @@ export class KalturaConcurrencyPartnerConfig extends KalturaPartnerConfiguration
 	evictionPolicy : KalturaEvictionPolicyType;
 	concurrencyThresholdInSeconds : number;
 	revokeOnDeviceDelete : boolean;
+	excludeFreeContentFromConcurrency : boolean;
 
     constructor(data? : KalturaConcurrencyPartnerConfigArgs)
     {
@@ -33,7 +35,8 @@ export class KalturaConcurrencyPartnerConfig extends KalturaPartnerConfiguration
 				deviceFamilyIds : { type : 's' },
 				evictionPolicy : { type : 'es', subTypeConstructor : KalturaEvictionPolicyType, subType : 'KalturaEvictionPolicyType' },
 				concurrencyThresholdInSeconds : { type : 'n' },
-				revokeOnDeviceDelete : { type : 'b' }
+				revokeOnDeviceDelete : { type : 'b' },
+				excludeFreeContentFromConcurrency : { type : 'b' }
             }
         );
         return result;
