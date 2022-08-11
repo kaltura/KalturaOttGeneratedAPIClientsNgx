@@ -1,28 +1,28 @@
 
 import { KalturaObjectMetadata } from '../kaltura-object-base';
-import { KalturaIotProfile } from './KalturaIotProfile';
+
 
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface IotProfileAddActionArgs  extends KalturaRequestArgs {
-    objectToAdd : KalturaIotProfile;
+    
 }
 
 /**
  * Build request payload for service 'iotProfile' action 'add'.
  *
- * Usage: Add new KalturaIotProfile
+ * Usage: Add new new environment in aws
  *
- * Server response type:         KalturaIotProfile
+ * Server response type:         boolean
  * Server failure response type: KalturaAPIException
  */
-export class IotProfileAddAction extends KalturaRequest<KalturaIotProfile> {
+export class IotProfileAddAction extends KalturaRequest<boolean> {
 
-    objectToAdd : KalturaIotProfile;
+    
 
-    constructor(data : IotProfileAddActionArgs)
+    constructor(data? : IotProfileAddActionArgs)
     {
-        super(data, {responseType : 'o', responseSubType : 'KalturaIotProfile', responseConstructor : KalturaIotProfile  });
+        super(data, {responseType : 'b', responseSubType : '', responseConstructor : null });
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -32,8 +32,7 @@ export class IotProfileAddAction extends KalturaRequest<KalturaIotProfile> {
             result.properties,
             {
                 service : { type : 'c', default : 'iotprofile' },
-				action : { type : 'c', default : 'add' },
-				objectToAdd : { type : 'o', subTypeConstructor : KalturaIotProfile, subType : 'KalturaIotProfile' }
+				action : { type : 'c', default : 'add' }
             }
         );
         return result;
