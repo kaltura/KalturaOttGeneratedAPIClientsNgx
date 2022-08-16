@@ -8,6 +8,9 @@ export interface KalturaCampaignSearchFilterArgs  extends KalturaCampaignFilterA
 	endDateLessThanOrEqual? : number;
 	stateEqual? : KalturaObjectState;
 	hasPromotion? : boolean;
+	nameEqual? : string;
+	nameContains? : string;
+	stateIn? : string;
 }
 
 
@@ -17,6 +20,9 @@ export class KalturaCampaignSearchFilter extends KalturaCampaignFilter {
 	endDateLessThanOrEqual : number;
 	stateEqual : KalturaObjectState;
 	hasPromotion : boolean;
+	nameEqual : string;
+	nameContains : string;
+	stateIn : string;
 
     constructor(data? : KalturaCampaignSearchFilterArgs)
     {
@@ -33,7 +39,10 @@ export class KalturaCampaignSearchFilter extends KalturaCampaignFilter {
 				startDateGreaterThanOrEqual : { type : 'n' },
 				endDateLessThanOrEqual : { type : 'n' },
 				stateEqual : { type : 'es', subTypeConstructor : KalturaObjectState, subType : 'KalturaObjectState' },
-				hasPromotion : { type : 'b' }
+				hasPromotion : { type : 'b' },
+				nameEqual : { type : 's' },
+				nameContains : { type : 's' },
+				stateIn : { type : 's' }
             }
         );
         return result;
