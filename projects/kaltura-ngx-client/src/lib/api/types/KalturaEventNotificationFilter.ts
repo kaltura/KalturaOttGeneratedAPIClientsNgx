@@ -1,15 +1,15 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
+import { KalturaCrudFilter, KalturaCrudFilterArgs } from './KalturaCrudFilter';
 
-export interface KalturaEventNotificationFilterArgs  extends KalturaFilterArgs {
+export interface KalturaEventNotificationFilterArgs  extends KalturaCrudFilterArgs {
     idEqual? : string;
 	objectIdEqual? : number;
 	eventObjectTypeEqual? : string;
 }
 
 
-export class KalturaEventNotificationFilter extends KalturaFilter {
+export class KalturaEventNotificationFilter extends KalturaCrudFilter {
 
     idEqual : string;
 	objectIdEqual : number;

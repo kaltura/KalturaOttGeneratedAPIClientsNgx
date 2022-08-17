@@ -1,9 +1,9 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaStringValue } from './KalturaStringValue';
-import { KalturaOTTObjectSupportNullable, KalturaOTTObjectSupportNullableArgs } from './KalturaOTTObjectSupportNullable';
+import { KalturaCrudObject, KalturaCrudObjectArgs } from './KalturaCrudObject';
 
-export interface KalturaSmsAdapterProfileArgs  extends KalturaOTTObjectSupportNullableArgs {
+export interface KalturaSmsAdapterProfileArgs  extends KalturaCrudObjectArgs {
     adapterUrl? : string;
 	sharedSecret? : string;
 	isActive? : number;
@@ -13,7 +13,7 @@ export interface KalturaSmsAdapterProfileArgs  extends KalturaOTTObjectSupportNu
 }
 
 
-export class KalturaSmsAdapterProfile extends KalturaOTTObjectSupportNullable {
+export class KalturaSmsAdapterProfile extends KalturaCrudObject {
 
     readonly id : number;
 	adapterUrl : string;
