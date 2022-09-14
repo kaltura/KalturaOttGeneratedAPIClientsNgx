@@ -3,13 +3,13 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaCampaignSearchFilter, KalturaCampaignSearchFilterArgs } from './KalturaCampaignSearchFilter';
 
 export interface KalturaCampaignSegmentFilterArgs  extends KalturaCampaignSearchFilterArgs {
-    segmentIdIn? : string;
+    segmentIdEqual? : number;
 }
 
 
 export class KalturaCampaignSegmentFilter extends KalturaCampaignSearchFilter {
 
-    segmentIdIn : string;
+    segmentIdEqual : number;
 
     constructor(data? : KalturaCampaignSegmentFilterArgs)
     {
@@ -23,7 +23,7 @@ export class KalturaCampaignSegmentFilter extends KalturaCampaignSearchFilter {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaCampaignSegmentFilter' },
-				segmentIdIn : { type : 's' }
+				segmentIdEqual : { type : 'n' }
             }
         );
         return result;
