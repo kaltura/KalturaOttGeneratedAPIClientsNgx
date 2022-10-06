@@ -11,7 +11,6 @@ export interface KalturaMonetizationConditionArgs  extends KalturaBaseSegmentCon
 	type? : KalturaMonetizationType;
 	operator? : KalturaMathemticalOperatorType;
 	businessModuleIdIn? : string;
-	currencyCode? : string;
 }
 
 
@@ -23,7 +22,6 @@ export class KalturaMonetizationCondition extends KalturaBaseSegmentCondition {
 	type : KalturaMonetizationType;
 	operator : KalturaMathemticalOperatorType;
 	businessModuleIdIn : string;
-	currencyCode : string;
 
     constructor(data? : KalturaMonetizationConditionArgs)
     {
@@ -42,8 +40,7 @@ export class KalturaMonetizationCondition extends KalturaBaseSegmentCondition {
 				days : { type : 'n' },
 				type : { type : 'es', subTypeConstructor : KalturaMonetizationType, subType : 'KalturaMonetizationType' },
 				operator : { type : 'es', subTypeConstructor : KalturaMathemticalOperatorType, subType : 'KalturaMathemticalOperatorType' },
-				businessModuleIdIn : { type : 's' },
-				currencyCode : { type : 's' }
+				businessModuleIdIn : { type : 's' }
             }
         );
         return result;
