@@ -11,7 +11,6 @@ export interface KalturaBasePartnerConfigurationArgs  extends KalturaPartnerConf
 	autoRefreshAppToken? : boolean;
 	uploadTokenExpirySeconds? : number;
 	apptokenUserValidationDisabled? : boolean;
-	epgFeatureVersion? : number;
 }
 
 
@@ -25,7 +24,6 @@ export class KalturaBasePartnerConfiguration extends KalturaPartnerConfiguration
 	autoRefreshAppToken : boolean;
 	uploadTokenExpirySeconds : number;
 	apptokenUserValidationDisabled : boolean;
-	epgFeatureVersion : number;
 
     constructor(data? : KalturaBasePartnerConfigurationArgs)
     {
@@ -46,8 +44,7 @@ export class KalturaBasePartnerConfiguration extends KalturaPartnerConfiguration
 				appTokenMaxExpirySeconds : { type : 'n' },
 				autoRefreshAppToken : { type : 'b' },
 				uploadTokenExpirySeconds : { type : 'n' },
-				apptokenUserValidationDisabled : { type : 'b' },
-				epgFeatureVersion : { type : 'n' }
+				apptokenUserValidationDisabled : { type : 'b' }
             }
         );
         return result;
