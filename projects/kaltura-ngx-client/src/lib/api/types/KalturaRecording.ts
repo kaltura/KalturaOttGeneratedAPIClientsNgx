@@ -9,6 +9,8 @@ export interface KalturaRecordingArgs  extends KalturaObjectBaseArgs {
 	type? : KalturaRecordingType;
 	viewableUntilDate? : number;
 	isProtected? : boolean;
+	householdSpecificStartTimeOffset? : number;
+	householdSpecificEndTimeOffset? : number;
 }
 
 
@@ -22,6 +24,8 @@ export class KalturaRecording extends KalturaObjectBase {
 	isProtected : boolean;
 	readonly createDate : number;
 	readonly updateDate : number;
+	householdSpecificStartTimeOffset : number;
+	householdSpecificEndTimeOffset : number;
 
     constructor(data? : KalturaRecordingArgs)
     {
@@ -42,7 +46,9 @@ export class KalturaRecording extends KalturaObjectBase {
 				viewableUntilDate : { type : 'n' },
 				isProtected : { type : 'b' },
 				createDate : { type : 'n', readOnly : true },
-				updateDate : { type : 'n', readOnly : true }
+				updateDate : { type : 'n', readOnly : true },
+				householdSpecificStartTimeOffset : { type : 'n' },
+				householdSpecificEndTimeOffset : { type : 'n' }
             }
         );
         return result;
