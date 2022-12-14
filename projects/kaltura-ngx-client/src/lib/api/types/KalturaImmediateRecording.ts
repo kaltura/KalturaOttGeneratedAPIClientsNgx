@@ -5,6 +5,7 @@ import { KalturaRecording, KalturaRecordingArgs } from './KalturaRecording';
 export interface KalturaImmediateRecordingArgs  extends KalturaRecordingArgs {
     endPadding? : number;
 	absoluteStart? : number;
+	absoluteEnd? : number;
 }
 
 
@@ -12,6 +13,7 @@ export class KalturaImmediateRecording extends KalturaRecording {
 
     endPadding : number;
 	absoluteStart : number;
+	absoluteEnd : number;
 
     constructor(data? : KalturaImmediateRecordingArgs)
     {
@@ -26,7 +28,8 @@ export class KalturaImmediateRecording extends KalturaRecording {
             {
                 objectType : { type : 'c', default : 'KalturaImmediateRecording' },
 				endPadding : { type : 'n' },
-				absoluteStart : { type : 'n' }
+				absoluteStart : { type : 'n' },
+				absoluteEnd : { type : 'n' }
             }
         );
         return result;
