@@ -25,6 +25,7 @@ export interface KalturaCollectionArgs  extends KalturaOTTObjectSupportNullableA
 	priceDetailsId? : number;
 	isActive? : boolean;
 	fileTypesIds? : string;
+	assetUserRuleId? : number;
 }
 
 
@@ -54,6 +55,7 @@ export class KalturaCollection extends KalturaOTTObjectSupportNullable {
 	readonly virtualAssetId : number;
 	readonly fileTypes : KalturaIntegerValue[];
 	fileTypesIds : string;
+	assetUserRuleId : number;
 
     constructor(data? : KalturaCollectionArgs)
     {
@@ -97,7 +99,8 @@ export class KalturaCollection extends KalturaOTTObjectSupportNullable {
 				updateDate : { type : 'n', readOnly : true },
 				virtualAssetId : { type : 'n', readOnly : true },
 				fileTypes : { type : 'a', readOnly : true, subTypeConstructor : KalturaIntegerValue, subType : 'KalturaIntegerValue' },
-				fileTypesIds : { type : 's' }
+				fileTypesIds : { type : 's' },
+				assetUserRuleId : { type : 'n' }
             }
         );
         return result;
