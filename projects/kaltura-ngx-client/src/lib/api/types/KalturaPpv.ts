@@ -23,6 +23,7 @@ export interface KalturaPpvArgs  extends KalturaObjectBaseArgs {
 	usageModuleId? : number;
 	adsPolicy? : KalturaAdsPolicy;
 	isActive? : boolean;
+	assetUserRuleId? : number;
 }
 
 
@@ -49,6 +50,7 @@ export class KalturaPpv extends KalturaObjectBase {
 	readonly updateDate : number;
 	readonly createDate : number;
 	readonly virtualAssetId : number;
+	assetUserRuleId : number;
 
     constructor(data? : KalturaPpvArgs)
     {
@@ -84,7 +86,8 @@ export class KalturaPpv extends KalturaObjectBase {
 				isActive : { type : 'b' },
 				updateDate : { type : 'n', readOnly : true },
 				createDate : { type : 'n', readOnly : true },
-				virtualAssetId : { type : 'n', readOnly : true }
+				virtualAssetId : { type : 'n', readOnly : true },
+				assetUserRuleId : { type : 'n' }
             }
         );
         return result;
