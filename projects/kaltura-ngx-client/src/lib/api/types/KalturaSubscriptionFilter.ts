@@ -1,5 +1,6 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaSubscriptionDependencyType } from './KalturaSubscriptionDependencyType';
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
 export interface KalturaSubscriptionFilterArgs  extends KalturaFilterArgs {
@@ -12,6 +13,7 @@ export interface KalturaSubscriptionFilterArgs  extends KalturaFilterArgs {
 	channelIdEqual? : number;
 	kSql? : string;
 	alsoInactive? : boolean;
+	dependencyTypeEqual? : KalturaSubscriptionDependencyType;
 }
 
 
@@ -26,6 +28,7 @@ export class KalturaSubscriptionFilter extends KalturaFilter {
 	channelIdEqual : number;
 	kSql : string;
 	alsoInactive : boolean;
+	dependencyTypeEqual : KalturaSubscriptionDependencyType;
 
     constructor(data? : KalturaSubscriptionFilterArgs)
     {
@@ -47,7 +50,8 @@ export class KalturaSubscriptionFilter extends KalturaFilter {
 				pricePlanIdEqual : { type : 'n' },
 				channelIdEqual : { type : 'n' },
 				kSql : { type : 's' },
-				alsoInactive : { type : 'b' }
+				alsoInactive : { type : 'b' },
+				dependencyTypeEqual : { type : 'es', subTypeConstructor : KalturaSubscriptionDependencyType, subType : 'KalturaSubscriptionDependencyType' }
             }
         );
         return result;
