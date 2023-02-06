@@ -2,16 +2,16 @@
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
-export interface KalturaBaseEntitlementFilterArgs  extends KalturaFilterArgs {
-    
+export interface KalturaCouponFilterArgs  extends KalturaFilterArgs {
+    couponCodesIn? : string;
 }
 
 
-export class KalturaBaseEntitlementFilter extends KalturaFilter {
+export class KalturaCouponFilter extends KalturaFilter {
 
-    
+    couponCodesIn : string;
 
-    constructor(data? : KalturaBaseEntitlementFilterArgs)
+    constructor(data? : KalturaCouponFilterArgs)
     {
         super(data);
     }
@@ -22,11 +22,12 @@ export class KalturaBaseEntitlementFilter extends KalturaFilter {
         Object.assign(
             result.properties,
             {
-                objectType : { type : 'c', default : 'KalturaBaseEntitlementFilter' }
+                objectType : { type : 'c', default : 'KalturaCouponFilter' },
+				couponCodesIn : { type : 's' }
             }
         );
         return result;
     }
 }
 
-typesMappingStorage['KalturaBaseEntitlementFilter'] = KalturaBaseEntitlementFilter;
+typesMappingStorage['KalturaCouponFilter'] = KalturaCouponFilter;
