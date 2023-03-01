@@ -14,6 +14,7 @@ export interface KalturaMediaFileTypeArgs  extends KalturaObjectBaseArgs {
 	quality? : KalturaMediaFileTypeQuality;
 	videoCodecs? : string;
 	audioCodecs? : string;
+	dynamicDataKeys? : string;
 }
 
 
@@ -31,6 +32,7 @@ export class KalturaMediaFileType extends KalturaObjectBase {
 	quality : KalturaMediaFileTypeQuality;
 	videoCodecs : string;
 	audioCodecs : string;
+	dynamicDataKeys : string;
 
     constructor(data? : KalturaMediaFileTypeArgs)
     {
@@ -55,7 +57,8 @@ export class KalturaMediaFileType extends KalturaObjectBase {
 				drmProfileId : { type : 'n' },
 				quality : { type : 'es', subTypeConstructor : KalturaMediaFileTypeQuality, subType : 'KalturaMediaFileTypeQuality' },
 				videoCodecs : { type : 's' },
-				audioCodecs : { type : 's' }
+				audioCodecs : { type : 's' },
+				dynamicDataKeys : { type : 's' }
             }
         );
         return result;
