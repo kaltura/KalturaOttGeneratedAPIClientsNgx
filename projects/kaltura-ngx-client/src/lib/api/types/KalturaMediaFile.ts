@@ -1,6 +1,7 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaBusinessModuleDetails } from './KalturaBusinessModuleDetails';
+import { KalturaStringValueArray } from './KalturaStringValueArray';
 import { KalturaAssetFile, KalturaAssetFileArgs } from './KalturaAssetFile';
 
 export interface KalturaMediaFileArgs  extends KalturaAssetFileArgs {
@@ -27,6 +28,7 @@ export interface KalturaMediaFileArgs  extends KalturaAssetFileArgs {
 	opl? : string;
 	businessModuleDetails? : KalturaBusinessModuleDetails;
 	labels? : string;
+	dynamicData? : { [key : string] : KalturaStringValueArray};
 }
 
 
@@ -57,6 +59,7 @@ export class KalturaMediaFile extends KalturaAssetFile {
 	opl : string;
 	businessModuleDetails : KalturaBusinessModuleDetails;
 	labels : string;
+	dynamicData : { [key : string] : KalturaStringValueArray};
 
     constructor(data? : KalturaMediaFileArgs)
     {
@@ -94,7 +97,8 @@ export class KalturaMediaFile extends KalturaAssetFile {
 				catalogEndDate : { type : 'n' },
 				opl : { type : 's' },
 				businessModuleDetails : { type : 'o', subTypeConstructor : KalturaBusinessModuleDetails, subType : 'KalturaBusinessModuleDetails' },
-				labels : { type : 's' }
+				labels : { type : 's' },
+				dynamicData : { type : 'm', subTypeConstructor : KalturaStringValueArray, subType : 'KalturaStringValueArray' }
             }
         );
         return result;
