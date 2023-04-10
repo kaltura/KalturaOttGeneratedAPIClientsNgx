@@ -6,6 +6,8 @@ export interface KalturaPpvFilterArgs  extends KalturaFilterArgs {
     idIn? : string;
 	couponGroupIdEqual? : number;
 	alsoInactive? : boolean;
+	nameContains? : string;
+	assetUserRuleIdIn? : string;
 }
 
 
@@ -14,6 +16,8 @@ export class KalturaPpvFilter extends KalturaFilter {
     idIn : string;
 	couponGroupIdEqual : number;
 	alsoInactive : boolean;
+	nameContains : string;
+	assetUserRuleIdIn : string;
 
     constructor(data? : KalturaPpvFilterArgs)
     {
@@ -29,7 +33,9 @@ export class KalturaPpvFilter extends KalturaFilter {
                 objectType : { type : 'c', default : 'KalturaPpvFilter' },
 				idIn : { type : 's' },
 				couponGroupIdEqual : { type : 'n' },
-				alsoInactive : { type : 'b' }
+				alsoInactive : { type : 'b' },
+				nameContains : { type : 's' },
+				assetUserRuleIdIn : { type : 's' }
             }
         );
         return result;

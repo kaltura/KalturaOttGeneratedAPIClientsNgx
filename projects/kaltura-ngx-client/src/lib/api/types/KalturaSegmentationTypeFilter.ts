@@ -6,6 +6,7 @@ export interface KalturaSegmentationTypeFilterArgs  extends KalturaBaseSegmentat
     idIn? : string;
 	kSql? : string;
 	nameContain? : string;
+	assetUserRuleIdIn? : string;
 }
 
 
@@ -14,6 +15,7 @@ export class KalturaSegmentationTypeFilter extends KalturaBaseSegmentationTypeFi
     idIn : string;
 	kSql : string;
 	nameContain : string;
+	assetUserRuleIdIn : string;
 
     constructor(data? : KalturaSegmentationTypeFilterArgs)
     {
@@ -29,7 +31,8 @@ export class KalturaSegmentationTypeFilter extends KalturaBaseSegmentationTypeFi
                 objectType : { type : 'c', default : 'KalturaSegmentationTypeFilter' },
 				idIn : { type : 's' },
 				kSql : { type : 's' },
-				nameContain : { type : 's' }
+				nameContain : { type : 's' },
+				assetUserRuleIdIn : { type : 's' }
             }
         );
         return result;
