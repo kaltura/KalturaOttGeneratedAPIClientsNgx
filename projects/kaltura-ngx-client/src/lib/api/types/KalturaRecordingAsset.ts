@@ -7,6 +7,7 @@ export interface KalturaRecordingAssetArgs  extends KalturaProgramAssetArgs {
     recordingId? : string;
 	recordingType? : KalturaRecordingType;
 	viewableUntilDate? : number;
+	multiRecord? : boolean;
 }
 
 
@@ -15,6 +16,7 @@ export class KalturaRecordingAsset extends KalturaProgramAsset {
     recordingId : string;
 	recordingType : KalturaRecordingType;
 	viewableUntilDate : number;
+	multiRecord : boolean;
 
     constructor(data? : KalturaRecordingAssetArgs)
     {
@@ -30,7 +32,8 @@ export class KalturaRecordingAsset extends KalturaProgramAsset {
                 objectType : { type : 'c', default : 'KalturaRecordingAsset' },
 				recordingId : { type : 's' },
 				recordingType : { type : 'es', subTypeConstructor : KalturaRecordingType, subType : 'KalturaRecordingType' },
-				viewableUntilDate : { type : 'n' }
+				viewableUntilDate : { type : 'n' },
+				multiRecord : { type : 'b' }
             }
         );
         return result;
