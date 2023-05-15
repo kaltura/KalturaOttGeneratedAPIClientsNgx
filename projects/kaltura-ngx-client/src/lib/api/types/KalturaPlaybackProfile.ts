@@ -5,6 +5,7 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 export interface KalturaPlaybackProfileArgs  extends KalturaObjectBaseArgs {
     name? : string;
 	isActive? : boolean;
+	adapterGrpcAddress? : string;
 	adapterUrl? : string;
 	settings? : string;
 	systemName? : string;
@@ -16,6 +17,7 @@ export class KalturaPlaybackProfile extends KalturaObjectBase {
     readonly id : number;
 	name : string;
 	isActive : boolean;
+	adapterGrpcAddress : string;
 	adapterUrl : string;
 	settings : string;
 	systemName : string;
@@ -36,6 +38,7 @@ export class KalturaPlaybackProfile extends KalturaObjectBase {
 				id : { type : 'n', readOnly : true },
 				name : { type : 's' },
 				isActive : { type : 'b' },
+				adapterGrpcAddress : { type : 's' },
 				adapterUrl : { type : 's' },
 				settings : { type : 's' },
 				systemName : { type : 's' },
