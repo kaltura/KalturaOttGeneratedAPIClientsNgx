@@ -8,6 +8,7 @@ export interface KalturaCollectionFilterArgs  extends KalturaFilterArgs {
 	couponGroupIdEqual? : number;
 	alsoInactive? : boolean;
 	assetUserRuleIdIn? : string;
+	nameContains? : string;
 }
 
 
@@ -18,6 +19,7 @@ export class KalturaCollectionFilter extends KalturaFilter {
 	couponGroupIdEqual : number;
 	alsoInactive : boolean;
 	assetUserRuleIdIn : string;
+	nameContains : string;
 
     constructor(data? : KalturaCollectionFilterArgs)
     {
@@ -35,7 +37,8 @@ export class KalturaCollectionFilter extends KalturaFilter {
 				mediaFileIdEqual : { type : 'n' },
 				couponGroupIdEqual : { type : 'n' },
 				alsoInactive : { type : 'b' },
-				assetUserRuleIdIn : { type : 's' }
+				assetUserRuleIdIn : { type : 's' },
+				nameContains : { type : 's' }
             }
         );
         return result;
