@@ -1,16 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaVodIngestAssetResult } from './KalturaVodIngestAssetResult';
-import { KalturaListResponse, KalturaListResponseArgs } from './KalturaListResponse';
+import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
-export interface KalturaVodIngestAssetResultListArgs  extends KalturaListResponseArgs {
+export interface KalturaVodIngestAssetResultListArgs  extends KalturaObjectBaseArgs {
     objects? : KalturaVodIngestAssetResult[];
+	totalCount? : number;
 }
 
 
-export class KalturaVodIngestAssetResultList extends KalturaListResponse {
+export class KalturaVodIngestAssetResultList extends KalturaObjectBase {
 
     objects : KalturaVodIngestAssetResult[];
+	totalCount : number;
 
     constructor(data? : KalturaVodIngestAssetResultListArgs)
     {
@@ -25,7 +27,8 @@ export class KalturaVodIngestAssetResultList extends KalturaListResponse {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaVodIngestAssetResultList' },
-				objects : { type : 'a', subTypeConstructor : KalturaVodIngestAssetResult, subType : 'KalturaVodIngestAssetResult' }
+				objects : { type : 'a', subTypeConstructor : KalturaVodIngestAssetResult, subType : 'KalturaVodIngestAssetResult' },
+				totalCount : { type : 'n' }
             }
         );
         return result;
