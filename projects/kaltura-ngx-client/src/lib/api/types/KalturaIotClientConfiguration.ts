@@ -1,6 +1,5 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaIotClientConfigurationArgs  extends KalturaObjectBaseArgs {
@@ -15,7 +14,7 @@ export interface KalturaIotClientConfigurationArgs  extends KalturaObjectBaseArg
 	thingId? : string;
 	username? : string;
 	password? : string;
-	topics? : KalturaStringValue[];
+	topics? : string;
 	status? : string;
 	message? : string;
 }
@@ -34,14 +33,13 @@ export class KalturaIotClientConfiguration extends KalturaObjectBase {
 	thingId : string;
 	username : string;
 	password : string;
-	topics : KalturaStringValue[];
+	topics : string;
 	status : string;
 	message : string;
 
     constructor(data? : KalturaIotClientConfigurationArgs)
     {
         super(data);
-        if (typeof this.topics === 'undefined') this.topics = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -62,7 +60,7 @@ export class KalturaIotClientConfiguration extends KalturaObjectBase {
 				thingId : { type : 's' },
 				username : { type : 's' },
 				password : { type : 's' },
-				topics : { type : 'a', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' },
+				topics : { type : 's' },
 				status : { type : 's' },
 				message : { type : 's' }
             }
