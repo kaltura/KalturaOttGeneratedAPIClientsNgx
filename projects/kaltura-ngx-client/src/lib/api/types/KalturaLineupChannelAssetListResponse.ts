@@ -5,12 +5,16 @@ import { KalturaListResponse, KalturaListResponseArgs } from './KalturaListRespo
 
 export interface KalturaLineupChannelAssetListResponseArgs  extends KalturaListResponseArgs {
     objects? : KalturaLineupChannelAsset[];
+	lineupExternalId? : string;
+	parentLineupExternalId? : string;
 }
 
 
 export class KalturaLineupChannelAssetListResponse extends KalturaListResponse {
 
     objects : KalturaLineupChannelAsset[];
+	lineupExternalId : string;
+	parentLineupExternalId : string;
 
     constructor(data? : KalturaLineupChannelAssetListResponseArgs)
     {
@@ -25,7 +29,9 @@ export class KalturaLineupChannelAssetListResponse extends KalturaListResponse {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaLineupChannelAssetListResponse' },
-				objects : { type : 'a', subTypeConstructor : KalturaLineupChannelAsset, subType : 'KalturaLineupChannelAsset' }
+				objects : { type : 'a', subTypeConstructor : KalturaLineupChannelAsset, subType : 'KalturaLineupChannelAsset' },
+				lineupExternalId : { type : 's' },
+				parentLineupExternalId : { type : 's' }
             }
         );
         return result;
