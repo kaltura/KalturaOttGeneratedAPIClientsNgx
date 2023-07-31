@@ -1,18 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaVodIngestAssetResultListResponse } from './KalturaVodIngestAssetResultListResponse';
+import { KalturaVodIngestAssetResultList } from './KalturaVodIngestAssetResultList';
 import { KalturaVodIngestAssetResultAggregation } from './KalturaVodIngestAssetResultAggregation';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaVodIngestAssetResultResponseArgs  extends KalturaObjectBaseArgs {
-    result? : KalturaVodIngestAssetResultListResponse;
+    result? : KalturaVodIngestAssetResultList;
 	aggregations? : KalturaVodIngestAssetResultAggregation;
 }
 
 
 export class KalturaVodIngestAssetResultResponse extends KalturaObjectBase {
 
-    result : KalturaVodIngestAssetResultListResponse;
+    result : KalturaVodIngestAssetResultList;
 	aggregations : KalturaVodIngestAssetResultAggregation;
 
     constructor(data? : KalturaVodIngestAssetResultResponseArgs)
@@ -27,7 +27,7 @@ export class KalturaVodIngestAssetResultResponse extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaVodIngestAssetResultResponse' },
-				result : { type : 'o', subTypeConstructor : KalturaVodIngestAssetResultListResponse, subType : 'KalturaVodIngestAssetResultListResponse' },
+				result : { type : 'o', subTypeConstructor : KalturaVodIngestAssetResultList, subType : 'KalturaVodIngestAssetResultList' },
 				aggregations : { type : 'o', subTypeConstructor : KalturaVodIngestAssetResultAggregation, subType : 'KalturaVodIngestAssetResultAggregation' }
             }
         );
