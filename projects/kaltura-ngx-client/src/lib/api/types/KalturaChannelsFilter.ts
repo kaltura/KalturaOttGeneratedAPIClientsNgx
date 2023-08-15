@@ -8,7 +8,6 @@ export interface KalturaChannelsFilterArgs  extends KalturaChannelsBaseFilterArg
 	nameEqual? : string;
 	nameStartsWith? : string;
 	idIn? : string;
-	assetUserRuleIdIn? : string;
 }
 
 
@@ -19,7 +18,6 @@ export class KalturaChannelsFilter extends KalturaChannelsBaseFilter {
 	nameEqual : string;
 	nameStartsWith : string;
 	idIn : string;
-	assetUserRuleIdIn : string;
 
     constructor(data? : KalturaChannelsFilterArgs)
     {
@@ -37,8 +35,7 @@ export class KalturaChannelsFilter extends KalturaChannelsBaseFilter {
 				mediaIdEqual : { type : 'n' },
 				nameEqual : { type : 's' },
 				nameStartsWith : { type : 's' },
-				idIn : { type : 's' },
-				assetUserRuleIdIn : { type : 's' }
+				idIn : { type : 's' }
             }
         );
         return result;
