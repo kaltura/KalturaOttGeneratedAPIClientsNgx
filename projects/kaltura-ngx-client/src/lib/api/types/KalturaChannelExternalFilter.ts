@@ -6,6 +6,7 @@ export interface KalturaChannelExternalFilterArgs  extends KalturaAssetFilterArg
     idEqual? : number;
 	utcOffsetEqual? : number;
 	freeText? : string;
+	alias? : string;
 }
 
 
@@ -14,6 +15,7 @@ export class KalturaChannelExternalFilter extends KalturaAssetFilter {
     idEqual : number;
 	utcOffsetEqual : number;
 	freeText : string;
+	alias : string;
 
     constructor(data? : KalturaChannelExternalFilterArgs)
     {
@@ -29,7 +31,8 @@ export class KalturaChannelExternalFilter extends KalturaAssetFilter {
                 objectType : { type : 'c', default : 'KalturaChannelExternalFilter' },
 				idEqual : { type : 'n' },
 				utcOffsetEqual : { type : 'n' },
-				freeText : { type : 's' }
+				freeText : { type : 's' },
+				alias : { type : 's' }
             }
         );
         return result;
