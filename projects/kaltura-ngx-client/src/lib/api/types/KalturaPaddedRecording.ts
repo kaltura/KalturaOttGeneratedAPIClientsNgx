@@ -12,8 +12,6 @@ export class KalturaPaddedRecording extends KalturaRecording {
 
     startPadding : number;
 	endPadding : number;
-	readonly startPaddingIsPersonal : boolean;
-	readonly endPaddingIsPersonal : boolean;
 
     constructor(data? : KalturaPaddedRecordingArgs)
     {
@@ -28,9 +26,7 @@ export class KalturaPaddedRecording extends KalturaRecording {
             {
                 objectType : { type : 'c', default : 'KalturaPaddedRecording' },
 				startPadding : { type : 'n' },
-				endPadding : { type : 'n' },
-				startPaddingIsPersonal : { type : 'b', readOnly : true },
-				endPaddingIsPersonal : { type : 'b', readOnly : true }
+				endPadding : { type : 'n' }
             }
         );
         return result;
