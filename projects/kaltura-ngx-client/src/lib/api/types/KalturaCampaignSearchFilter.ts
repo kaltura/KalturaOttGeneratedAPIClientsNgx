@@ -11,7 +11,6 @@ export interface KalturaCampaignSearchFilterArgs  extends KalturaCampaignFilterA
 	nameEqual? : string;
 	nameContains? : string;
 	stateIn? : string;
-	assetUserRuleIdIn? : string;
 }
 
 
@@ -24,7 +23,6 @@ export class KalturaCampaignSearchFilter extends KalturaCampaignFilter {
 	nameEqual : string;
 	nameContains : string;
 	stateIn : string;
-	assetUserRuleIdIn : string;
 
     constructor(data? : KalturaCampaignSearchFilterArgs)
     {
@@ -44,8 +42,7 @@ export class KalturaCampaignSearchFilter extends KalturaCampaignFilter {
 				hasPromotion : { type : 'b' },
 				nameEqual : { type : 's' },
 				nameContains : { type : 's' },
-				stateIn : { type : 's' },
-				assetUserRuleIdIn : { type : 's' }
+				stateIn : { type : 's' }
             }
         );
         return result;
