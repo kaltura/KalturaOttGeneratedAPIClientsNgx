@@ -10,7 +10,6 @@ export interface KalturaAssetRuleFilterArgs  extends KalturaFilterArgs {
 	assetApplied? : KalturaSlimAsset;
 	actionsContainType? : KalturaRuleActionType;
 	assetRuleIdEqual? : number;
-	nameContains? : string;
 }
 
 
@@ -20,7 +19,6 @@ export class KalturaAssetRuleFilter extends KalturaFilter {
 	assetApplied : KalturaSlimAsset;
 	actionsContainType : KalturaRuleActionType;
 	assetRuleIdEqual : number;
-	nameContains : string;
 
     constructor(data? : KalturaAssetRuleFilterArgs)
     {
@@ -37,8 +35,7 @@ export class KalturaAssetRuleFilter extends KalturaFilter {
 				conditionsContainType : { type : 'es', subTypeConstructor : KalturaRuleConditionType, subType : 'KalturaRuleConditionType' },
 				assetApplied : { type : 'o', subTypeConstructor : KalturaSlimAsset, subType : 'KalturaSlimAsset' },
 				actionsContainType : { type : 'es', subTypeConstructor : KalturaRuleActionType, subType : 'KalturaRuleActionType' },
-				assetRuleIdEqual : { type : 'n' },
-				nameContains : { type : 's' }
+				assetRuleIdEqual : { type : 'n' }
             }
         );
         return result;
