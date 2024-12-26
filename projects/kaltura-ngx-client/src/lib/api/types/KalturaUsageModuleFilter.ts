@@ -1,15 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
+import { KalturaAssociatedShopEntities } from './KalturaAssociatedShopEntities';
 import { KalturaFilter, KalturaFilterArgs } from './KalturaFilter';
 
 export interface KalturaUsageModuleFilterArgs  extends KalturaFilterArgs {
     idEqual? : number;
+	associatedShopEntities? : KalturaAssociatedShopEntities;
 }
 
 
 export class KalturaUsageModuleFilter extends KalturaFilter {
 
     idEqual : number;
+	associatedShopEntities : KalturaAssociatedShopEntities;
 
     constructor(data? : KalturaUsageModuleFilterArgs)
     {
@@ -23,7 +26,8 @@ export class KalturaUsageModuleFilter extends KalturaFilter {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaUsageModuleFilter' },
-				idEqual : { type : 'n' }
+				idEqual : { type : 'n' },
+				associatedShopEntities : { type : 'o', subTypeConstructor : KalturaAssociatedShopEntities, subType : 'KalturaAssociatedShopEntities' }
             }
         );
         return result;
