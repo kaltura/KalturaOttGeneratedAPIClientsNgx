@@ -5,8 +5,8 @@ import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base
 
 export interface KalturaSubtitlesArgs  extends KalturaObjectBaseArgs {
     fileName? : string;
-	subtitlesType? : KalturaSubtitlesType;
-	subtitlesLanguage? : string;
+	type? : KalturaSubtitlesType;
+	language? : string;
 }
 
 
@@ -15,8 +15,8 @@ export class KalturaSubtitles extends KalturaObjectBase {
     readonly id : number;
 	readonly createDate : number;
 	fileName : string;
-	subtitlesType : KalturaSubtitlesType;
-	subtitlesLanguage : string;
+	type : KalturaSubtitlesType;
+	language : string;
 
     constructor(data? : KalturaSubtitlesArgs)
     {
@@ -33,8 +33,8 @@ export class KalturaSubtitles extends KalturaObjectBase {
 				id : { type : 'n', readOnly : true },
 				createDate : { type : 'n', readOnly : true },
 				fileName : { type : 's' },
-				subtitlesType : { type : 'es', subTypeConstructor : KalturaSubtitlesType, subType : 'KalturaSubtitlesType' },
-				subtitlesLanguage : { type : 's' }
+				type : { type : 'es', subTypeConstructor : KalturaSubtitlesType, subType : 'KalturaSubtitlesType' },
+				language : { type : 's' }
             }
         );
         return result;
