@@ -2,10 +2,11 @@
 import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaSubtitles } from './KalturaSubtitles';
 
+import { KalturaUploadSubtitles } from './KalturaUploadSubtitles';
 import { KalturaUploadRequest, KalturaUploadRequestArgs } from '../kaltura-upload-request';
 
 export interface SubtitlesUploadFileActionArgs  extends KalturaUploadRequestArgs {
-    subtitles : KalturaSubtitles;
+    subtitles : KalturaUploadSubtitles;
 	fileData : File;
 }
 
@@ -19,7 +20,7 @@ export interface SubtitlesUploadFileActionArgs  extends KalturaUploadRequestArgs
  */
 export class SubtitlesUploadFileAction extends KalturaUploadRequest<KalturaSubtitles> {
 
-    subtitles : KalturaSubtitles;
+    subtitles : KalturaUploadSubtitles;
 	fileData : File;
 
     constructor(data : SubtitlesUploadFileActionArgs)
@@ -35,7 +36,7 @@ export class SubtitlesUploadFileAction extends KalturaUploadRequest<KalturaSubti
             {
                 service : { type : 'c', default : 'subtitles' },
 				action : { type : 'c', default : 'uploadFile' },
-				subtitles : { type : 'o', subTypeConstructor : KalturaSubtitles, subType : 'KalturaSubtitles' },
+				subtitles : { type : 'o', subTypeConstructor : KalturaUploadSubtitles, subType : 'KalturaUploadSubtitles' },
 				fileData : { type : 'f' }
             }
         );
