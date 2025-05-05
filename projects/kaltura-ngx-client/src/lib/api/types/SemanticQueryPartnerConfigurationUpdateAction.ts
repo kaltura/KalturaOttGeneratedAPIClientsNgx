@@ -4,23 +4,23 @@ import { KalturaSemanticQueryPartnerConfiguration } from './KalturaSemanticQuery
 
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
-export interface SemanticQueryUpdatePartnerConfigurationActionArgs  extends KalturaRequestArgs {
+export interface SemanticQueryPartnerConfigurationUpdateActionArgs  extends KalturaRequestArgs {
     configuration : KalturaSemanticQueryPartnerConfiguration;
 }
 
 /**
- * Build request payload for service 'semanticQuery' action 'updatePartnerConfiguration'.
+ * Build request payload for service 'semanticQueryPartnerConfiguration' action 'update'.
  *
  * Usage: Updates the partner configuration for semantic query
  *
  * Server response type:         KalturaSemanticQueryPartnerConfiguration
  * Server failure response type: KalturaAPIException
  */
-export class SemanticQueryUpdatePartnerConfigurationAction extends KalturaRequest<KalturaSemanticQueryPartnerConfiguration> {
+export class SemanticQueryPartnerConfigurationUpdateAction extends KalturaRequest<KalturaSemanticQueryPartnerConfiguration> {
 
     configuration : KalturaSemanticQueryPartnerConfiguration;
 
-    constructor(data : SemanticQueryUpdatePartnerConfigurationActionArgs)
+    constructor(data : SemanticQueryPartnerConfigurationUpdateActionArgs)
     {
         super(data, {responseType : 'o', responseSubType : 'KalturaSemanticQueryPartnerConfiguration', responseConstructor : KalturaSemanticQueryPartnerConfiguration  });
     }
@@ -31,8 +31,8 @@ export class SemanticQueryUpdatePartnerConfigurationAction extends KalturaReques
         Object.assign(
             result.properties,
             {
-                service : { type : 'c', default : 'semanticquery' },
-				action : { type : 'c', default : 'updatePartnerConfiguration' },
+                service : { type : 'c', default : 'semanticquerypartnerconfiguration' },
+				action : { type : 'c', default : 'update' },
 				configuration : { type : 'o', subTypeConstructor : KalturaSemanticQueryPartnerConfiguration, subType : 'KalturaSemanticQueryPartnerConfiguration' }
             }
         );
