@@ -1,25 +1,22 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaStringValue } from './KalturaStringValue';
+import { KalturaAssetListResponse } from './KalturaAssetListResponse';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaTreeRecommendationsArgs  extends KalturaObjectBaseArgs {
     title? : string;
-	searchQuery? : string;
-	assetIds? : KalturaStringValue[];
+	assets? : KalturaAssetListResponse;
 }
 
 
 export class KalturaTreeRecommendations extends KalturaObjectBase {
 
     title : string;
-	searchQuery : string;
-	assetIds : KalturaStringValue[];
+	assets : KalturaAssetListResponse;
 
     constructor(data? : KalturaTreeRecommendationsArgs)
     {
         super(data);
-        if (typeof this.assetIds === 'undefined') this.assetIds = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -30,8 +27,7 @@ export class KalturaTreeRecommendations extends KalturaObjectBase {
             {
                 objectType : { type : 'c', default : 'KalturaTreeRecommendations' },
 				title : { type : 's' },
-				searchQuery : { type : 's' },
-				assetIds : { type : 'a', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
+				assets : { type : 'o', subTypeConstructor : KalturaAssetListResponse, subType : 'KalturaAssetListResponse' }
             }
         );
         return result;

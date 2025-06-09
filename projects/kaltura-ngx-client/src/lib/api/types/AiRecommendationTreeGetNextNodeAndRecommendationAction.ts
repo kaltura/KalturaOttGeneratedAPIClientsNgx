@@ -8,7 +8,7 @@ export interface AiRecommendationTreeGetNextNodeAndRecommendationActionArgs  ext
     treeId? : string;
 	previousQuestionId? : string;
 	answerId? : string;
-	topQuestion? : string;
+	topQuestionId? : string;
 }
 
 /**
@@ -24,7 +24,7 @@ export class AiRecommendationTreeGetNextNodeAndRecommendationAction extends Kalt
     treeId : string;
 	previousQuestionId : string;
 	answerId : string;
-	topQuestion : string;
+	topQuestionId : string;
 
     constructor(data? : AiRecommendationTreeGetNextNodeAndRecommendationActionArgs)
     {
@@ -42,7 +42,7 @@ export class AiRecommendationTreeGetNextNodeAndRecommendationAction extends Kalt
 				treeId : { type : 's' },
 				previousQuestionId : { type : 's' },
 				answerId : { type : 's' },
-				topQuestion : { type : 's' }
+				topQuestionId : { type : 's' }
             }
         );
         return result;
