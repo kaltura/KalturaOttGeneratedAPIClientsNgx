@@ -8,11 +8,8 @@ export interface KalturaAiRecommendationTreePartnerConfigurationArgs  extends Ka
 	topLevelQuestions? : number;
 	answersPerQuestion? : number;
 	levels? : number;
-	specialAnswers? : boolean;
 	numOfRecommendedAssets? : number;
-	removeWatchedRecommendations? : boolean;
 	treeGenerationFrequency? : string;
-	modelId? : string;
 	activeTreeId? : string;
 }
 
@@ -23,11 +20,8 @@ export class KalturaAiRecommendationTreePartnerConfiguration extends KalturaObje
 	topLevelQuestions : number;
 	answersPerQuestion : number;
 	levels : number;
-	specialAnswers : boolean;
 	numOfRecommendedAssets : number;
-	removeWatchedRecommendations : boolean;
 	treeGenerationFrequency : string;
-	modelId : string;
 	activeTreeId : string;
 
     constructor(data? : KalturaAiRecommendationTreePartnerConfigurationArgs)
@@ -46,11 +40,8 @@ export class KalturaAiRecommendationTreePartnerConfiguration extends KalturaObje
 				topLevelQuestions : { type : 'n' },
 				answersPerQuestion : { type : 'n' },
 				levels : { type : 'n' },
-				specialAnswers : { type : 'b' },
 				numOfRecommendedAssets : { type : 'n' },
-				removeWatchedRecommendations : { type : 'b' },
 				treeGenerationFrequency : { type : 's' },
-				modelId : { type : 's' },
 				activeTreeId : { type : 's' }
             }
         );
