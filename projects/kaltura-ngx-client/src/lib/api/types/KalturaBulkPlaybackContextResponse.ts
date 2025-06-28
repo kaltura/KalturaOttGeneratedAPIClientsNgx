@@ -1,16 +1,18 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
 import { KalturaBulkResponseItem } from './KalturaBulkResponseItem';
-import { KalturaListResponse, KalturaListResponseArgs } from './KalturaListResponse';
+import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
-export interface KalturaBulkPlaybackContextResponseArgs  extends KalturaListResponseArgs {
+export interface KalturaBulkPlaybackContextResponseArgs  extends KalturaObjectBaseArgs {
     objects? : KalturaBulkResponseItem[];
+	totalCount? : number;
 }
 
 
-export class KalturaBulkPlaybackContextResponse extends KalturaListResponse {
+export class KalturaBulkPlaybackContextResponse extends KalturaObjectBase {
 
     objects : KalturaBulkResponseItem[];
+	totalCount : number;
 
     constructor(data? : KalturaBulkPlaybackContextResponseArgs)
     {
@@ -25,7 +27,8 @@ export class KalturaBulkPlaybackContextResponse extends KalturaListResponse {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaBulkPlaybackContextResponse' },
-				objects : { type : 'a', subTypeConstructor : KalturaBulkResponseItem, subType : 'KalturaBulkResponseItem' }
+				objects : { type : 'a', subTypeConstructor : KalturaBulkResponseItem, subType : 'KalturaBulkResponseItem' },
+				totalCount : { type : 'n' }
             }
         );
         return result;
