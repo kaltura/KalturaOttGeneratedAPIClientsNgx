@@ -8,6 +8,7 @@ export interface KalturaAiRecommendationTreePartnerConfigurationArgs  extends Ka
 	topLevelQuestions? : number;
 	answersPerQuestion? : number;
 	levels? : number;
+	specialAnswers? : boolean;
 	numOfRecommendedAssets? : number;
 	treeGenerationFrequency? : string;
 	activeTreeId? : string;
@@ -20,6 +21,7 @@ export class KalturaAiRecommendationTreePartnerConfiguration extends KalturaObje
 	topLevelQuestions : number;
 	answersPerQuestion : number;
 	levels : number;
+	specialAnswers : boolean;
 	numOfRecommendedAssets : number;
 	treeGenerationFrequency : string;
 	activeTreeId : string;
@@ -40,6 +42,7 @@ export class KalturaAiRecommendationTreePartnerConfiguration extends KalturaObje
 				topLevelQuestions : { type : 'n' },
 				answersPerQuestion : { type : 'n' },
 				levels : { type : 'n' },
+				specialAnswers : { type : 'b' },
 				numOfRecommendedAssets : { type : 'n' },
 				treeGenerationFrequency : { type : 's' },
 				activeTreeId : { type : 's' }

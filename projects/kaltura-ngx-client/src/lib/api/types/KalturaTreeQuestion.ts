@@ -1,13 +1,11 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaTreeQuestionArgs  extends KalturaObjectBaseArgs {
     questionId? : string;
 	text? : string;
 	level? : number;
-	metadataTypes? : KalturaStringValue[];
 }
 
 
@@ -16,12 +14,10 @@ export class KalturaTreeQuestion extends KalturaObjectBase {
     questionId : string;
 	text : string;
 	level : number;
-	metadataTypes : KalturaStringValue[];
 
     constructor(data? : KalturaTreeQuestionArgs)
     {
         super(data);
-        if (typeof this.metadataTypes === 'undefined') this.metadataTypes = [];
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -33,8 +29,7 @@ export class KalturaTreeQuestion extends KalturaObjectBase {
                 objectType : { type : 'c', default : 'KalturaTreeQuestion' },
 				questionId : { type : 's' },
 				text : { type : 's' },
-				level : { type : 'n' },
-				metadataTypes : { type : 'a', subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
+				level : { type : 'n' }
             }
         );
         return result;
