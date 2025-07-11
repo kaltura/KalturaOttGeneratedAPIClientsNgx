@@ -5,15 +5,13 @@ import { KalturaStringValue } from './KalturaStringValue';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaAiMetadataGeneratorConfigurationArgs  extends KalturaObjectBaseArgs {
-    isEnabled? : boolean;
-	assetStructMetaNameMap? : { [key : string] : KalturaMetaFieldNameMap};
+    assetStructMetaNameMap? : { [key : string] : KalturaMetaFieldNameMap};
 }
 
 
 export class KalturaAiMetadataGeneratorConfiguration extends KalturaObjectBase {
 
-    isEnabled : boolean;
-	assetStructMetaNameMap : { [key : string] : KalturaMetaFieldNameMap};
+    assetStructMetaNameMap : { [key : string] : KalturaMetaFieldNameMap};
 	readonly supportedLanguages : KalturaStringValue[];
 
     constructor(data? : KalturaAiMetadataGeneratorConfigurationArgs)
@@ -29,7 +27,6 @@ export class KalturaAiMetadataGeneratorConfiguration extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaAiMetadataGeneratorConfiguration' },
-				isEnabled : { type : 'b' },
 				assetStructMetaNameMap : { type : 'm', subTypeConstructor : KalturaMetaFieldNameMap, subType : 'KalturaMetaFieldNameMap' },
 				supportedLanguages : { type : 'a', readOnly : true, subTypeConstructor : KalturaStringValue, subType : 'KalturaStringValue' }
             }
