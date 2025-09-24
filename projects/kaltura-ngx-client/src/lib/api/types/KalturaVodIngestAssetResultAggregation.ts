@@ -9,10 +9,6 @@ export interface KalturaVodIngestAssetResultAggregationArgs  extends KalturaObje
 	successCount? : number;
 	externalFailureCount? : number;
 	successWithWarningCount? : number;
-	averageTotalProcessingDuration? : number;
-	averageTotalActiveProcessingDuration? : number;
-	p95TotalProcessingDuration? : number;
-	p95TotalActiveProcessingDuration? : number;
 }
 
 
@@ -24,10 +20,6 @@ export class KalturaVodIngestAssetResultAggregation extends KalturaObjectBase {
 	successCount : number;
 	externalFailureCount : number;
 	successWithWarningCount : number;
-	averageTotalProcessingDuration : number;
-	averageTotalActiveProcessingDuration : number;
-	p95TotalProcessingDuration : number;
-	p95TotalActiveProcessingDuration : number;
 
     constructor(data? : KalturaVodIngestAssetResultAggregationArgs)
     {
@@ -46,11 +38,7 @@ export class KalturaVodIngestAssetResultAggregation extends KalturaObjectBase {
 				failureCount : { type : 'n' },
 				successCount : { type : 'n' },
 				externalFailureCount : { type : 'n' },
-				successWithWarningCount : { type : 'n' },
-				averageTotalProcessingDuration : { type : 'n' },
-				averageTotalActiveProcessingDuration : { type : 'n' },
-				p95TotalProcessingDuration : { type : 'n' },
-				p95TotalActiveProcessingDuration : { type : 'n' }
+				successWithWarningCount : { type : 'n' }
             }
         );
         return result;
