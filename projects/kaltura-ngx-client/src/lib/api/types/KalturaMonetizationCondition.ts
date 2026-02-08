@@ -1,29 +1,32 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaMonetizationType } from './KalturaMonetizationType';
+import { KalturaConditionLevel } from './KalturaConditionLevel';
 import { KalturaMathemticalOperatorType } from './KalturaMathemticalOperatorType';
+import { KalturaMonetizationType } from './KalturaMonetizationType';
 import { KalturaBaseSegmentCondition, KalturaBaseSegmentConditionArgs } from './KalturaBaseSegmentCondition';
 
 export interface KalturaMonetizationConditionArgs  extends KalturaBaseSegmentConditionArgs {
-    days? : number;
-	type? : KalturaMonetizationType;
-	operator? : KalturaMathemticalOperatorType;
+    level? : KalturaConditionLevel;
 	businessModuleIdIn? : string;
 	currencyCode? : string;
-	minValue? : number;
+	days? : number;
 	maxValue? : number;
+	minValue? : number;
+	operator? : KalturaMathemticalOperatorType;
+	type? : KalturaMonetizationType;
 }
 
 
 export class KalturaMonetizationCondition extends KalturaBaseSegmentCondition {
 
-    days : number;
-	type : KalturaMonetizationType;
-	operator : KalturaMathemticalOperatorType;
+    level : KalturaConditionLevel;
 	businessModuleIdIn : string;
 	currencyCode : string;
-	minValue : number;
+	days : number;
 	maxValue : number;
+	minValue : number;
+	operator : KalturaMathemticalOperatorType;
+	type : KalturaMonetizationType;
 
     constructor(data? : KalturaMonetizationConditionArgs)
     {
@@ -37,13 +40,14 @@ export class KalturaMonetizationCondition extends KalturaBaseSegmentCondition {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaMonetizationCondition' },
-				days : { type : 'n' },
-				type : { type : 'es', subTypeConstructor : KalturaMonetizationType, subType : 'KalturaMonetizationType' },
-				operator : { type : 'es', subTypeConstructor : KalturaMathemticalOperatorType, subType : 'KalturaMathemticalOperatorType' },
+				level : { type : 'es', subTypeConstructor : KalturaConditionLevel, subType : 'KalturaConditionLevel' },
 				businessModuleIdIn : { type : 's' },
 				currencyCode : { type : 's' },
+				days : { type : 'n' },
+				maxValue : { type : 'n' },
 				minValue : { type : 'n' },
-				maxValue : { type : 'n' }
+				operator : { type : 'es', subTypeConstructor : KalturaMathemticalOperatorType, subType : 'KalturaMathemticalOperatorType' },
+				type : { type : 'es', subTypeConstructor : KalturaMonetizationType, subType : 'KalturaMonetizationType' }
             }
         );
         return result;
