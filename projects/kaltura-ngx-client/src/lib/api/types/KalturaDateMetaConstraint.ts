@@ -3,17 +3,17 @@ import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-ba
 import { KalturaBaseAttributeConstraint, KalturaBaseAttributeConstraintArgs } from './KalturaBaseAttributeConstraint';
 
 export interface KalturaDateMetaConstraintArgs  extends KalturaBaseAttributeConstraintArgs {
-    equals? : string;
-	greaterThan? : string;
-	smallerThan? : string;
+    equals? : number;
+	greaterThan? : number;
+	smallerThan? : number;
 }
 
 
 export class KalturaDateMetaConstraint extends KalturaBaseAttributeConstraint {
 
-    equals : string;
-	greaterThan : string;
-	smallerThan : string;
+    equals : number;
+	greaterThan : number;
+	smallerThan : number;
 
     constructor(data? : KalturaDateMetaConstraintArgs)
     {
@@ -27,9 +27,9 @@ export class KalturaDateMetaConstraint extends KalturaBaseAttributeConstraint {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaDateMetaConstraint' },
-				equals : { type : 's' },
-				greaterThan : { type : 's' },
-				smallerThan : { type : 's' }
+				equals : { type : 'n' },
+				greaterThan : { type : 'n' },
+				smallerThan : { type : 'n' }
             }
         );
         return result;

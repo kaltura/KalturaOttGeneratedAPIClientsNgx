@@ -5,6 +5,7 @@ import { KalturaBaseAttributeConstraint, KalturaBaseAttributeConstraintArgs } fr
 export interface KalturaTextMetaConstraintArgs  extends KalturaBaseAttributeConstraintArgs {
     contains? : string;
 	equals? : string;
+	attributeType? : string;
 }
 
 
@@ -12,6 +13,7 @@ export class KalturaTextMetaConstraint extends KalturaBaseAttributeConstraint {
 
     contains : string;
 	equals : string;
+	attributeType : string;
 
     constructor(data? : KalturaTextMetaConstraintArgs)
     {
@@ -26,7 +28,8 @@ export class KalturaTextMetaConstraint extends KalturaBaseAttributeConstraint {
             {
                 objectType : { type : 'c', default : 'KalturaTextMetaConstraint' },
 				contains : { type : 's' },
-				equals : { type : 's' }
+				equals : { type : 's' },
+				attributeType : { type : 's' }
             }
         );
         return result;
