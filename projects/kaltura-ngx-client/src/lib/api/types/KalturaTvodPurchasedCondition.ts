@@ -1,11 +1,9 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaConditionLevel } from './KalturaConditionLevel';
 import { KalturaBaseSegmentCondition, KalturaBaseSegmentConditionArgs } from './KalturaBaseSegmentCondition';
 
 export interface KalturaTvodPurchasedConditionArgs  extends KalturaBaseSegmentConditionArgs {
-    level? : KalturaConditionLevel;
-	ppvIdEquals? : number;
+    ppvIdEquals? : number;
 	mediaIdEquals? : number;
 	days? : number;
 }
@@ -13,8 +11,7 @@ export interface KalturaTvodPurchasedConditionArgs  extends KalturaBaseSegmentCo
 
 export class KalturaTvodPurchasedCondition extends KalturaBaseSegmentCondition {
 
-    level : KalturaConditionLevel;
-	ppvIdEquals : number;
+    ppvIdEquals : number;
 	mediaIdEquals : number;
 	days : number;
 
@@ -30,7 +27,6 @@ export class KalturaTvodPurchasedCondition extends KalturaBaseSegmentCondition {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaTvodPurchasedCondition' },
-				level : { type : 'es', subTypeConstructor : KalturaConditionLevel, subType : 'KalturaConditionLevel' },
 				ppvIdEquals : { type : 'n' },
 				mediaIdEquals : { type : 'n' },
 				days : { type : 'n' }

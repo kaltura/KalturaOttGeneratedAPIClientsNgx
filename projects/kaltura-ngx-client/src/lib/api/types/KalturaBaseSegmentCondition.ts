@@ -1,16 +1,16 @@
 
 import { KalturaObjectMetadata, typesMappingStorage } from '../kaltura-object-base';
-import { KalturaConditionLevel } from './KalturaConditionLevel';
+import { KalturaConditionScope } from './KalturaConditionScope';
 import { KalturaObjectBase, KalturaObjectBaseArgs } from '../kaltura-object-base';
 
 export interface KalturaBaseSegmentConditionArgs  extends KalturaObjectBaseArgs {
-    scope? : KalturaConditionLevel;
+    scope? : KalturaConditionScope;
 }
 
 
 export class KalturaBaseSegmentCondition extends KalturaObjectBase {
 
-    scope : KalturaConditionLevel;
+    scope : KalturaConditionScope;
 
     constructor(data? : KalturaBaseSegmentConditionArgs)
     {
@@ -24,7 +24,7 @@ export class KalturaBaseSegmentCondition extends KalturaObjectBase {
             result.properties,
             {
                 objectType : { type : 'c', default : 'KalturaBaseSegmentCondition' },
-				scope : { type : 'es', subTypeConstructor : KalturaConditionLevel, subType : 'KalturaConditionLevel' }
+				scope : { type : 'es', subTypeConstructor : KalturaConditionScope, subType : 'KalturaConditionScope' }
             }
         );
         return result;
