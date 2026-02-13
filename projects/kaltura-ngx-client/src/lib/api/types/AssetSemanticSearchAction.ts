@@ -2,33 +2,29 @@
 import { KalturaObjectMetadata } from '../kaltura-object-base';
 import { KalturaAssetListResponse } from './KalturaAssetListResponse';
 
+import { KalturaSemanticSearchParams } from './KalturaSemanticSearchParams';
 import { KalturaRequest, KalturaRequestArgs } from '../kaltura-request';
 
 export interface AssetSemanticSearchActionArgs  extends KalturaRequestArgs {
-    query : string;
-	refineQuery? : boolean;
-	size? : number;
+    searchParams : KalturaSemanticSearchParams;
 }
 
 /**
  * Build request payload for service 'asset' action 'semanticSearch'.
  *
- * Usage: Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM
+ * Usage: Search for assets using semantic similarity to a natural language query.
+ * Supports unified search across both media/VOD assets and programs/EPG with optional type-specific filters
  *
  * Server response type:         KalturaAssetListResponse
  * Server failure response type: KalturaAPIException
  */
 export class AssetSemanticSearchAction extends KalturaRequest<KalturaAssetListResponse> {
 
-    query : string;
-	refineQuery : boolean;
-	size : number;
+    searchParams : KalturaSemanticSearchParams;
 
     constructor(data : AssetSemanticSearchActionArgs)
     {
         super(data, {responseType : 'o', responseSubType : 'KalturaAssetListResponse', responseConstructor : KalturaAssetListResponse  });
-        if (typeof this.refineQuery === 'undefined') this.refineQuery = false;
-		if (typeof this.size === 'undefined') this.size = 10;
     }
 
     protected _getMetadata() : KalturaObjectMetadata
@@ -39,9 +35,7 @@ export class AssetSemanticSearchAction extends KalturaRequest<KalturaAssetListRe
             {
                 service : { type : 'c', default : 'asset' },
 				action : { type : 'c', default : 'semanticSearch' },
-				query : { type : 's' },
-				refineQuery : { type : 'b' },
-				size : { type : 'n' }
+				searchParams : { type : 'o', subTypeConstructor : KalturaSemanticSearchParams, subType : 'KalturaSemanticSearchParams' }
             }
         );
         return result;
