@@ -13,6 +13,10 @@ export interface KalturaWatchBasedRecommendationsProfileArgs  extends KalturaObj
 	maxPlaybacks? : number;
 	allowedRecommendationsKsql? : string;
 	playbackInterestsCalculationPeriodDays? : number;
+	analyzeCatchUps? : boolean;
+	analyzeLinearEvents? : boolean;
+	userInterestPlayThresholdForEventInMinutes? : number;
+	maximumEventsPerSession? : number;
 }
 
 
@@ -29,6 +33,10 @@ export class KalturaWatchBasedRecommendationsProfile extends KalturaObjectBase {
 	maxPlaybacks : number;
 	allowedRecommendationsKsql : string;
 	playbackInterestsCalculationPeriodDays : number;
+	analyzeCatchUps : boolean;
+	analyzeLinearEvents : boolean;
+	userInterestPlayThresholdForEventInMinutes : number;
+	maximumEventsPerSession : number;
 
     constructor(data? : KalturaWatchBasedRecommendationsProfileArgs)
     {
@@ -52,7 +60,11 @@ export class KalturaWatchBasedRecommendationsProfile extends KalturaObjectBase {
 				minPlaybacks : { type : 'n' },
 				maxPlaybacks : { type : 'n' },
 				allowedRecommendationsKsql : { type : 's' },
-				playbackInterestsCalculationPeriodDays : { type : 'n' }
+				playbackInterestsCalculationPeriodDays : { type : 'n' },
+				analyzeCatchUps : { type : 'b' },
+				analyzeLinearEvents : { type : 'b' },
+				userInterestPlayThresholdForEventInMinutes : { type : 'n' },
+				maximumEventsPerSession : { type : 'n' }
             }
         );
         return result;
